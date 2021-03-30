@@ -94,6 +94,7 @@ with row0_1, _lock:
 with row0_2:
     st.write("")
     st.write(display_df['pol party'].value_counts())
+    st.write(df_with_selected_pol_parties)
 
 
 ### Age repartition
