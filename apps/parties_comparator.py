@@ -75,8 +75,11 @@ with row0_1, _lock:
            wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors=colors)
     p = plt.gcf()
     c2 = plt.Circle( (0,0), 0.7, color='white')
-    text = str(deputies_group_1['pol party'].value_counts().map(str))
-    label = ax.annotate('text', xy=(0,0), fontsize=30, ha='center')
+    text = deputies_group_1['pol party'].value_counts().index[0] + ' : ' 
+    text = text + deputies_group_1['pol party'].value_counts().map(str).to_list()[0] + '\n('
+    text = text + str(round(100*deputies_group_1['pol party'].value_counts().to_list()[0]/len(deputies.index),2)) + '%)'
+    #st.write(text)
+    label = ax.annotate(text, xy=(0,-0.15), fontsize=22, ha='center')
     p.gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
     st.pyplot(fig)
 
@@ -95,8 +98,10 @@ with row0_2, _lock:
            wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors=colors)
     p = plt.gcf()
     c2 = plt.Circle( (0,0), 0.7, color='white')
-    text = str(deputies_group_2['pol party'].value_counts().map(str))
-    label = ax.annotate('text', xy=(0,0), fontsize=30, ha='center')
+    text = deputies_group_2['pol party'].value_counts().index[0] + ' : ' 
+    text = text + deputies_group_2['pol party'].value_counts().map(str).to_list()[0] + '\n('
+    text = text + str(round(100*deputies_group_2['pol party'].value_counts().to_list()[0]/len(deputies.index),2)) + '%)'
+    label = ax.annotate(text, xy=(0,-0.15), fontsize=22, ha='center')
     p.gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
     st.pyplot(fig)
 
