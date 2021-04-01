@@ -61,34 +61,42 @@ st.sidebar.write("test")
 row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
 
 with row0_1, _lock:
-    party_1 = st.selectbox('Select sex', deputies['pol party'].unique(), key='1')
-
+    party_1 = st.selectbox('Select political party', deputies['pol party'].unique(), key='1')
     deputies_group_1 = deputies[deputies['pol party'] == party_1]
-    df = df_pol_parties[df_pol_parties['abreviated_name'].isin([party_1])]
-    color_1 = df['color'].tolist()
-    
-    
+    df = df_pol_parties.sort_values(by=['members'], ascending=False)
+    df.loc[df['abreviated_name'] != party_1, 'color'] = 'lightgrey'
+    colors = df['color'].tolist()
+    df = df[df['abreviated_name'] == party_1]
+    color_1 = df['color'].to_list()
+
     st.header("Number of members")
     fig, ax = plt.subplots(figsize=(5, 5))
-    ax.pie(deputies_group_1['pol party'].value_counts(), labels=(deputies_group_1['pol party'].value_counts().index + ' (' + deputies_group_1['pol party'].value_counts().map(str) + ')'), 
-         wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors=color_1)
+    ax.pie(deputies['pol party'].value_counts(), labels=(deputies['pol party'].value_counts().index), 
+           wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors=colors)
     p = plt.gcf()
+    c2 = plt.Circle( (0,0), 0.7, color='white')
+    text = str(deputies_group_1['pol party'].value_counts().map(str))
+    label = ax.annotate('text', xy=(0,0), fontsize=30, ha='center')
     p.gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
     st.pyplot(fig)
 
 with row0_2, _lock:
-    party_2 = st.selectbox('Select sex', deputies['pol party'].unique(), key='2')
-
+    party_2 = st.selectbox('Select political party', deputies['pol party'].unique(), key='2')
     deputies_group_2 = deputies[deputies['pol party'] == party_2]
-    df = df_pol_parties[df_pol_parties['abreviated_name'].isin([party_2])]
-    color_2 = df['color'].tolist()
-
+    df = df_pol_parties.sort_values(by=['members'], ascending=False)
+    df.loc[df['abreviated_name'] != party_2, 'color'] = 'lightgrey'
+    colors = df['color'].tolist()
+    df = df[df['abreviated_name'] == party_2]
+    color_2 = df['color'].to_list()
 
     st.header("Number of members")
-    fig, ax = plt.subplots(figsize=(3, 3))
-    ax.pie(deputies_group_2['pol party'].value_counts(), labels=(deputies_group_2['pol party'].value_counts().index + ' (' + deputies_group_2['pol party'].value_counts().map(str) + ')'), 
-           colors=color_2)
+    fig, ax = plt.subplots(figsize=(5, 5))
+    ax.pie(deputies['pol party'].value_counts(), labels=(deputies['pol party'].value_counts().index), 
+           wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors=colors)
     p = plt.gcf()
+    c2 = plt.Circle( (0,0), 0.7, color='white')
+    text = str(deputies_group_2['pol party'].value_counts().map(str))
+    label = ax.annotate('text', xy=(0,0), fontsize=30, ha='center')
     p.gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
     st.pyplot(fig)
 
