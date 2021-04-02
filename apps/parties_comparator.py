@@ -30,6 +30,12 @@ def get_data_political_parties():
     df.rename(columns={"abreviated_name": "pol party"})
     return df
 
+def get_color_list_percentage_women(df, party):
+    df_2 = df.copy(deep=True)
+    df_2.loc[df_2['pol party'] != party, 'color'] = 'lightgrey'
+    return df_2['color'].tolist()
+
+
 #def app():
     #configuration of the page
     #st.set_page_config(layout="wide")
@@ -105,7 +111,6 @@ with row0_2, _lock:
     p.gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
     st.pyplot(fig)
 
-
 ### Age repartition
 row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER))
 
@@ -121,41 +126,57 @@ with row1_2, _lock:
     ax = sns.histplot(data=deputies_group_2, x="age", bins=12, stat="probability", palette = color_2)
     st.pyplot(fig)
 
-# ### Percentage of women per parties
-# row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
+### Percentage of women per parties
+row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
 
-# #caluculate the proportion of women per parties
-# df_sex = pd.concat([deputies[mask_pol_parties & mask_nb_members].drop(columns=['code', 'activity', 'age']),pd.get_dummies(deputies[mask_pol_parties & mask_nb_members].drop(columns=['code', 'activity', 'age'])['sex'], prefix='sex')],axis=1)
-# df_sex = df_sex.groupby(['pol party']).agg({'sex_female':'sum','sex_male':'sum'})
-# df_sex['pol party'] = df_sex.index
-# df_sex['total'] = df_sex['sex_female'].astype(int) + df_sex['sex_male'].astype(int)
-# df_sex['sex_female'] = df_sex['sex_female'].astype(int)/df_sex['total']
+#caluculate the proportion of women per parties
+df_sex = pd.concat([deputies.drop(columns=['code', 'activity', 'age']),pd.get_dummies(deputies.drop(columns=['code', 'activity', 'age'])['sex'], prefix='sex')],axis=1)
+df_sex = df_sex.groupby(['pol party']).agg({'sex_female':'sum','sex_male':'sum'})
+df_sex['pol party'] = df_sex.index
+df_sex['total'] = df_sex['sex_female'].astype(int) + df_sex['sex_male'].astype(int)
+df_sex['sex_female'] = df_sex['sex_female'].astype(int)/df_sex['total']
 
-# #select colors
-# df_sex = df_sex.reset_index(drop=True)
-# df_sex = df_sex.sort_values(by=['pol party'])
+#prepare df_sex for color selection
+df_sex = df_sex.reset_index(drop=True)
+df_sex = df_sex.sort_values(by=['pol party'])
+df_with_selected_pol_parties = df_pol_parties[df_pol_parties['abreviated_name'].isin(df_sex['pol party'].unique().tolist())].sort_values(by=['abreviated_name'])
+df_sex['color'] = df_with_selected_pol_parties['color'].tolist()
+df_sex = df_sex.sort_values(by=['sex_female'], ascending=False).reset_index(drop=True)
 
-# df_with_selected_pol_parties = df_pol_parties[df_pol_parties['abreviated_name'].isin(df_sex['pol party'].unique().tolist())].sort_values(by=['abreviated_name'])
-# df_sex['color'] = df_with_selected_pol_parties['color'].tolist()
 
-# df_sex = df_sex.sort_values(by=['sex_female'], ascending=False)
-# colors = df_sex['color'].tolist()
+with row2_1, _lock:
+    st.header('Percentage of women per political parties')
+    fig, ax = plt.subplots(figsize=(5, 5))
+    sns.barplot(x="sex_female", y="pol party", data=df_sex, ax=ax, palette=get_color_list_percentage_women(df_sex, party_1))
 
-# with row2_1, _lock:
-#     st.header('Percentage of women per political parties')
-#     fig, ax = plt.subplots(figsize=(5, 5))
-#     sns.barplot(x="sex_female", y="pol party", data=df_sex, ax=ax, palette=colors)
+    i = 0
+    text = (df_sex['sex_female'].round(2)*100).astype(int).to_list()
+    for rect in ax.patches:
+        if i == int(np.where(df_sex['pol party']==party_1)[0]):
+            height = rect.get_height()
+            ax.text(rect.get_x() + rect.get_width() / 2., rect.get_y() + height * 3 / 4.,
+                    str(text[i])+'%', ha='center', va='bottom', rotation=0, color='black', fontsize=12)
+        i = i + 1
 
-#     i = 0
-#     text = (df_sex['sex_female'].round(2)*100).astype(int).to_list()
-#     for rect in ax.patches:
-#         height = rect.get_height()
-#         ax.text(rect.get_x() + rect.get_width() / 2., rect.get_y() + height * 3 / 4.,
-#                 str(text[i])+'%', ha='center', va='bottom', rotation=0, color='white', fontsize=12)
-#         i = i + 1
+    #autolabel(ax, (df_sex['sex_female'].round(2)*100).astype(int).to_list())
+    st.pyplot(fig)
 
-#     #autolabel(ax, (df_sex['sex_female'].round(2)*100).astype(int).to_list())
-#     st.pyplot(fig)
+with row2_2, _lock:
+    st.header('Percentage of women per political parties')
+    fig, ax = plt.subplots(figsize=(5, 5))
+    sns.barplot(x="sex_female", y="pol party", data=df_sex, ax=ax, palette=get_color_list_percentage_women(df_sex, party_2))
+
+    i = 0
+    text = (df_sex['sex_female'].round(2)*100).astype(int).to_list()
+    for rect in ax.patches:
+        if i == int(np.where(df_sex['pol party']==party_2)[0]):
+            height = rect.get_height()
+            ax.text(rect.get_x() + rect.get_width() / 2., rect.get_y() + height * 3 / 4.,
+                    str(text[i])+'%', ha='center', va='bottom', rotation=0, color='black', fontsize=12)
+        i = i + 1
+
+    #autolabel(ax, (df_sex['sex_female'].round(2)*100).astype(int).to_list())
+    st.pyplot(fig)
 
 
 ### Job repartition
