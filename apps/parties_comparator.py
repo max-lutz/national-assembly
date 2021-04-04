@@ -32,7 +32,7 @@ def get_data_political_parties():
 
 def get_color_list_percentage_women(df, party):
     df_2 = df.copy(deep=True)
-    df_2.loc[df_2['pol party'] != party, 'color'] = 'lightgrey'
+    df_2.loc[df_2['pol party'] != party, 'color'] = 'whitesmoke'
     return df_2['color'].tolist()
 
 
@@ -93,7 +93,7 @@ with row0_2, _lock:
     party_2 = st.selectbox('Select political party', deputies['pol party'].unique(), key='2')
     deputies_group_2 = deputies[deputies['pol party'] == party_2]
     df = df_pol_parties.sort_values(by=['members'], ascending=False)
-    df.loc[df['abreviated_name'] != party_2, 'color'] = 'lightgrey'
+    df.loc[df['abreviated_name'] != party_2, 'color'] = 'whitesmoke'
     colors = df['color'].tolist()
     df = df[df['abreviated_name'] == party_2]
     color_2 = df['color'].to_list()

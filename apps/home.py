@@ -139,8 +139,6 @@ with row2_1, _lock:
         ax.text(rect.get_x() + rect.get_width() / 2., rect.get_y() + height * 3 / 4.,
                 str(text[i])+'%', ha='center', va='bottom', rotation=0, color='white', fontsize=12)
         i = i + 1
-
-    #autolabel(ax, (df_sex['sex_female'].round(2)*100).astype(int).to_list())
     st.pyplot(fig)
 
 
