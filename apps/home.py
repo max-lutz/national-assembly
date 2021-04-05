@@ -48,8 +48,8 @@ def app():
     sex_selected = [sex_selected]
     if sex_selected == ['both']:
         sex_selected = ['female', 'male']
-    age_selected = st.sidebar.slider("Age", deputies['age'].min(), deputies['age'].max(), (deputies['age'].min(), deputies['age'].max()), 1)
-    nb_members_selected = st.sidebar.slider("Number of members", deputies['pol party'].value_counts().min(), deputies['pol party'].value_counts().max(), (deputies['pol party'].value_counts().min(), deputies['pol party'].value_counts().max()), 1)
+    age_selected = st.sidebar.slider("Age", int(deputies['age'].min()), int(deputies['age'].max()), (int(deputies['age'].min()), int(deputies['age'].max())), 1)
+    nb_members_selected = st.sidebar.slider("Number of members", int(deputies['pol party'].value_counts().min()), int(deputies['pol party'].value_counts().max()), (int(deputies['pol party'].value_counts().min()), int(deputies['pol party'].value_counts().max())), 1)
 
     #creates masks from the sidebar selection widgets
     mask_pol_parties = deputies['pol party'].isin(pol_party_selected)
