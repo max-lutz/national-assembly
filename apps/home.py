@@ -65,8 +65,10 @@ with title:
     st.title('French national assembly vizualisation tool')
     st.markdown("""
         This app performs simple vizualisation from the open data from the french national assembly!
-        * **Python libraries:** pandas, streamlit, matplotlib
-        * **Data source (accessed mid march 2021):** [national assembly open data](https://data.assemblee-nationale.fr/).
+        * Use the menu on the left to select the data or the page you want to access
+        * Your plots will appear below
+        * Data source (accessed mid march 2021): [national assembly open data](https://data.assemblee-nationale.fr/).
+        * The code can be accessed at [code](https://github.com/max-lutz/open-data-french-national-assembly).
         """)
 
 display_df = deputies[mask_pol_parties & mask_sex & mask_age & mask_nb_members]
@@ -158,7 +160,7 @@ job_description = {
     'Entrepreneurs' : 'Craftsmen and business owners',
     'Prof. inter.' : 'Intermediate Professions',
     'Retraités' : 'Retired',
-    'Employés' : 'Employes',
+    'Employés' : 'Employees',
     'Non déclaré' : 'Not declared',
     'Ouvriers' : 'Worker',
     'Agriculteurs' : 'Farmer'
@@ -182,4 +184,3 @@ with row3_2:
     for i in range(5):
         st.write("")
     st.write(text)
-    
