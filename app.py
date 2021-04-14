@@ -10,7 +10,7 @@ app = MultiApp()
 # Add all your application here
 app.add_app("Home", home.app)
 app.add_app("Comparator", parties_comparator.app)
-app.add_app("Deputies", deputies.app)
+app.add_app("Votes", vote_summary.app)
 
 # The main app
 app.run()
