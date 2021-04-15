@@ -18,7 +18,15 @@ def get_data_votes():
     df['month'] = df['date'].astype(str).str[5:7]
     df['day'] = df['date'].astype(str).str[8:10]
     df['datetime'] = pd.to_datetime(df[['year', 'month', 'day']], errors = 'coerce')
-    df = df.drop(columns=['date', 'non votants volontaires'])
+    df = df.drop(columns=['date'])
+    df.columns = df.columns.str.replace('demandeur ', '')
+    return df
+
+#Loading the data
+@st.cache
+def get_data_deputies():
+    df = pd.read_csv('df_dep.csv')
+    df = df.drop(columns=['family name', 'first name', 'date of birth'])
     return df
 
 #def app():
@@ -121,4 +129,27 @@ with row3_1, _lock:
     ax.set_ylabel('Month of the year')
     ax.set_xlabel('Days of the month')
     plt.tight_layout()
+    st.pyplot(fig)
+
+row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER))
+
+df_demandeur = votes.drop(votes.columns[0:10], axis=1)
+df_demandeur = df_demandeur.drop(df_demandeur.columns[-5:-1], axis=1)
+df_demandeur = df_demandeur.sum(axis=0) 
+df_demandeur = df_demandeur.drop(labels=['ND', 'GOV', 'EELV'])
+
+with row2_1, _lock:
+    st.header('Demandeur')
+    fig, ax = plt.subplots(figsize=(5, 5))
+    ax.pie(df_demandeur, labels=(df_demandeur.index + ' (' + df_demandeur.map(str) + ')'), wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' })
+    p = plt.gcf()
+    p.gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
+    st.pyplot(fig)
+
+with row2_2, _lock:
+    st.header('Demandeur')
+    fig, ax = plt.subplots(figsize=(5, 5))
+    ax.pie(df_demandeur, labels=(df_demandeur.index + ' (' + df_demandeur.map(str) + ')'), wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' })
+    p = plt.gcf()
+    p.gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
     st.pyplot(fig)
