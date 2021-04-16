@@ -18,6 +18,9 @@ def get_data_votes():
     df['month'] = df['date'].astype(str).str[5:7]
     df['day'] = df['date'].astype(str).str[8:10]
     df['datetime'] = pd.to_datetime(df[['year', 'month', 'day']], errors = 'coerce')
+    df['percentage of votes in favor'] = 100*df['pour']/df['nb votants']
+    df['accepted'] = 'no'
+    df.loc[df['pour'] >= df['requis'], 'accepted'] = 'yes'
     df = df.drop(columns=['date'])
     df.columns = df.columns.str.replace('demandeur ', '')
     return df
@@ -27,6 +30,12 @@ def get_data_votes():
 def get_data_deputies():
     df = pd.read_csv('df_dep.csv')
     df = df.drop(columns=['family name', 'first name', 'date of birth'])
+    return df
+
+@st.cache
+def get_data_political_parties():
+    df = pd.read_csv('df_polpar.csv')
+    df = df.drop(columns=['code'])
     return df
 
 #def app():
@@ -39,6 +48,7 @@ SPACER = .2
 ROW = 1
 
 votes = get_data_votes()
+df_polpar = get_data_political_parties()
 
 # Sidebar 
 #selection box for the different features
@@ -56,19 +66,26 @@ title_spacer1, title, title_spacer_2 = st.beta_columns((.1,ROW,.1))
 with title:
     st.title('Vote vizualisation tool')
 
+st.header('Data (all the votes from June 2017 to mid March 2021')
 st.write(display_df)
 
 
     
 ### Age repartition
-row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW/2, SPACER))
+row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER))
 
 with row1_1, _lock:
-    st.header('Repartition of the number of votes')
+    st.header('Repartition of vote presence')
     fig, ax = plt.subplots(figsize=(5, 5))
-    ax = sns.histplot(data=display_df, x="nb votants", bins=40)
+    ax = sns.histplot(data=display_df, x="nb votants", hue="accepted", bins=40)
     st.pyplot(fig)
 
+with row1_2, _lock:
+    st.header('Repartition of votes in favor')
+    fig, ax = plt.subplots(figsize=(5, 5))
+    ax = sns.histplot(data=display_df, x="percentage of votes in favor", bins=40)
+    #ax = sns.scatterplot(data=display_df, x="nb votants", y="percentage of votes in favor")
+    st.pyplot(fig)
 
 
 #heatmap (12;31) with a year selector and a data selector (nb of votes or presence)
@@ -115,7 +132,7 @@ palette = sns.color_palette("Greens",12)
 palette[0] = (1,1,1)
 
 with row3_1, _lock:
-    fig, ax = plt.subplots(figsize=(10, 5))
+    fig, ax = plt.subplots(figsize=(10, 4))
     ax = sns.heatmap(df_heatmap,
                 cmap=palette,  # Choose a squential colormap
                 annot_kws={'fontsize':11},  # Reduce size of label to fit
@@ -133,23 +150,35 @@ with row3_1, _lock:
 
 row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER))
 
+#get the total number of demand from each party
 df_demandeur = votes.drop(votes.columns[0:10], axis=1)
-df_demandeur = df_demandeur.drop(df_demandeur.columns[-5:-1], axis=1)
+df_demandeur = df_demandeur.drop(df_demandeur.columns[-7:-1], axis=1)
 df_demandeur = df_demandeur.sum(axis=0) 
-df_demandeur = df_demandeur.drop(labels=['ND', 'GOV', 'EELV'])
+df_demandeur = df_demandeur.drop(labels=['ND', 'GOV', 'EELV', 'MODEM', 'CDP'])
+
+#merge the dataframe with the number of demand with the polpar df to get colors and nb of members
+df = df_polpar.set_index('abreviated_name').merge(pd.DataFrame(data = [df_demandeur.values], columns = df_demandeur.index).T, left_index=True, right_index=True)
+df.columns = ['name', 'members', 'color', 'demand']
+df['demand per deputy'] = df['demand']/df['members']
+
+#st.write(df)
+
 
 with row2_1, _lock:
-    st.header('Demandeur')
+    st.header('Number of law propositions')
+    st.text('')
     fig, ax = plt.subplots(figsize=(5, 5))
-    ax.pie(df_demandeur, labels=(df_demandeur.index + ' (' + df_demandeur.map(str) + ')'), wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' })
+    ax.pie(df['demand'], labels=(df.index + ' (' + df['demand'].map(str) + ')'), 
+            wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors=df['color'].to_list())
     p = plt.gcf()
     p.gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
     st.pyplot(fig)
 
 with row2_2, _lock:
-    st.header('Demandeur')
+    st.header('Average Number of law propositions per deputy')
     fig, ax = plt.subplots(figsize=(5, 5))
-    ax.pie(df_demandeur, labels=(df_demandeur.index + ' (' + df_demandeur.map(str) + ')'), wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' })
+    ax.pie(df['demand per deputy'], labels=(df.index + ' (' + round(df['demand per deputy'].map(float)).map(str) + ')'), 
+           wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors=df['color'].to_list())
     p = plt.gcf()
     p.gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
     st.pyplot(fig)

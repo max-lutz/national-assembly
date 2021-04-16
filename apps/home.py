@@ -65,6 +65,7 @@ with title:
     st.title('French national assembly vizualisation tool')
     st.markdown("""
         This app performs simple vizualisation from the open data from the french national assembly!
+        The data used are for the period June 2017 to March 2021 (XVth legislature of the Fifth French Republic, President Macron)
         * Use the menu on the left to select the data or the page you want to access
         * Your plots will appear below
         * Data source (accessed mid march 2021): [national assembly open data](https://data.assemblee-nationale.fr/).
