@@ -69,56 +69,7 @@ def app():
     st.header('Data (all the votes from June 2017 to mid March 2021')
     st.write(display_df)
         
-    ### Age repartition
-    row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW/2, SPACER))
-
-    with row1_1, _lock:
-        st.header('Repartition of the number of votes')
-        fig, ax = plt.subplots(figsize=(5, 5))
-        ax = sns.histplot(data=display_df, x="nb votants", bins=40)
-        st.pyplot(fig)
-
-
-
-    #heatmap (12;31) with a year selector and a data selector (nb of votes or presence)
-    title_spacer2, title_2, title_spacer_2 = st.beta_columns((.1,ROW,.1))
-
-    with title_2:
-        st.header('Heatmap of the votes during the year')
-
-    row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER))
-
-    with row2_1, _lock:
-        year_selected = st.selectbox('Select year', ['2017','2018','2019', '2020', '2021'])
-
-    with row2_2, _lock:
-        data_selected = st.selectbox('Select data', ['Nb of votes','Deputy presence'])
-
-    df_heatmap = display_df.drop(columns=['code', 'type', 'titre', 'demandeur', 'requis', 'non votants', 'pour', 'contre', 'abstentions', 'datetime'])
-    df_heatmap = df_heatmap.loc[df_heatmap['year'] == year_selected]
-    df_heatmap['count'] = 1
-    df_heatmap['nb votants'] = df_heatmap['nb votants']/574
-    df_heatmap['nb votants'] = (df_heatmap['nb votants']*100).astype(int)
-
-    df_heatmap = df_heatmap.groupby(['year','month','day']).agg({'nb votants':'mean','count':'sum'})
-
-    if(data_selected == 'Nb of votes'):
-        df_heatmap = df_heatmap.reset_index().pivot(index='month', columns='day', values='count')
-        heatmap_title = 'Number of votes at the national assembly on a particular day'
-    elif(data_selected == 'Deputy presence'):
-        df_heatmap = df_heatmap.reset_index().pivot(index='month', columns='day', values='nb votants').astype(float)
-        heatmap_title = 'Percentage of deputy presence at the national assembly on a particular day'
-
-    df_heatmap.fillna(0, inplace=True)
-    df_heatmap.columns = df_heatmap.columns.astype(int)
-    df_heatmap.index = df_heatmap.index.astype(int)
-    # Ensure all month in table
-    df_heatmap = df_heatmap.reindex(range(1,13), axis=0, fill_value=0)
-    # Ensure all days in table
-    df_heatmap = df_heatmap.reindex(range(1,32), axis=1, fill_value=0).astype(int) 
-
-    
-    ### Age repartition
+    ### Vote repartition
     row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER))
 
     with row1_1, _lock:
@@ -134,7 +85,6 @@ def app():
         #ax = sns.scatterplot(data=display_df, x="nb votants", y="percentage of votes in favor")
         st.pyplot(fig)
 
-
     #heatmap (12;31) with a year selector and a data selector (nb of votes or presence)
     title_spacer2, title_2, title_spacer_2 = st.beta_columns((.1,ROW,.1))
 
@@ -144,10 +94,10 @@ def app():
     row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER))
 
     with row2_1, _lock:
-        year_selected = st.selectbox('Select year', ['2017','2018','2019', '2020', '2021'])
+        year_selected = st.selectbox('Select year', ['2017','2018','2019', '2020', '2021'], key='1')
 
     with row2_2, _lock:
-        data_selected = st.selectbox('Select data', ['Nb of votes','Deputy presence'])
+        data_selected = st.selectbox('Select data', ['Nb of votes','Deputy presence'], key='2')
 
     df_heatmap = display_df.drop(columns=['code', 'type', 'titre', 'demandeur', 'requis', 'non votants', 'pour', 'contre', 'abstentions', 'datetime'])
     df_heatmap = df_heatmap.loc[df_heatmap['year'] == year_selected]
@@ -195,7 +145,7 @@ def app():
         plt.tight_layout()
         st.pyplot(fig)
 
-    row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER))
+    row4_spacer1, row4_1, row4_spacer2, row4_2, row4_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER))
 
     #get the total number of demand from each party
     df_demandeur = votes.drop(votes.columns[0:10], axis=1)
@@ -211,7 +161,7 @@ def app():
     #st.write(df)
 
 
-    with row2_1, _lock:
+    with row4_1, _lock:
         st.header('Number of law propositions')
         st.text('')
         fig, ax = plt.subplots(figsize=(5, 5))
@@ -221,7 +171,7 @@ def app():
         p.gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
         st.pyplot(fig)
 
-    with row2_2, _lock:
+    with row4_2, _lock:
         st.header('Average Number of law propositions per deputy')
         fig, ax = plt.subplots(figsize=(5, 5))
         ax.pie(df['demand per deputy'], labels=(df.index + ' (' + round(df['demand per deputy'].map(float)).map(str) + ')'), 
