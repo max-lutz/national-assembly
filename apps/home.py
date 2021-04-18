@@ -5,6 +5,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import os
 from matplotlib.backends.backend_agg import RendererAgg
 from datetime import date
   
@@ -13,7 +14,7 @@ from datetime import date
 #Loading the data
 @st.cache
 def get_data_deputies():
-    df = pd.read_csv('df_dep.csv')
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_dep.csv'))
     #create the value age from the date of birth of the deputies
     df['age']  = df['date of birth'].astype(str).str[0:4]
     df['age']  = date.today().year - df['age'].astype(int)
@@ -22,7 +23,7 @@ def get_data_deputies():
 
 @st.cache
 def get_data_political_parties():
-    df = pd.read_csv('df_polpar.csv')
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_polpar.csv'))
     df = df.drop(columns=['code'])
     df.rename(columns={"abreviated_name": "pol party"})
     return df

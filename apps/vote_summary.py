@@ -5,6 +5,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import os
 from matplotlib.backends.backend_agg import RendererAgg
 from datetime import date
   
@@ -13,7 +14,7 @@ from datetime import date
 #Loading the data
 @st.cache
 def get_data_votes():
-    df = pd.read_csv('df_vote_descr.csv')
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_vote_descr.csv'))
     df['year'] = df['date'].astype(str).str[0:4]
     df['month'] = df['date'].astype(str).str[5:7]
     df['day'] = df['date'].astype(str).str[8:10]
@@ -28,13 +29,13 @@ def get_data_votes():
 #Loading the data
 @st.cache
 def get_data_deputies():
-    df = pd.read_csv('df_dep.csv')
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_dep.csv'))
     df = df.drop(columns=['family name', 'first name', 'date of birth'])
     return df
 
 @st.cache
 def get_data_political_parties():
-    df = pd.read_csv('df_polpar.csv')
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_polpar.csv'))
     df = df.drop(columns=['code'])
     return df
 
@@ -66,7 +67,7 @@ def app():
     with title:
         st.title('Vote vizualisation tool')
 
-    st.header('Data (all the votes from June 2017 to mid March 2021')
+    st.header('Data (all the votes from June 2017 to mid March 2021)')
     st.write(display_df)
         
     ### Vote repartition
