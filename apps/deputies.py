@@ -74,5 +74,5 @@ title_spacer1, title, title_spacer_2 = st.beta_columns((.1,ROW,.1))
 with title:
     st.title('Deputy information')
 
-st.header('Data (all the votes from June 2017 to mid March 2021)')
+st.header('Data include votes and commissions')
 st.write(df_vote_total)
