@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import base64
 import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -9,7 +8,8 @@ import os
 from matplotlib.backends.backend_agg import RendererAgg
 from datetime import date
   
-#st.set_page_config(layout="wide")
+# Home page of the website
+# Displays general information about political parties at the national assembly
 
 #Loading the data
 @st.cache
@@ -37,28 +37,29 @@ def app():
     SPACER = .2
     ROW = 1
 
-    deputies = get_data_deputies()
+    #load dataframes
+    df_deputies = get_data_deputies()
     df_pol_parties = get_data_political_parties()
 
     # Sidebar 
     #selection box for the different features
     st.sidebar.header('Select what to display')
-    pol_parties = deputies['pol party'].unique().tolist()
+    pol_parties = df_df_deputies['pol party'].unique().tolist()
     pol_party_selected = st.sidebar.multiselect('Political parties', pol_parties, pol_parties)
     sex_selected = st.sidebar.selectbox('Select sex', ['both','female','male'])
     sex_selected = [sex_selected]
     if sex_selected == ['both']:
         sex_selected = ['female', 'male']
-    age_selected = st.sidebar.slider("Age", int(deputies['age'].min()), int(deputies['age'].max()), (int(deputies['age'].min()), int(deputies['age'].max())), 1)
-    nb_members_selected = st.sidebar.slider("Number of members", int(deputies['pol party'].value_counts().min()), int(deputies['pol party'].value_counts().max()), (int(deputies['pol party'].value_counts().min()), int(deputies['pol party'].value_counts().max())), 1)
+    age_selected = st.sidebar.slider("Age", int(df_df_deputies['age'].min()), int(df_df_deputies['age'].max()), (int(df_deputies['age'].min()), int(df_deputies['age'].max())), 1)
+    nb_members_selected = st.sidebar.slider("Number of members", int(df_deputies['pol party'].value_counts().min()), int(df_deputies['pol party'].value_counts().max()), (int(df_deputies['pol party'].value_counts().min()), int(df_deputies['pol party'].value_counts().max())), 1)
 
     #creates masks from the sidebar selection widgets
-    mask_pol_parties = deputies['pol party'].isin(pol_party_selected)
-    mask_sex = deputies['sex'].isin(sex_selected)
-    mask_age = deputies['age'].between(age_selected[0], age_selected[1])
-    mask_nb_members = deputies['pol party'].value_counts().between(nb_members_selected[0], nb_members_selected[1]).to_frame()
+    mask_pol_parties = df_deputies['pol party'].isin(pol_party_selected)
+    mask_sex = df_deputies['sex'].isin(sex_selected)
+    mask_age = df_deputies['age'].between(age_selected[0], age_selected[1])
+    mask_nb_members = df_deputies['pol party'].value_counts().between(nb_members_selected[0], nb_members_selected[1]).to_frame()
     mask_nb_members = mask_nb_members[mask_nb_members['pol party'] == 1].index.to_list()
-    mask_nb_members = deputies['pol party'].isin(mask_nb_members)
+    mask_nb_members = df_deputies['pol party'].isin(mask_nb_members)
 
     title_spacer1, title, title_spacer_2 = st.beta_columns((.1,ROW,.1))
 
@@ -73,29 +74,23 @@ def app():
             * The code can be accessed at [code](https://github.com/max-lutz/open-data-french-national-assembly).
             """)
 
-    display_df = deputies[mask_pol_parties & mask_sex & mask_age & mask_nb_members]
-    display_df = display_df.sort_values(by=['pol party'])
-
-    pol_party_selected = display_df['pol party'].unique()
-
-    #st.write(display_df)
-
+    df_deputies_selected = df_deputies[mask_pol_parties & mask_sex & mask_age & mask_nb_members]
+    df_deputies_selected = df_deputies_selected.sort_values(by=['pol party'])
+    pol_party_selected = df_deputies_selected['pol party'].unique()
 
     ### Political parties
     #create the color list for the plot
 
     # merge the political parties dataframe with the selected deputies
-    df_with_selected_pol_parties = pd.merge(pd.DataFrame(display_df['pol party'].value_counts()), df_pol_parties, left_index=True, right_on='abreviated_name')
+    df_with_selected_pol_parties = pd.merge(pd.DataFrame(df_deputies_selected['pol party'].value_counts()), df_pol_parties, left_index=True, right_on='abreviated_name')
     colors = df_with_selected_pol_parties['color'].tolist()
-
-    #st.write(pd.merge(pd.DataFrame(display_df['pol party'].value_counts()), df_with_selected_pol_parties, left_index=True, right_on='abreviated_name'))
 
     row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
 
     with row0_1, _lock:
         st.header("Political parties")
         fig, ax = plt.subplots(figsize=(5, 5))
-        ax.pie(display_df['pol party'].value_counts(), labels=(display_df['pol party'].value_counts().index + ' (' + display_df['pol party'].value_counts().map(str) + ')'), 
+        ax.pie(df_deputies_selected['pol party'].value_counts(), labels=(df_deputies_selected['pol party'].value_counts().index + ' (' + df_deputies_selected['pol party'].value_counts().map(str) + ')'), 
             wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors=colors)
         p = plt.gcf()
         p.gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
@@ -116,15 +111,16 @@ def app():
     with row1_1, _lock:
         st.header('Age repartition')
         fig, ax = plt.subplots(figsize=(5, 5))
-        ax = sns.histplot(data=display_df, x="age", bins=12, stat="probability")
+        ax = sns.histplot(data=df_deputies_selected, x="age", bins=12, stat="probability")
         st.pyplot(fig)
-
 
     ### Percentage of women per parties
     row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
 
-    #caluculate the proportion of women per parties
-    df_sex = pd.concat([deputies[mask_pol_parties & mask_nb_members].drop(columns=['code', 'activity', 'age']),pd.get_dummies(deputies[mask_pol_parties & mask_nb_members].drop(columns=['code', 'activity', 'age'])['sex'], prefix='sex')],axis=1)
+    #calculate the proportion of women per parties
+    df_sex = pd.concat([df_deputies[mask_pol_parties & mask_nb_members].drop(columns=['code', 'activity', 'age']),
+                        pd.get_dummies(df_deputies[mask_pol_parties & mask_nb_members].drop(columns=['code', 'activity', 'age'])['sex'], 
+                        prefix='sex')],axis=1)
     df_sex = df_sex.groupby(['pol party']).agg({'sex_female':'sum','sex_male':'sum'})
     df_sex['pol party'] = df_sex.index
     df_sex['total'] = df_sex['sex_female'].astype(int) + df_sex['sex_male'].astype(int)
@@ -173,13 +169,13 @@ def app():
     with row3_1, _lock:
         st.header('Previous job repartition')
         fig, ax = plt.subplots(figsize=(5, 5))
-        ax.pie(display_df['activity'].value_counts(), labels=(display_df['activity'].value_counts().index + ' (' + display_df['activity'].value_counts().map(str) + ')'), wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' })
+        ax.pie(df_deputies_selected['activity'].value_counts(), labels=(df_deputies_selected['activity'].value_counts().index + ' (' + df_deputies_selected['activity'].value_counts().map(str) + ')'), wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' })
         p = plt.gcf()
         p.gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
         st.pyplot(fig)
 
     with row3_2:
-        job_list = display_df['activity'].value_counts().index
+        job_list = df_deputies_selected['activity'].value_counts().index
         text = ''
         for i in range(len(job_list)):
             text = text + job_list[i] + ' : ' + job_description[job_list[i]] + '  \n'
