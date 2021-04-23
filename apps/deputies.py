@@ -42,7 +42,13 @@ def get_data_political_parties():
 
 @st.cache
 def get_data_vote_total():
-    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_vote_total.csv'))
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_vote_total.csv'),
+    dtype={
+        'pour': bool,
+        'contre': bool,
+        'non votants' : bool,
+        'abstentions' : bool
+            })
     return df
 
 #def app():
@@ -75,4 +81,5 @@ with title:
     st.title('Deputy information')
 
 st.header('Data include votes and commissions')
-st.write(df_vote_total)
+#st.write(df_vote_total)
+st.write(df_vote_total.info())
