@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import base64
 import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -56,30 +55,29 @@ def app():
     SPACER = .2
     ROW = 1
 
-    deputies = get_data_deputies()
+    #load dataframes
+    df_deputies = get_data_deputies()
     df_pol_parties = get_data_political_parties()
 
     title_spacer1, title, title_spacer_2 = st.beta_columns((.1,ROW,.1))
-
     with title:
         st.title('Compare groups of deputies depending on their political party')
 
     ### Select box and description
     row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
-
     with row0_1, _lock:
-        party_1 = st.selectbox('Select political party', deputies['pol party'].unique(), key='1')
+        party_1 = st.selectbox('Select political party', df_deputies['pol party'].unique(), key='1')
         st.write(get_party_description(party_1))
 
     with row0_2, _lock:
-        party_2 = st.selectbox('Select political party', deputies['pol party'].unique(), key='2')
+        party_2 = st.selectbox('Select political party', df_deputies['pol party'].unique(), key='2')
         st.write(get_party_description(party_2))
 
     ### Political parties
     row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
 
     with row1_1, _lock:
-        deputies_group_1 = deputies[deputies['pol party'] == party_1]
+        deputies_group_1 = df_deputies[df_deputies['pol party'] == party_1]
         df = df_pol_parties.sort_values(by=['members'], ascending=False)
         df.loc[df['abreviated_name'] != party_1, 'color'] = 'whitesmoke'
         colors = df['color'].tolist()
@@ -88,20 +86,19 @@ def app():
 
         st.header("Number of members")
         fig, ax = plt.subplots(figsize=(5, 5))
-        ax.pie(deputies['pol party'].value_counts(), labels=(deputies['pol party'].value_counts().index), 
+        ax.pie(df_deputies['pol party'].value_counts(), labels=(df_deputies['pol party'].value_counts().index), 
             wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors=colors)
         p = plt.gcf()
         c2 = plt.Circle( (0,0), 0.7, color='white')
         text = deputies_group_1['pol party'].value_counts().index[0] + ' : ' 
         text = text + deputies_group_1['pol party'].value_counts().map(str).to_list()[0] + '\n('
         text = text + str(round(100*deputies_group_1['pol party'].value_counts().to_list()[0]/len(deputies.index),2)) + '%)'
-        #st.write(text)
         label = ax.annotate(text, xy=(0,-0.15), fontsize=22, ha='center')
         p.gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
         st.pyplot(fig)
 
     with row1_2, _lock:
-        deputies_group_2 = deputies[deputies['pol party'] == party_2]
+        deputies_group_2 = df_deputies[df_deputies['pol party'] == party_2]
         df = df_pol_parties.sort_values(by=['members'], ascending=False)
         df.loc[df['abreviated_name'] != party_2, 'color'] = 'whitesmoke'
         colors = df['color'].tolist()
@@ -110,7 +107,7 @@ def app():
 
         st.header("Number of members")
         fig, ax = plt.subplots(figsize=(5, 5))
-        ax.pie(deputies['pol party'].value_counts(), labels=(deputies['pol party'].value_counts().index), 
+        ax.pie(df_deputies['pol party'].value_counts(), labels=(df_deputies['pol party'].value_counts().index), 
             wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors=colors)
         p = plt.gcf()
         c2 = plt.Circle( (0,0), 0.7, color='white')
@@ -167,8 +164,6 @@ def app():
                 ax.text(rect.get_x() + rect.get_width() / 2., rect.get_y() + height * 3 / 4.,
                         str(text[i])+'%', ha='center', va='bottom', rotation=0, color='black', fontsize=12)
             i = i + 1
-
-        #autolabel(ax, (df_sex['sex_female'].round(2)*100).astype(int).to_list())
         st.pyplot(fig)
 
     with row3_2, _lock:
@@ -184,8 +179,6 @@ def app():
                 ax.text(rect.get_x() + rect.get_width() / 2., rect.get_y() + height * 3 / 4.,
                         str(text[i])+'%', ha='center', va='bottom', rotation=0, color='black', fontsize=12)
             i = i + 1
-
-        #autolabel(ax, (df_sex['sex_female'].round(2)*100).astype(int).to_list())
         st.pyplot(fig)
 
 
