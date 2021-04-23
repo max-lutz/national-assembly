@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import base64
 import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -8,8 +7,6 @@ import numpy as np
 import os
 from matplotlib.backends.backend_agg import RendererAgg
 from datetime import date
-  
-#st.set_page_config(layout="wide")
 
 #Loading the data
 @st.cache
@@ -26,7 +23,6 @@ def get_data_votes():
     df.columns = df.columns.str.replace('demandeur ', '')
     return df
 
-#Loading the data
 @st.cache
 def get_data_deputies():
     df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_dep.csv'))
@@ -39,6 +35,7 @@ def get_data_political_parties():
     df = df.drop(columns=['code'])
     return df
 
+
 #def app():
     #configuration of the page
 st.set_page_config(layout="wide")
@@ -48,18 +45,18 @@ _lock = RendererAgg.lock
 SPACER = .2
 ROW = 1
 
-votes = get_data_votes()
+df_votes = get_data_votes()
 df_polpar = get_data_political_parties()
 
 # Sidebar 
 #selection box for the different features
 st.sidebar.header('Select what to display')
-nb_voters = st.sidebar.slider("Voters", int(votes['nb votants'].min()), int(votes['nb votants'].max()), (int(votes['nb votants'].min()), int(votes['nb votants'].max())), 1)
+nb_voters = st.sidebar.slider("Voters", int(df_votes['nb votants'].min()), int(df_votes['nb votants'].max()), (int(df_votes['nb votants'].min()), int(df_votes['nb votants'].max())), 1)
 
 #creates masks from the sidebar selection widgets
-mask_nb_voters = votes['nb votants'].between(nb_voters[0], nb_voters[1])
+mask_nb_voters = df_votes['nb votants'].between(nb_voters[0], nb_voters[1])
 
-display_df = votes[mask_nb_voters]
+df_votes_selected = df_votes[mask_nb_voters]
 
 
 title_spacer1, title, title_spacer_2 = st.beta_columns((.1,ROW,.1))
@@ -68,7 +65,7 @@ with title:
     st.title('Vote vizualisation tool')
 
 st.header('Data (all the votes from June 2017 to mid March 2021)')
-st.write(display_df)
+st.write(df_votes_selected)
     
 ### Vote repartition
 row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER))
@@ -76,14 +73,14 @@ row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3 = st.beta_columns((SPAC
 with row1_1, _lock:
     st.header('Repartition of vote presence')
     fig, ax = plt.subplots(figsize=(5, 5))
-    ax = sns.histplot(data=display_df, x="nb votants", hue="accepted", bins=40)
+    ax = sns.histplot(data=df_votes_selected, x="nb votants", hue="accepted", bins=40)
     st.pyplot(fig)
 
 with row1_2, _lock:
     st.header('Repartition of votes in favor')
     fig, ax = plt.subplots(figsize=(5, 5))
-    ax = sns.histplot(data=display_df, x="percentage of votes in favor", bins=40)
-    #ax = sns.scatterplot(data=display_df, x="nb votants", y="percentage of votes in favor")
+    ax = sns.histplot(data=df_votes_selected, x="percentage of votes in favor", bins=40)
+    #ax = sns.scatterplot(data=df_votes_selected, x="nb votants", y="percentage of votes in favor")
     st.pyplot(fig)
 
 #heatmap (12;31) with a year selector and a data selector (nb of votes or presence)
@@ -93,14 +90,13 @@ with title_2:
     st.header('Heatmap of the votes during the year')
 
 row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER))
-
 with row2_1, _lock:
     year_selected = st.selectbox('Select year', ['2017','2018','2019', '2020', '2021'], key='1')
 
 with row2_2, _lock:
     data_selected = st.selectbox('Select data', ['Nb of votes','Deputy presence'], key='2')
 
-df_heatmap = display_df.drop(columns=['code', 'type', 'titre', 'demandeur', 'requis', 'non votants', 'pour', 'contre', 'abstentions', 'datetime'])
+df_heatmap = df_votes_selected.drop(columns=['code', 'type', 'titre', 'demandeur', 'requis', 'non votants', 'pour', 'contre', 'abstentions', 'datetime'])
 df_heatmap = df_heatmap.loc[df_heatmap['year'] == year_selected]
 df_heatmap['count'] = 1
 df_heatmap['nb votants'] = df_heatmap['nb votants']/574
@@ -149,7 +145,7 @@ with row3_1, _lock:
 row4_spacer1, row4_1, row4_spacer2, row4_2, row4_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER))
 
 #get the total number of demand from each party
-df_demandeur = votes.drop(votes.columns[0:10], axis=1)
+df_demandeur = df_votes_selected.drop(df_votes_selected.columns[0:10], axis=1)
 df_demandeur = df_demandeur.drop(df_demandeur.columns[-7:-1], axis=1)
 df_demandeur = df_demandeur.sum(axis=0) 
 df_demandeur = df_demandeur.drop(labels=['ND', 'GOV', 'EELV', 'MODEM', 'CDP'])
@@ -159,24 +155,23 @@ df = df_polpar.set_index('abreviated_name').merge(pd.DataFrame(data = [df_demand
 df.columns = ['name', 'members', 'color', 'demand']
 df['demand per deputy'] = df['demand']/df['members']
 
-#st.write(df)
-
-
 with row4_1, _lock:
     st.header('Number of law propositions')
     st.text('')
+    st.text('')
     fig, ax = plt.subplots(figsize=(5, 5))
     ax.pie(df['demand'], labels=(df.index + ' (' + df['demand'].map(str) + ')'), 
-            wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors=df['color'].to_list())
+            wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white'}, colors=df['color'].to_list())
     p = plt.gcf()
     p.gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
     st.pyplot(fig)
 
 with row4_2, _lock:
-    st.header('Average Number of law propositions per deputy')
+    st.header('Average number of law propositions per deputy')
+    st.text('')
     fig, ax = plt.subplots(figsize=(5, 5))
     ax.pie(df['demand per deputy'], labels=(df.index + ' (' + round(df['demand per deputy'].map(float)).map(str) + ')'), 
-        wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors=df['color'].to_list())
+        wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white'}, colors=df['color'].to_list())
     p = plt.gcf()
     p.gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
     st.pyplot(fig)
