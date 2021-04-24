@@ -49,6 +49,11 @@ def get_data_vote_total():
         'non votants' : bool,
         'abstentions' : bool
             })
+    #df['scrutin'] = df['scrutin'].map(lambda x: x.lstrip('VTANR5L15V'))
+    df['cause'] = df['cause'].fillna('none')
+    df['cause'] = df['cause'].astype("category")
+    df['deputy code'] = df['deputy code'].astype("category")
+    df['scrutin'] = df['scrutin'].astype("category")
     return df
 
 #def app():
@@ -81,5 +86,6 @@ with title:
     st.title('Deputy information')
 
 st.header('Data include votes and commissions')
-#st.write(df_vote_total)
+#st.write(df_vote_total.sample(20))
 st.write(df_vote_total.info())
+st.write(df_vote_total['scrutin'].value_counts().to_list())
