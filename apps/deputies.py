@@ -47,7 +47,8 @@ def get_data_vote_total():
         'pour': bool,
         'contre': bool,
         'non votants' : bool,
-        'abstentions' : bool
+        'abstentions' : bool,
+        'par delegation' : bool
             })
     #df['scrutin'] = df['scrutin'].map(lambda x: x.lstrip('VTANR5L15V'))
     df['cause'] = df['cause'].fillna('none')
@@ -87,5 +88,5 @@ with title:
 
 st.header('Data include votes and commissions')
 #st.write(df_vote_total.sample(20))
+st.write(df_vote_total.describe())
 st.write(df_vote_total.info())
-st.write(df_vote_total['scrutin'].value_counts().to_list())
