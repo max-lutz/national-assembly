@@ -44,13 +44,13 @@ def app():
     # Sidebar 
     #selection box for the different features
     st.sidebar.header('Select what to display')
-    pol_parties = df_df_deputies['pol party'].unique().tolist()
+    pol_parties = df_deputies['pol party'].unique().tolist()
     pol_party_selected = st.sidebar.multiselect('Political parties', pol_parties, pol_parties)
     sex_selected = st.sidebar.selectbox('Select sex', ['both','female','male'])
     sex_selected = [sex_selected]
     if sex_selected == ['both']:
         sex_selected = ['female', 'male']
-    age_selected = st.sidebar.slider("Age", int(df_df_deputies['age'].min()), int(df_df_deputies['age'].max()), (int(df_deputies['age'].min()), int(df_deputies['age'].max())), 1)
+    age_selected = st.sidebar.slider("Age", int(df_deputies['age'].min()), int(df_deputies['age'].max()), (int(df_deputies['age'].min()), int(df_deputies['age'].max())), 1)
     nb_members_selected = st.sidebar.slider("Number of members", int(df_deputies['pol party'].value_counts().min()), int(df_deputies['pol party'].value_counts().max()), (int(df_deputies['pol party'].value_counts().min()), int(df_deputies['pol party'].value_counts().max())), 1)
 
     #creates masks from the sidebar selection widgets
