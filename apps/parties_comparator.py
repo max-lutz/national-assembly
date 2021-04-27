@@ -22,7 +22,7 @@ def get_data_deputies():
 def get_data_political_parties():
     df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_polpar.csv'))
     df = df.drop(columns=['code'])
-    df.rename(columns={"abreviated_name": "pol party"})
+    df = df.rename(columns={"abreviated_name": "pol party"})
     return df
 
 @st.cache
@@ -56,9 +56,9 @@ def get_data_vote_total():
     df['scrutin'] = df['scrutin'].astype("category")
     return df
 
-def get_color_list_percentage_women(df, party):
+def apply_grey_filter(df, party):
     df_2 = df.copy(deep=True)
-    df_2.loc[df_2['pol party'] != party, 'color'] = 'whitesmoke'
+    df_2.loc[df_2['pol party'] != party, 'color'] = 'lightgrey'
     return df_2['color'].tolist()
 
 def get_party_description(party):
@@ -112,9 +112,9 @@ row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3 = st.beta_columns((SPAC
 with row1_1, _lock:
     deputies_group_1 = df_deputies[df_deputies['pol party'] == party_1]
     df = df_pol_parties.sort_values(by=['members'], ascending=False)
-    df.loc[df['abreviated_name'] != party_1, 'color'] = 'whitesmoke'
+    df.loc[df['pol party'] != party_1, 'color'] = 'lightgrey'
     colors = df['color'].tolist()
-    df = df[df['abreviated_name'] == party_1]
+    df = df[df['pol party'] == party_1]
     color_1 = df['color'].to_list()
 
     st.header("Number of members")
@@ -133,9 +133,9 @@ with row1_1, _lock:
 with row1_2, _lock:
     deputies_group_2 = df_deputies[df_deputies['pol party'] == party_2]
     df = df_pol_parties.sort_values(by=['members'], ascending=False)
-    df.loc[df['abreviated_name'] != party_2, 'color'] = 'whitesmoke'
+    df.loc[df['pol party'] != party_2, 'color'] = 'lightgrey'
     colors = df['color'].tolist()
-    df = df[df['abreviated_name'] == party_2]
+    df = df[df['pol party'] == party_2]
     color_2 = df['color'].to_list()
 
     st.header("Number of members")
@@ -179,15 +179,15 @@ df_sex['sex_female'] = df_sex['sex_female'].astype(int)/df_sex['total']
 #prepare df_sex for color selection
 df_sex = df_sex.reset_index(drop=True)
 df_sex = df_sex.sort_values(by=['pol party'])
-df_with_selected_pol_parties = df_pol_parties[df_pol_parties['abreviated_name'].isin(df_sex['pol party'].unique().tolist())].sort_values(by=['abreviated_name'])
+df_with_selected_pol_parties = df_pol_parties[df_pol_parties['pol party'].isin(df_sex['pol party'].unique().tolist())].sort_values(by=['pol party'])
 df_sex['color'] = df_with_selected_pol_parties['color'].tolist()
 df_sex = df_sex.sort_values(by=['sex_female'], ascending=False).reset_index(drop=True)
 
 
 with row3_1, _lock:
-    st.header('Percentage of women per political parties')
+    st.header('Percentage of women deputies')
     fig, ax = plt.subplots(figsize=(5, 5))
-    sns.barplot(x="sex_female", y="pol party", data=df_sex, ax=ax, palette=get_color_list_percentage_women(df_sex, party_1))
+    sns.barplot(x="sex_female", y="pol party", data=df_sex, ax=ax, palette=apply_grey_filter(df_sex, party_1))
 
     i = 0
     text = (df_sex['sex_female'].round(2)*100).astype(int).to_list()
@@ -197,12 +197,15 @@ with row3_1, _lock:
             ax.text(rect.get_x() + rect.get_width() / 2., rect.get_y() + height * 3 / 4.,
                     str(text[i])+'%', ha='center', va='bottom', rotation=0, color='black', fontsize=12)
         i = i + 1
+    ax.set(xlabel=None)
+    ax.set(ylabel=None)
+    ax.set(xticklabels=[])
     st.pyplot(fig)
 
 with row3_2, _lock:
-    st.header('Percentage of women per political parties')
+    st.header('Percentage of women deputies')
     fig, ax = plt.subplots(figsize=(5, 5))
-    sns.barplot(x="sex_female", y="pol party", data=df_sex, ax=ax, palette=get_color_list_percentage_women(df_sex, party_2))
+    sns.barplot(x="sex_female", y="pol party", data=df_sex, ax=ax, palette=apply_grey_filter(df_sex, party_2))
 
     i = 0
     text = (df_sex['sex_female'].round(2)*100).astype(int).to_list()
@@ -212,6 +215,9 @@ with row3_2, _lock:
             ax.text(rect.get_x() + rect.get_width() / 2., rect.get_y() + height * 3 / 4.,
                     str(text[i])+'%', ha='center', va='bottom', rotation=0, color='black', fontsize=12)
         i = i + 1
+    ax.set(xlabel=None)
+    ax.set(ylabel=None)
+    ax.set(xticklabels=[])
     st.pyplot(fig)
 
 
@@ -237,38 +243,58 @@ with row4_2, _lock:
 ### Average presence / average vote (for, against, absent)
 row5_spacer1, row5_1, row4_spacer2, row5_2, row5_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER))
 
-with row5_1, _lock:
-    st.header('Average presence to the votes')
-    
-
-with row5_2, _lock:
-    st.header('Average position during votes')
-    
-
-
 nb_votes = len(df_vote_total['scrutin'].unique())
 
 df_vote_total = pd.merge(df_vote_total, df_deputies.drop(columns=['sex', 'activity','age']), left_on='deputy code', right_on='code')
 df_vote_total['vote'] = 1
-df_vote_total['pour'] = df_vote_total['pour'].astype(int)
-df_vote_total['contre'] = df_vote_total['contre'].astype(int)
-df_vote_total['abstentions'] = df_vote_total['abstentions'].astype(int)
-df_vote_total['non votants'] = df_vote_total['non votants'].astype(int)
-df_vote_total['par delegation'] = df_vote_total['par delegation'].astype(int)
-
-
+columns = ['pour', 'contre', 'abstentions', 'non votants', 'par delegation']
+for column in columns:
+    df_vote_total[column] = df_vote_total[column].astype(int)
 
 df_vote_total = df_vote_total.drop(columns=['scrutin', 'deputy code']).groupby(['pol party']).agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'non votants':'sum', 'par delegation':'sum', 'vote':'sum'})
-df_vote_total = pd.merge(df_vote_total, df_pol_parties.drop(columns=['name']), left_on='pol party', right_on='abreviated_name')
-#st.text(df_votes_party_1['vote'].mean()/len(deputies_group_1)*100)
+df_vote_total = pd.merge(df_vote_total, df_pol_parties.drop(columns=['name']), left_on='pol party', right_on='pol party')
 
-st.text(df_vote_total)
+columns = ['vote', 'pour', 'contre', 'abstentions', 'non votants', 'par delegation']
+for column in columns:
+    df_vote_total[column] = df_vote_total[column]/(df_vote_total['members']*nb_votes)
+df_vote_total = df_vote_total.sort_values(by=['vote'], ascending=False).reset_index(drop=True)
 
-df_vote_total['vote'] = df_vote_total['vote']/(df_vote_total['members']*nb_votes)
-df_vote_total['pour'] = df_vote_total['pour']/(df_vote_total['members']*nb_votes)
-df_vote_total['contre'] = df_vote_total['contre']/(df_vote_total['members']*nb_votes)
-df_vote_total['abstentions'] = df_vote_total['abstentions']/(df_vote_total['members']*nb_votes)
-df_vote_total['non votants'] = df_vote_total['non votants']/(df_vote_total['members']*nb_votes)
-df_vote_total['par delegation'] = df_vote_total['par delegation']/(df_vote_total['members']*nb_votes)
+#st.text(df_vote_total)
 
-st.text(df_vote_total)
+with row5_1, _lock:
+    st.header('Percentage of the deputies at each vote')
+    fig, ax = plt.subplots(figsize=(5, 5))
+    sns.barplot(x="vote", y="pol party", data=df_vote_total, ax=ax, palette=apply_grey_filter(df_vote_total, party_1))
+    i = 0
+    text = (df_vote_total['vote'].round(4)*100).astype(float).round(4).to_list()
+    for rect in ax.patches:
+        if i == int(np.where(df_vote_total['pol party']==party_1)[0]):
+            height = rect.get_height()
+            ax.text(rect.get_x() + rect.get_width() / 2., rect.get_y() + height * 3 / 4.,
+                    str(text[i])+'%', ha='center', va='bottom', rotation=0, color='black', fontsize=12)
+        i = i + 1
+    ax.set(xlabel='Percentage of deputies to each vote')
+    ax.set(ylabel=None)
+    ax.set(xticklabels=[])
+    st.pyplot(fig)
+    
+
+with row5_2, _lock:
+    st.header('Percentage of the deputies at each vote')
+    fig, ax = plt.subplots(figsize=(5, 5))
+    sns.barplot(x="vote", y="pol party", data=df_vote_total, ax=ax, palette=apply_grey_filter(df_vote_total, party_2))
+    i = 0
+    text = (df_vote_total['vote'].round(4)*100).astype(float).round(4).to_list()
+    for rect in ax.patches:
+        if i == int(np.where(df_vote_total['pol party']==party_2)[0]):
+            height = rect.get_height()
+            ax.text(rect.get_x() + rect.get_width() / 2., rect.get_y() + height * 3 / 4.,
+                    str(text[i])+'%', ha='center', va='bottom', rotation=0, color='black', fontsize=12)
+        i = i + 1
+    ax.set(xlabel='Percentage of deputies to each vote')
+    ax.set(ylabel=None)
+    ax.set(xticklabels=[])
+    st.pyplot(fig)
+    
+
+
