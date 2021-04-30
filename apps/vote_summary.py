@@ -51,7 +51,7 @@ def app():
     # Sidebar 
     #selection box for the different features
     st.sidebar.header('Select what to display')
-    nb_voters = st.sidebar.slider("Voters", int(df_votes['nb votants'].min()), int(df_votes['nb votants'].max()), (int(df_votes['nb votants'].min()), int(df_votes['nb votants'].max())), 1)
+    nb_voters = st.sidebar.slider("Number of voters", int(df_votes['nb votants'].min()), int(df_votes['nb votants'].max()), (int(df_votes['nb votants'].min()), int(df_votes['nb votants'].max())), 1)
 
     #creates masks from the sidebar selection widgets
     mask_nb_voters = df_votes['nb votants'].between(nb_voters[0], nb_voters[1])
@@ -65,7 +65,7 @@ def app():
         st.title('Vote vizualisation tool')
 
     st.header('Data (all the votes from June 2017 to mid March 2021)')
-    st.write(df_votes_selected)
+    #st.write(df_votes_selected)
         
     ### Vote repartition
     row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER))
@@ -73,7 +73,7 @@ def app():
     with row1_1, _lock:
         st.header('Repartition of vote presence')
         fig, ax = plt.subplots(figsize=(5, 5))
-        ax = sns.histplot(data=df_votes_selected, x="nb votants", hue="accepted", bins=40)
+        ax = sns.histplot(data=df_votes_selected, x="number of voters", hue="accepted", bins=40)
         st.pyplot(fig)
 
     with row1_2, _lock:
