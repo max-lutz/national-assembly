@@ -30,7 +30,10 @@ def get_data_votes():
 @st.cache
 def get_data_deputies():
     df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_dep.csv'))
-    df = df.drop(columns=['family name', 'first name', 'date of birth'])
+    #create the value age from the date of birth of the deputies
+    df['age']  = df['date of birth'].astype(str).str[0:4]
+    df['age']  = date.today().year - df['age'].astype(int)
+    df['departement'] = df['dep'].astype(str) + ' ('+ df['num_dep'] + ')'
     return df
 
 @st.cache
@@ -57,36 +60,41 @@ def get_data_vote_total():
     df['scrutin'] = df['scrutin'].astype("category")
     return df
 
-def app():
+#def app():
     #configuration of the page
     #st.set_page_config(layout="wide")
-    matplotlib.use("agg")
-    _lock = RendererAgg.lock
+matplotlib.use("agg")
+_lock = RendererAgg.lock
 
-    SPACER = .2
-    ROW = 1
-
-    votes = get_data_votes()
-    df_polpar = get_data_political_parties()
-    df_vote_total = get_data_vote_total()
-
-    # Sidebar 
-    #selection box for the different features
-    st.sidebar.header('Select what to display')
-    #nb_voters = st.sidebar.slider("Voters", int(votes['nb votants'].min()), int(votes['nb votants'].max()), (int(votes['nb votants'].min()), int(votes['nb votants'].max())), 1)
-
-    #creates masks from the sidebar selection widgets
-    #mask_nb_voters = votes['nb votants'].between(nb_voters[0], nb_voters[1])
-
-    #display_df = votes[mask_nb_voters]
+SPACER = .2
+ROW = 1
 
 
-    title_spacer1, title, title_spacer_2 = st.beta_columns((.1,ROW,.1))
+df_dep = get_data_deputies()
+votes = get_data_votes()
+df_polpar = get_data_political_parties()
+df_vote_total = get_data_vote_total()
 
-    with title:
-        st.title('Deputy information')
+# Sidebar 
+#selection box for the different features
+st.sidebar.header('Select what to display')
+departement_selected = st.sidebar.selectbox('Select departement', df_dep.sort_values(by=['num_dep'])['departement'].unique())
+#nb_voters = st.sidebar.slider("Voters", int(votes['nb votants'].min()), int(votes['nb votants'].max()), (int(votes['nb votants'].min()), int(votes['nb votants'].max())), 1)
 
-    st.header('Data include votes and commissions')
-    #st.write(df_vote_total.sample(20))
-    st.write(df_vote_total.describe())
-    st.write(df_vote_total.info())
+#creates masks from the sidebar selection widgets
+mask_departement = df_dep['departement'].isin([departement_selected])
+
+display_df = df_dep[mask_departement]
+
+
+title_spacer1, title, title_spacer_2 = st.beta_columns((.1,ROW,.1))
+
+with title:
+    st.title('Deputy information')
+
+st.header('Data include votes and commissions')
+#st.write(df_vote_total.sample(20))
+st.write(df_vote_total.describe())
+st.write(df_vote_total.info())
+
+st.write(display_df)
