@@ -34,6 +34,7 @@ def get_data_deputies():
     df['age']  = df['date of birth'].astype(str).str[0:4]
     df['age']  = date.today().year - df['age'].astype(int)
     df['departement'] = df['dep'].astype(str) + ' ('+ df['num_dep'] + ')'
+    df['full_name'] = df['first name'].astype(str) + ' '+ df['family name']
     return df
 
 @st.cache
@@ -79,13 +80,16 @@ df_vote_total = get_data_vote_total()
 #selection box for the different features
 st.sidebar.header('Select what to display')
 departement_selected = st.sidebar.selectbox('Select departement', df_dep.sort_values(by=['num_dep'])['departement'].unique())
-#nb_voters = st.sidebar.slider("Voters", int(votes['nb votants'].min()), int(votes['nb votants'].max()), (int(votes['nb votants'].min()), int(votes['nb votants'].max())), 1)
+sex_selected = st.sidebar.selectbox('Select sex', ['both','female','male'])
+sex_selected = [sex_selected]
+if sex_selected == ['both']:
+    sex_selected = ['female', 'male']
 
 #creates masks from the sidebar selection widgets
 mask_departement = df_dep['departement'].isin([departement_selected])
+mask_sex = df_dep['sex'].isin(sex_selected)
 
-display_df = df_dep[mask_departement]
-
+display_df = df_dep[mask_departement & mask_sex]
 
 title_spacer1, title, title_spacer_2 = st.beta_columns((.1,ROW,.1))
 
@@ -93,6 +97,15 @@ with title:
     st.title('Deputy information')
 
 st.header('Data include votes and commissions')
+
+
+row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.beta_columns((0.1,ROW,0.1,ROW, 0.1))
+
+with row0_1:
+    deputy_selected = st.selectbox('Select deputy', display_df.sort_values(by=['sex', 'full_name'])['full_name'].unique())
+
+display_df = df_dep[df_dep['full_name'].isin([deputy_selected])]
+
 #st.write(df_vote_total.sample(20))
 st.write(df_vote_total.describe())
 st.write(df_vote_total.info())
