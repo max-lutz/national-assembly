@@ -45,6 +45,15 @@ def get_data_political_parties():
     df = df.drop(columns=['code'])
     return df
 
+@st.cache
+def get_data_organs():
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_organs.csv'))
+    return df
+
+@st.cache
+def get_data_deputies_in_organs():
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_deputies_in_organs.csv'))
+    return df
 
 @st.cache
 def get_data_vote_total():
@@ -77,6 +86,8 @@ df_dep = get_data_deputies()
 df_votes = get_data_votes()
 df_polpar = get_data_political_parties()
 df_vote_total = get_data_vote_total()
+df_organs = get_data_organs()
+df_deputies_in_organs = get_data_deputies_in_organs()
 
 # Sidebar 
 #selection box for the different features
@@ -98,6 +109,14 @@ display_df = df_dep[mask_departement & mask_sex & mask_pol_parties]
 deputy_selected = st.sidebar.selectbox('List of deputies corresponding', display_df.sort_values(by=['sex', 'full_name'])['full_name'].unique())
 deputy = df_dep[df_dep['full_name'].isin([deputy_selected])].reset_index()
 
+df_dep_in_org = df_deputies_in_organs.loc[df_deputies_in_organs['code_deputy'] == deputy['code'][0]]
+df_org = pd.merge(df_dep_in_org, df_organs, left_on='code_organe', right_on='code').drop(columns=['code_organe', 'code_deputy', 'code'])
+
+drop_list = ['GA', 'PARPOL', 'ASSEMBLEE', 'GP']
+for item in drop_list:
+    df_org = df_org.drop(df_org[(df_org['type'] == item)].index)
+df_org = df_org.drop_duplicates()
+
 title_spacer1, title, title_spacer_2 = st.beta_columns((.1,ROW,.1))
 
 with title:
@@ -109,3 +128,8 @@ st.write(deputy)
 row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.beta_columns((0.1,ROW,0.1,ROW, 0.1))
 with row0_1:
     st.write(deputy['title'][0] + ' ' + deputy['full_name'][0])
+
+st.write(df_org)
+
+st.text(df_org)
+
