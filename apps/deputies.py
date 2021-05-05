@@ -9,8 +9,6 @@ import os
 from matplotlib.backends.backend_agg import RendererAgg
 from datetime import date
   
-#st.set_page_config(layout="wide")
-
 #Loading the data
 @st.cache
 def get_data_votes():
@@ -26,7 +24,6 @@ def get_data_votes():
     df.columns = df.columns.str.replace('demandeur ', '')
     return df
 
-#Loading the data
 @st.cache
 def get_data_deputies():
     df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_dep.csv'))
@@ -65,7 +62,6 @@ def get_data_vote_total():
         'abstentions' : bool,
         'par delegation' : bool
             })
-    #df['scrutin'] = df['scrutin'].map(lambda x: x.lstrip('VTANR5L15V'))
     df['cause'] = df['cause'].fillna('none')
     df['cause'] = df['cause'].astype("category")
     df['deputy code'] = df['deputy code'].astype("category")
@@ -74,14 +70,14 @@ def get_data_vote_total():
 
 #def app():
     #configuration of the page
-    #st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 matplotlib.use("agg")
 _lock = RendererAgg.lock
 
 SPACER = .2
 ROW = 1
 
-
+#Load dataframes
 df_dep = get_data_deputies()
 df_votes = get_data_votes()
 df_polpar = get_data_political_parties()
@@ -104,32 +100,33 @@ mask_departement = df_dep['departement'].isin([departement_selected])
 mask_sex = df_dep['sex'].isin(sex_selected)
 mask_pol_parties = df_dep['pol party'].isin(pol_party_selected)
 
+#Apply the mask
 display_df = df_dep[mask_departement & mask_sex & mask_pol_parties]
 
+#Make a selection box with pre-selected deputies
 deputy_selected = st.sidebar.selectbox('List of deputies corresponding', display_df.sort_values(by=['sex', 'full_name'])['full_name'].unique())
 deputy = df_dep[df_dep['full_name'].isin([deputy_selected])].reset_index()
 
+#get all the organs the deputy selected is belonging to
 df_dep_in_org = df_deputies_in_organs.loc[df_deputies_in_organs['code_deputy'] == deputy['code'][0]]
 df_org = pd.merge(df_dep_in_org, df_organs, left_on='code_organe', right_on='code').drop(columns=['code_organe', 'code_deputy', 'code'])
-
 drop_list = ['GA', 'PARPOL', 'ASSEMBLEE', 'GP']
 for item in drop_list:
     df_org = df_org.drop(df_org[(df_org['type'] == item)].index)
 df_org = df_org.drop_duplicates()
 
 title_spacer1, title, title_spacer_2 = st.beta_columns((.1,ROW,.1))
-
 with title:
     st.title('Deputy information')
 st.header('Data include votes and commissions')
 
-st.write(deputy)
+st.write(deputy['title'][0] + ' ' + deputy['full_name'][0])
+st.write('Deputy of ' + deputy['pol party'][0] + ', elected in the circumscription number ' + str(deputy['circo'][0]) + ' in the region of ' + deputy['dep'][0])
+st.write('Part of the ' + df_org.loc[df_org['type'] == 'COMPER']['name'].to_list()[0])
+study_groups_list = df_org.loc[df_org['type'] == 'GE']['name'].to_list()
+text = ''
+for study_group in study_groups_list:
+    text = text + study_group + ', '
+st.write('Also part of the study groups on : ' + text[0:-2])
 
-row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.beta_columns((0.1,ROW,0.1,ROW, 0.1))
-with row0_1:
-    st.write(deputy['title'][0] + ' ' + deputy['full_name'][0])
-
-st.write(df_org)
-
-st.text(df_org)
 
