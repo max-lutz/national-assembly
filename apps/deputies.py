@@ -88,12 +88,14 @@ df_deputies_in_organs = get_data_deputies_in_organs()
 # Sidebar 
 #selection box for the different features
 st.sidebar.header('Select what to display')
-departement_selected = st.sidebar.selectbox('Select departement', df_dep.sort_values(by=['num_dep'])['departement'].unique())
+departement_selected = st.sidebar.selectbox('Select departement', df_dep.sort_values(by=['num_dep'])['departement'].unique(),
+                                            help='Select a region to filter out deputies')
 sex_selected = st.sidebar.selectbox('Select sex', ['both','female','male'])
 sex_selected = [sex_selected]
 if sex_selected == ['both']:
     sex_selected = ['female', 'male']
-pol_party_selected = st.sidebar.multiselect('Select political parties', df_polpar['abreviated_name'].unique().tolist(), df_polpar['abreviated_name'].unique().tolist())
+pol_party_selected = st.sidebar.multiselect('Select political parties', df_polpar['abreviated_name'].unique().tolist(), df_polpar['abreviated_name'].unique().tolist(),
+                                            help='Select one or multiple political parties to filter out deputies')
 
 #creates masks from the sidebar selection widgets
 mask_departement = df_dep['departement'].isin([departement_selected])
@@ -118,7 +120,7 @@ df_org = df_org.drop_duplicates()
 title_spacer1, title, title_spacer_2 = st.beta_columns((.1,ROW,.1))
 with title:
     st.title('Deputy information')
-st.header('Data include votes and commissions')
+st.header('')
 
 st.write(deputy['title'][0] + ' ' + deputy['full_name'][0])
 st.write('Deputy of ' + deputy['pol party'][0] + ', elected in the circumscription number ' + str(deputy['circo'][0]) + ' in the region of ' + deputy['dep'][0])
