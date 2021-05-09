@@ -140,3 +140,33 @@ for study_group in study_groups_list:
 st.write('Also part of the study groups on : ' + text[0:-2])
 
 
+#calculate presence to vote
+#get the average presence to the votes and average position of each party
+st.text(df_vote_total)
+
+nb_votes = len(df_vote_total['scrutin'].unique())
+nb_deputies = len(df_vote_total['deputy code'].unique())
+df_vote_total['vote'] = 1
+for column in ['pour', 'contre', 'abstentions', 'non votants', 'par delegation']:
+    df_vote_total[column] = df_vote_total[column].astype(int)
+
+selected_deputy_vote_information = df_vote_total.loc[df_vote_total['deputy code'] == deputy['code'][0]]
+selected_deputy_vote_information = selected_deputy_vote_information.agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'non votants':'sum', 'par delegation':'sum', 'vote':'sum'})
+
+selected_deputy_vote_information['vote percentage'] = selected_deputy_vote_information['vote']/nb_votes
+
+all_deputy_vote_information = df_vote_total
+all_deputy_vote_information = all_deputy_vote_information.agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'non votants':'sum', 'par delegation':'sum', 'vote':'sum'})
+
+all_deputy_vote_information['vote percentage'] = all_deputy_vote_information['vote']/(nb_votes*nb_deputies)
+st.text(selected_deputy_vote_information)
+st.text(all_deputy_vote_information)
+
+# #Sum all votes of deputies
+# df_vote_total = df_vote_total.drop(columns=['scrutin', 'deputy code']).groupby(['pol party']).agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'non votants':'sum', 'par delegation':'sum', 'vote':'sum'})
+# df_vote_total = pd.merge(df_vote_total, df_pol_parties.drop(columns=['name']), left_on='pol party', right_on='pol party')
+
+# #calculate the average presence to the votes and average position of each party
+# for column in ['vote', 'pour', 'contre', 'abstentions', 'non votants', 'par delegation']:
+#     df_vote_total[column] = df_vote_total[column]/(df_vote_total['members']*nb_votes)
+# df_vote_total = df_vote_total.sort_values(by=['vote'], ascending=False).reset_index(drop=True)
