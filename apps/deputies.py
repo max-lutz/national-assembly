@@ -85,11 +85,19 @@ df_vote_total = get_data_vote_total()
 df_organs = get_data_organs()
 df_deputies_in_organs = get_data_deputies_in_organs()
 
+departement_list = ['']
+for i in range(len(df_dep.sort_values(by=['num_dep'])['departement'].unique())):
+    departement_list.append(df_dep.sort_values(by=['num_dep'])['departement'].unique()[i])
+
+
 # Sidebar 
 #selection box for the different features
 st.sidebar.header('Select what to display')
-departement_selected = st.sidebar.selectbox('Select departement', df_dep.sort_values(by=['num_dep'])['departement'].unique(),
-                                            help='Select a region to filter out deputies')
+departement_selected = st.sidebar.selectbox('Select departement', departement_list, help='Select a region to filter out deputies')
+if(departement_selected == ''):
+    departement_selected = df_dep.sort_values(by=['num_dep'])['departement'].unique()
+else:
+    departement_selected = [departement_selected]
 sex_selected = st.sidebar.selectbox('Select sex', ['both','female','male'])
 sex_selected = [sex_selected]
 if sex_selected == ['both']:
@@ -98,7 +106,7 @@ pol_party_selected = st.sidebar.multiselect('Select political parties', df_polpa
                                             help='Select one or multiple political parties to filter out deputies')
 
 #creates masks from the sidebar selection widgets
-mask_departement = df_dep['departement'].isin([departement_selected])
+mask_departement = df_dep['departement'].isin(departement_selected)
 mask_sex = df_dep['sex'].isin(sex_selected)
 mask_pol_parties = df_dep['pol party'].isin(pol_party_selected)
 
