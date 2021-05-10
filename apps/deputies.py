@@ -56,12 +56,13 @@ def get_data_deputies_in_organs():
 def get_data_vote_total():
     df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_vote_total.csv'),
     dtype={
-        'pour': bool,
-        'contre': bool,
-        'non votants' : bool,
-        'abstentions' : bool,
-        'par delegation' : bool
+        'pour': float,
+        'contre': float,
+        'non votants' : float,
+        'abstentions' : float,
+        'par delegation' : float
             })
+    df['vote'] = 1
     df['cause'] = df['cause'].fillna('none')
     df['cause'] = df['cause'].astype("category")
     df['deputy code'] = df['deputy code'].astype("category")
@@ -146,19 +147,20 @@ st.text(df_vote_total)
 
 nb_votes = len(df_vote_total['scrutin'].unique())
 nb_deputies = len(df_vote_total['deputy code'].unique())
-df_vote_total['vote'] = 1
 for column in ['pour', 'contre', 'abstentions', 'non votants', 'par delegation']:
-    df_vote_total[column] = df_vote_total[column].astype(int)
+    df_vote_total[column] = df_vote_total[column].astype(float)
 
 selected_deputy_vote_information = df_vote_total.loc[df_vote_total['deputy code'] == deputy['code'][0]]
 selected_deputy_vote_information = selected_deputy_vote_information.agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'non votants':'sum', 'par delegation':'sum', 'vote':'sum'})
-
+for column in ['pour', 'contre', 'abstentions', 'non votants', 'par delegation']:
+    selected_deputy_vote_information[column] = (selected_deputy_vote_information[column]/selected_deputy_vote_information['vote'])
 selected_deputy_vote_information['vote percentage'] = selected_deputy_vote_information['vote']/nb_votes
 
 all_deputy_vote_information = df_vote_total
 all_deputy_vote_information = all_deputy_vote_information.agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'non votants':'sum', 'par delegation':'sum', 'vote':'sum'})
-
 all_deputy_vote_information['vote percentage'] = all_deputy_vote_information['vote']/(nb_votes*nb_deputies)
+
+
 st.text(selected_deputy_vote_information)
 st.text(all_deputy_vote_information)
 
