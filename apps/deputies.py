@@ -143,7 +143,6 @@ st.write('Also part of the study groups on : ' + text[0:-2])
 
 #calculate presence to vote
 #get the average presence to the votes and average position of each party
-st.text(df_vote_total)
 
 nb_votes = len(df_vote_total['scrutin'].unique())
 nb_deputies = len(df_vote_total['deputy code'].unique())
