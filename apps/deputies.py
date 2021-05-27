@@ -131,14 +131,21 @@ with title:
     st.title('Deputy information')
 st.header('')
 
-st.write(deputy['title'][0] + ' ' + deputy['full_name'][0])
-st.write('Deputy of ' + deputy['pol party'][0] + ', elected in the circumscription number ' + str(deputy['circo'][0]) + ' in the region of ' + deputy['dep'][0])
-st.write('Part of the ' + df_org.loc[df_org['type'] == 'COMPER']['name'].to_list()[0])
+### Vote repartition
+row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER))
+
+with row1_1:
+    st.write(deputy['title'][0] + ' ' + deputy['full_name'][0])
+    st.write('Deputy of ' + deputy['pol party'][0] + ', elected in the circumscription number ' + str(deputy['circo'][0]) + ' in the region of ' + deputy['dep'][0])
+    st.write('Part of the ' + df_org.loc[df_org['type'] == 'COMPER']['name'].to_list()[0])
+
 study_groups_list = df_org.loc[df_org['type'] == 'GE']['name'].to_list()
 text = ''
 for study_group in study_groups_list:
-    text = text + study_group + ', '
-st.write('Also part of the study groups on : ' + text[0:-2])
+    text = text + '\n* ' + study_group
+
+with row1_2:
+    st.markdown('Also part of the study groups on : ' + text[0:-2])
 
 
 #calculate presence to vote
@@ -171,3 +178,18 @@ st.text(all_deputy_vote_information)
 # for column in ['vote', 'pour', 'contre', 'abstentions', 'non votants', 'par delegation']:
 #     df_vote_total[column] = df_vote_total[column]/(df_vote_total['members']*nb_votes)
 # df_vote_total = df_vote_total.sort_values(by=['vote'], ascending=False).reset_index(drop=True)
+
+
+### Political parties
+row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
+with row2_1, _lock:
+    
+    vote_percentage = round(selected_deputy_vote_information['vote percentage']*100,2)
+    st.write(vote_percentage)
+
+    st.header("Participation to votes")
+    fig, ax = plt.subplots(figsize=(5, 5))
+    ax.pie([vote_percentage, 100-vote_percentage], wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' })
+    label = ax.annotate(str(vote_percentage)+'%', xy=(0,-0.15), fontsize=22, ha='center')
+    plt.gcf().gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
+    st.pyplot(fig)
