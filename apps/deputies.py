@@ -180,7 +180,7 @@ st.text(all_deputy_vote_information)
 # df_vote_total = df_vote_total.sort_values(by=['vote'], ascending=False).reset_index(drop=True)
 
 
-### Political parties
+### Participation to votes
 row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
 with row2_1, _lock:
     
@@ -191,5 +191,17 @@ with row2_1, _lock:
     fig, ax = plt.subplots(figsize=(5, 5))
     ax.pie([vote_percentage, 100-vote_percentage], wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' })
     label = ax.annotate(str(vote_percentage)+'%', xy=(0,-0.15), fontsize=22, ha='center')
+    plt.gcf().gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
+    st.pyplot(fig)
+
+
+#vote 
+row3_spacer1, row3_1, row3_spacer2, row3_2, row3_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
+with row3_1, _lock:
+    st.header("Vote")
+    vote = [selected_deputy_vote_information['pour'], selected_deputy_vote_information['contre'], selected_deputy_vote_information['abstentions']]
+    vote.append(selected_deputy_vote_information['pour'] + selected_deputy_vote_information['contre'] + selected_deputy_vote_information['abstentions'])
+    fig, ax = plt.subplots(figsize=(5, 5))
+    ax.pie(vote, labels=['pour', 'contre', 'abstention', ''], wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors= ['green', 'red', 'blue', 'white'])
     plt.gcf().gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
     st.pyplot(fig)
