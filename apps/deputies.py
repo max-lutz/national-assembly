@@ -132,19 +132,13 @@ with title:
     st.title('Deputy information')
 st.header('')
 
-img_path = os.path.join(os.getcwd(), 'data', 'pictures', deputy['code'][0]+ '.png')
-st.write(img_path)
-
-img = np.array(Image.open(img_path))
-
-st.image(img)
-
-
 ### Vote repartition
-row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER))
+row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3, row1_3, row1_space4 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER, ROW, SPACER))
 
 with row1_1:
-    
+    st.image(np.array(Image.open(os.path.join(os.getcwd(), 'data', 'pictures', deputy['code'][0]+ '.jpg'))))
+
+with row1_2:
     st.write(deputy['title'][0] + ' ' + deputy['full_name'][0])
     st.write('Deputy of ' + deputy['pol party'][0] + ', elected in the circumscription number ' + str(deputy['circo'][0]) + ' in the region of ' + deputy['dep'][0])
     st.write('Part of the ' + df_org.loc[df_org['type'] == 'COMPER']['name'].to_list()[0])
@@ -154,7 +148,7 @@ text = ''
 for study_group in study_groups_list:
     text = text + '\n* ' + study_group
 
-with row1_2:
+with row1_3:
     st.markdown('Also part of the study groups on : ' + text[0:-2])
 
 
