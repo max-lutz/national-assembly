@@ -127,29 +127,31 @@ for item in drop_list:
     df_org = df_org.drop(df_org[(df_org['type'] == item)].index)
 df_org = df_org.drop_duplicates()
 
-title_spacer1, title, title_spacer_2 = st.beta_columns((.1,ROW,.1))
+row, title, row = st.beta_columns((SPACER, ROW, SPACER))
 with title:
     st.title('Deputy information')
-st.header('')
+    st.header('')
 
-### Vote repartition
-row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3, row1_3, row1_space4 = st.beta_columns((SPACER,ROW, SPACER,ROW, SPACER, ROW, SPACER))
+
+row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3 = st.beta_columns((SPACER,ROW, SPACER, ROW, SPACER))
 
 with row1_1:
-    st.image(np.array(Image.open(os.path.join(os.getcwd(), 'data', 'pictures', deputy['code'][0]+ '.jpg'))))
-
-with row1_2:
     st.write(deputy['title'][0] + ' ' + deputy['full_name'][0])
+    st.write('Born on the ', deputy['date of birth'][0])
+    st.write('Former activity : ', deputy['activity'][0])
     st.write('Deputy of ' + deputy['pol party'][0] + ', elected in the circumscription number ' + str(deputy['circo'][0]) + ' in the region of ' + deputy['dep'][0])
     st.write('Part of the ' + df_org.loc[df_org['type'] == 'COMPER']['name'].to_list()[0])
+
+with row1_2:
+    st.image(np.array(Image.open(os.path.join(os.getcwd(), 'data', 'pictures', deputy['code'][0]+ '.jpg'))))
 
 study_groups_list = df_org.loc[df_org['type'] == 'GE']['name'].to_list()
 text = ''
 for study_group in study_groups_list:
-    text = text + '\n* ' + study_group
+    text = text + study_group + ', '
 
-with row1_3:
-    st.markdown('Also part of the study groups on : ' + text[0:-2])
+st.text('')
+st.write('Also part of the study groups on : ' + text[0:-2])
 
 
 #calculate presence to vote
@@ -170,9 +172,10 @@ all_deputy_vote_information = df_vote_total
 all_deputy_vote_information = all_deputy_vote_information.agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'non votants':'sum', 'par delegation':'sum', 'vote':'sum'})
 all_deputy_vote_information['vote percentage'] = all_deputy_vote_information['vote']/(nb_votes*nb_deputies)
 
-
-st.text(selected_deputy_vote_information)
-st.text(all_deputy_vote_information)
+deputies_party_vote_information = df_vote_total
+#deputies_party_vote_information = deputies_party_vote_information.loc[deputies_party_vote_information['']]
+all_deputy_vote_information.agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'non votants':'sum', 'par delegation':'sum', 'vote':'sum'})
+deputies_party_vote_information['vote percentage'] = all_deputy_vote_information['vote']/(nb_votes*nb_deputies)
 
 # #Sum all votes of deputies
 # df_vote_total = df_vote_total.drop(columns=['scrutin', 'deputy code']).groupby(['pol party']).agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'non votants':'sum', 'par delegation':'sum', 'vote':'sum'})
@@ -189,14 +192,19 @@ row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3 = st.beta_columns((SPAC
 with row2_1, _lock:
     
     vote_percentage = round(selected_deputy_vote_information['vote percentage']*100,2)
-    st.write(vote_percentage)
 
     st.header("Participation to votes")
     fig, ax = plt.subplots(figsize=(5, 5))
-    ax.pie([vote_percentage, 100-vote_percentage], wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' })
-    label = ax.annotate(str(vote_percentage)+'%', xy=(0,-0.15), fontsize=22, ha='center')
+    ax.pie([100-vote_percentage, vote_percentage, 100], wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors= ['lightgrey', 'blue', 'white'])
+    label = ax.annotate(str(vote_percentage)+'%', xy=(0, 0.1), fontsize=22, ha='center')
     plt.gcf().gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
     st.pyplot(fig)
+
+with row2_2:
+    vote_percentage = round(all_deputy_vote_information['vote percentage']*100,2)
+    st.header('')
+    st.write('Average participation to votes : ' + str(vote_percentage) + '%')
+    st.write('Average participation to votes : ' + str(vote_percentage) + '%')
 
 
 #vote 
