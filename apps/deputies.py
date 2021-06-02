@@ -83,7 +83,7 @@ ROW = 1
 df_dep = get_data_deputies()
 df_votes = get_data_votes()
 df_polpar = get_data_political_parties()
-df_vote_total = get_data_vote_total()
+df_vote_total = get_data_vote_total().copy()
 df_organs = get_data_organs()
 df_deputies_in_organs = get_data_deputies_in_organs()
 
@@ -173,19 +173,13 @@ all_deputy_vote_information = all_deputy_vote_information.agg({'pour':'sum','con
 all_deputy_vote_information['vote percentage'] = all_deputy_vote_information['vote']/(nb_votes*nb_deputies)
 
 deputies_party_vote_information = df_vote_total
-#deputies_party_vote_information = deputies_party_vote_information.loc[deputies_party_vote_information['']]
-all_deputy_vote_information.agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'non votants':'sum', 'par delegation':'sum', 'vote':'sum'})
-deputies_party_vote_information['vote percentage'] = all_deputy_vote_information['vote']/(nb_votes*nb_deputies)
+deputy_list = df_dep.loc[df_dep['pol party'] == deputy['pol party'][0]]['code'].to_list()
+deputies_party_vote_information = deputies_party_vote_information[deputies_party_vote_information['deputy code'].isin(deputy_list)]
+deputies_party_vote_information = deputies_party_vote_information.agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'non votants':'sum', 'par delegation':'sum', 'vote':'sum'})
+deputies_party_vote_information['vote percentage'] = deputies_party_vote_information['vote']/(nb_votes*len(deputy_list))
 
-# #Sum all votes of deputies
-# df_vote_total = df_vote_total.drop(columns=['scrutin', 'deputy code']).groupby(['pol party']).agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'non votants':'sum', 'par delegation':'sum', 'vote':'sum'})
-# df_vote_total = pd.merge(df_vote_total, df_pol_parties.drop(columns=['name']), left_on='pol party', right_on='pol party')
-
-# #calculate the average presence to the votes and average position of each party
-# for column in ['vote', 'pour', 'contre', 'abstentions', 'non votants', 'par delegation']:
-#     df_vote_total[column] = df_vote_total[column]/(df_vote_total['members']*nb_votes)
-# df_vote_total = df_vote_total.sort_values(by=['vote'], ascending=False).reset_index(drop=True)
-
+st.text(len(deputy_list))
+st.text(deputies_party_vote_information)
 
 ### Participation to votes
 row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
@@ -204,6 +198,7 @@ with row2_2:
     vote_percentage = round(all_deputy_vote_information['vote percentage']*100,2)
     st.header('')
     st.write('Average participation to votes : ' + str(vote_percentage) + '%')
+    vote_percentage = round(deputies_party_vote_information['vote percentage']*100,2)
     st.write('Average participation to votes : ' + str(vote_percentage) + '%')
 
 
