@@ -178,9 +178,6 @@ deputies_party_vote_information = deputies_party_vote_information[deputies_party
 deputies_party_vote_information = deputies_party_vote_information.agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'non votants':'sum', 'par delegation':'sum', 'vote':'sum'})
 deputies_party_vote_information['vote percentage'] = deputies_party_vote_information['vote']/(nb_votes*len(deputy_list))
 
-st.text(len(deputy_list))
-st.text(deputies_party_vote_information)
-
 ### Participation to votes
 row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
 with row2_1, _lock:
@@ -197,9 +194,10 @@ with row2_1, _lock:
 with row2_2:
     vote_percentage = round(all_deputy_vote_information['vote percentage']*100,2)
     st.header('')
-    st.write('Average participation to votes : ' + str(vote_percentage) + '%')
+    st.write('Average participation to votes')
+    st.write('All deputies : ' + str(vote_percentage) + '%')
     vote_percentage = round(deputies_party_vote_information['vote percentage']*100,2)
-    st.write('Average participation to votes : ' + str(vote_percentage) + '%')
+    st.write('Deputies from the same party : ' + str(vote_percentage) + '%')
 
 
 #vote 
@@ -212,3 +210,6 @@ with row3_1, _lock:
     ax.pie(vote, labels=['pour', 'contre', 'abstention', ''], wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors= ['green', 'red', 'blue', 'white'])
     plt.gcf().gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
     st.pyplot(fig)
+
+
+    
