@@ -1,0 +1,705 @@
+code,type,name,abreviated_name
+PO191887,ORGEXTPARL,Commission nationale pour l'élimination des mines antipersonnel,160
+PO201115,API,Section française de l'Assemblée parlementaire de la francophonie (A.P.F.),APF
+PO201269,DELEG,Délégation de l'Assemblée nationale aux droits des femmes et à l'égalité des chances entre les hommes et les femmes,EGA
+PO201361,ORGEXTPARL,Comité local d'information et de suivi du laboratoire souterrain de Bure,161
+PO205834,ORGEXTPARL,Conseil de surveillance du Fonds de financement de la protection complémentaire de la couverture universelle du risque maladie,162
+PO206064,API,Groupe français de l'Union interparlementaire (U.I.P.),UIP
+PO211490,COMSENAT,"Commission de la culture, de l'éducation et de la communication",AFCLC
+PO211491,COMSENAT,"Commission des affaires étrangères, de la défense et des forces armées",ETRDC
+PO211493,COMSENAT,Commission des affaires sociales,SOCIC
+PO211494,COMSENAT,Commission des finances,FINCC
+PO211495,COMSENAT,"Commission des lois constitutionnelles, de législation, du suffrage universel, du Règlement et d'administration générale",LOISC
+PO215413,ORGEXTPARL,Conseil d'orientation des retraites,164
+PO218793,ORGEXTPARL,Conseil d'administration de la société France Télévisions,167
+PO218801,ORGEXTPARL,Conseil supérieur de la réserve militaire,168
+PO218806,ORGEXTPARL,Comité national de l'initiative française pour les récifs coralliens,169
+PO221678,ORGEXTPARL,Conseil d'orientation stratégique du Fonds de solidarité prioritaire,17
+PO223397,ORGEXTPARL,Conseil d'orientation pour la prévention des risques naturels majeurs,172
+PO226838,ORGEXTPARL,Commission de suivi de la détention provisoire,175
+PO226840,ORGEXTPARL,Conseil national de la sécurité routière,176
+PO229333,ORGEXTPARL,Commission d'examen des pratiques commerciales,179
+PO229652,ORGEXTPARL,Conseil de surveillance du Fonds de réserve pour les retraites,180
+PO271850,COMNL,Commission chargée de l'application de l'article 26 de la Constitution,IMMU
+PO271860,COMNL,Commission spéciale chargée de vérifier et d'apurer les comptes,COMP
+PO273589,OFFPAR,Office parlementaire d'évaluation des choix scientifiques et technologiques,OTS
+PO273730,ORGEXTPARL,Observatoire de la sécurité des moyens de paiement,187
+PO275380,ORGEXTPARL,Haut conseil des musées de France,186
+PO286005,GROUPESENAT,Groupe Les Républicains,UMPPO
+PO288374,ORGEXTPARL,Conseil national consultatif des personnes handicapées,190
+PO294795,ORGEXTPARL,Observatoire national du service public de l'électricité et du gaz,193
+PO296218,ORGEXTPARL,Conseil d'administration du Fonds pour le développement de l'intermodalité dans les transports,189
+PO296224,ORGEXTPARL,Haut Conseil pour l'avenir de l'Assurance maladie,194
+PO303479,ORGEXTPARL,Comité consultatif du secteur financier,200
+PO303484,ORGEXTPARL,Comité consultatif de la législation et de la réglementation financières,201
+PO304272,API,Délégation française à l'Assemblée parlementaire du Conseil de l'Europe,CEUR
+PO307788,ORGEXTPARL,Conseil d'orientation de l'Agence de la biomédecine,199
+PO307796,ORGEXTPARL,Conseil d'orientation de l'Observatoire national de la délinquance et des réponses pénales,203
+PO307800,ORGEXTPARL,Conseil d'administration de l'Institut national des hautes études de la sécurité et de la justice,202
+PO308067,ORGEXTPARL,Conseil d'administration de l'Ecole nationale d'administration,204
+PO309245,ORGEXTPARL,Conférence nationale des services d'incendie et de secours,205
+PO309456,ORGEXTPARL,Conseil d'administration de l'Etablissement public du musée du quai Branly,208
+PO309463,GROUPESENAT,UDI-UC,UCPOL
+PO310693,DELEGSENAT,Délégation aux droits des femmes et à l'égalité des chances entre les hommes et les femmes,211DE
+PO312799,ORGEXTPARL,Conseil de la Caisse nationale de solidarité pour l'autonomie,212
+PO312834,ORGEXTPARL,Conseil d'orientation pour l'emploi,213
+PO312952,ORGEXTPARL,Commission nationale d'agrément des associations représentant les usagers dans les instances hospitalières ou de santé publique,214
+PO322336,ORGEXTPARL,Conférence de la ruralité,220
+PO322345,ORGEXTPARL,Conseil d'administration du Centre national des oeuvres universitaires et scolaires,222
+PO326044,ORGEXTPARL,Comité de suivi de l'Agence française de l'adoption,234
+PO382559,ORGEXTPARL,Haut comité pour la transparence et l'information sur la sécurité nucléaire,233
+PO382940,PRESREP,Présidence de la République : M. Nicolas Sarkozy,PRESI
+PO394842,ORGEXTPARL,Conseil d'administration de l'Office français de protection des réfugiés et apatrides,196
+PO394845,ORGEXTPARL,Conseil d'administration de l'Office franco-allemand pour la jeunesse,226
+PO395066,API,Délégation française à l'Assemblée parlementaire de la coopération économique de la mer Noire,AE NOIRE
+PO395489,ORGEXTPARL,Conseil de l'immobilier de l'Etat,236
+PO402232,OFFPAR,Délégation parlementaire au renseignement,DPR
+PO405191,DELEGSENAT,Délégation parlementaire au renseignement,RENSE
+PO407326,ORGEXTPARL,Conseil d'administration de l'Institut des hautes études pour la science et la technologie,239
+PO415287,COMNL,Commission des affaires européennes,DUE
+PO415381,ORGEXTPARL,Commission nationale chargée de l'examen du respect des obligations de réalisation de logements sociaux,243
+PO415444,ORGEXTPARL,Comité national de l'eau,245
+PO418452,ORGEXTPARL,Conseil supérieur des archives,246
+PO418736,API,Délégation française à l'Assemblée parlementaire de la Méditerranée,APM
+PO418755,API,Assemblée parlementaire de l'Union pour la Méditerranée,APEM
+PO419369,ORGEXTPARL,Comité de suivi de la mise en oeuvre des dispositions relatives au cinéma et autres arts et industries de l'image animée,249
+PO419451,ORGEXTPARL,Conseil d'administration de la Société en charge de l'audiovisuel extérieur de la France,250
+PO419604,COMPER,Commission des affaires culturelles et de l'éducation,CION-CEDU
+PO419610,COMPER,Commission des affaires économiques,CION-ECO
+PO419865,COMPER,Commission du développement durable et de l'aménagement du territoire,CION-DVP
+PO420120,COMPER,Commission des affaires sociales,CION-SOC
+PO420375,COMNL,Comité d'évaluation et de contrôle des politiques publiques,CEC
+PO420387,DELEGSENAT,Délégation sénatoriale aux collectivités territoriales et à la décentralisation,COLTE
+PO420388,DELEGSENAT,Délégation sénatoriale à la prospective,PROSD
+PO420854,ORGEXTPARL,Conseil d'administration de l'Etablissement national des produits de l'agriculture et de la mer,251
+PO422375,ORGEXTPARL,Comité des usagers du réseau routier national,255
+PO422826,ORGEXTPARL,Agence nationale de l'habitat,258
+PO422874,ORGEXTPARL,Comité de surveillance des investissements d'avenir,259
+PO423869,ORGEXTPARL,Comité consultatif de gouvernance mentionné à l'article L.213-4-1 du code de l'environnement,262
+PO423980,ORGEXTPARL,Conseil supérieur de l'aviation civile,261
+PO424150,ORGEXTPARL,Comité stratégique de l'Agence du service civique,264
+PO424481,ORGEXTPARL,Conseil national de l'industrie,265
+PO425949,ORGEXTPARL,Conseil national de l'aide aux victimes,269
+PO425985,ORGEXTPARL,Commission nationale d'évaluation des politiques de l'État outre-mer,270
+PO426509,ORGEXTPARL,Commission consultative de suivi des conséquences des essais nucléaires,272
+PO427570,ORGEXTPARL,Conseil d'orientation stratégique de l'Institut français,274
+PO427757,ORGEXTPARL,Conseil d'administration de l'Institut français,273
+PO428024,ORGEXTPARL,Commission scientifique nationale des collections,276
+PO429559,ORGEXTPARL,Conseil national de la mer et des littoraux,282
+PO429567,ORGEXTPARL,Haut Conseil à la vie associative,283
+PO430925,ORGEXTPARL,Commission nationale de la vidéoprotection,286
+PO430982,ORGEXTPARL,Comité consultatif auprès du conseil d'administration de l'Etablissement public de Paris-Saclay,285
+PO435816,ORGEXTPARL,Comité stratégique auprès du conseil de surveillance de la société du Grand Paris,288
+PO436945,DELEGSENAT,Délégation sénatoriale à l'Outre-mer,DSOMD
+PO438189,ORGEXTPARL,Conseil du service militaire adapté,289
+PO516753,COMSENAT,Commission des affaires économiques,CAECO
+PO516754,COMSENAT,Commission de l'aménagement du territoire et du développement durable,CDDCO
+PO528194,ORGEXTPARL,comité consultatif du Fonds pour le développement de la vie associative,290
+PO528198,ORGEXTPARL,Conseil supérieur des gens de mer,291
+PO540562,ORGEXTPARL,Conseil d'administration de Campus France,292
+PO586606,ORGEXTPARL,Conseil national du sport,308
+PO58974,API,Délégation française à l'Assemblée parlementaire de l'OTAN,OTAN
+PO58976,API,Délégation française à l'Assemblée parlementaire de l'Organisation pour la Sécurité et la Coopération en Europe (O.S.C.E.),OSC
+PO58996,CJR,Cour de justice de la République,CJR
+PO59046,COMPER,Commission de la défense nationale et des forces armées,CION_DEF
+PO59047,COMPER,Commission des affaires étrangères,CION_AFETR
+PO59048,COMPER,"Commission des finances, de l'économie générale et du contrôle budgétaire",CION_FIN
+PO59051,COMPER,"Commission des lois constitutionnelles, de la législation et de l'administration générale de la République",CION_LOIS
+PO60156,ORGEXTPARL,Conseil d'administration de l'Office national des anciens combattants et victimes de guerre,8
+PO60159,ORGEXTPARL,Conseil national du bruit,12
+PO60160,ORGEXTPARL,Commission de surveillance de la Caisse des dépôts et consignations,13
+PO60168,ORGEXTPARL,Commission d'accès aux documents administratifs,22
+PO60170,ORGEXTPARL,Conseil supérieur de l'énergie,24
+PO60174,ORGEXTPARL,Conseil d'administration du Conservatoire de l'espace littoral et des rivages lacustres,29
+PO60175,ORGEXTPARL,Comité consultatif national d'éthique pour les sciences de la vie et de la santé,30
+PO60179,ORGEXTPARL,Comité des finances locales,34
+PO60181,ORGEXTPARL,Conseil supérieur de la forêt et du bois,37
+PO60185,ORGEXTPARL,Commission nationale de l'informatique et des libertés (CNIL),42
+PO60189,ORGEXTPARL,Conseil supérieur de la mutualité,46
+PO60192,ORGEXTPARL,Conseil d'administration du Centre national d'art et de culture Georges Pompidou,49
+PO60193,ORGEXTPARL,Conseil supérieur des prestations sociales agricoles,50
+PO60196,ORGEXTPARL,Conseil d'administration du centre hospitalier national d'ophtalmologie des quinze-vingts,53
+PO60210,ORGEXTPARL,Commission des comptes de la sécurité sociale,67
+PO60214,ORGEXTPARL,"Commission supérieure des sites, perspectives et paysages",72
+PO60215,ORGEXTPARL,Conseil national de l'information statistique,73
+PO60218,ORGEXTPARL,Conseil d'administration de l'agence nationale pour l'amélioration des conditions de travail,76
+PO60222,ORGEXTPARL,Conseil national de l'habitat,81
+PO60227,ORGEXTPARL,Commission nationale consultative des droits de l'homme,86
+PO60235,ORGEXTPARL,Conseil national de la montagne,95
+PO60237,ORGEXTPARL,Conseil d'administration de l'établissement d'hospitalisation public de Fresnes spécifiquement destiné à l'accueil des personnes incarcérées,97
+PO60238,ORGEXTPARL,Conseil national du tourisme,98
+PO60239,ORGEXTPARL,Conseil d'administration de la société nationale de programme Radio-France,99
+PO60244,ORGEXTPARL,Conseil d'administration de l'Institut national de l'audiovisuel (INA),104
+PO60248,ORGEXTPARL,Conseil national de l'enseignement supérieur et de la recherche,108
+PO60249,ORGEXTPARL,Commission supérieure de la codification,109
+PO60252,ORGEXTPARL,Commission supérieure du numérique et des postes,112
+PO60255,ORGEXTPARL,Conseil d'administration de l'Agence pour l'enseignement français à l'étranger,115
+PO60260,ORGEXTPARL,Conseil d'administration de l'Agence de l'environnement et de la maîtrise de l'énergie,120
+PO60263,ORGEXTPARL,Comité national de l'organisation sanitaire et sociale,124
+PO60265,ORGEXTPARL,Conseil d'administration de l'Agence française de développement,126
+PO60266,ORGEXTPARL,Conseil national des politiques de lutte contre la pauvreté et l'exclusion sociale,127
+PO60267,ORGEXTPARL,Comité de surveillance du Fonds de solidarité vieillesse,128
+PO60276,ORGEXTPARL,"Conseil d'orientation de la participation, de l'intéressement, de l'épargne salariale et de l'actionnariat salarié",137
+PO60277,ORGEXTPARL,Observatoire national de la sécurité et de l'accessibilité des établissements d'enseignement,138
+PO60280,ORGEXTPARL,Conseil national de l'aménagement et du développement du territoire,141
+PO60286,ORGEXTPARL,Comité de surveillance de la Caisse d'amortissement de la dette sociale,147
+PO60291,ORGEXTPARL,Commission nationale du débat public,152
+PO60294,ORGEXTPARL,Conseil d'administration de l'établissement public national d'aménagement et de restructuration des espaces commerciaux et artisanaux,155
+PO60295,ORGEXTPARL,Conseil d'administration de la Fondation du patrimoine,156
+PO60296,ORGEXTPARL,Conseil d'administration de l'Institut des hautes études de défense nationale,157
+PO60297,ORGEXTPARL,Commission consultative du secret de la défense nationale,158
+PO675659,DELEG,Délégation aux outre-mer,OM
+PO677769,ORGEXTPARL,conseil d'administration du Centre national du cinéma et de l'image animée,300
+PO678097,ORGEXTPARL,conseil d'administration de l'Agence nationale de sécurité du médicament et des produits de santé,299
+PO678275,ORGEXTPARL,Haut Conseil du financement de la protection sociale,296
+PO679161,ORGEXTPARL,Commission nationale des bourses de l'Agence pour l'enseignement français à l'étranger,121
+PO681380,ORGEXTPARL,Conseil national des sapeurs-pompiers volontaires,297
+PO683289,ORGEXTPARL,Haut comité de la qualité de service dans les transports,295
+PO684926,PARPOL,Parti communiste français,PCF
+PO684932,PARPOL,Parti socialiste,PS
+PO684934,PARPOL,Parti radical de gauche,PRG
+PO684936,PARPOL,Europe Écologie Les Verts,EELV
+PO684938,PARPOL,Mouvement Démocrate,MODEM
+PO685809,PARPOL,Calédonie Ensemble,CAL
+PO685813,PARPOL,Cap sur l'avenir,CAP
+PO685893,PARPOL,Parti progressiste martiniquais,PPM
+PO687635,ORGEXTPARL,Haut Conseil à l'égalité entre les femmes et les hommes,303
+PO692699,ORGEXTPARL,Comité national d'orientation de la société anonyme Bpifrance,306
+PO693055,ORGEXTPARL,Conseil national du numérique (formation élargie),304
+PO693355,ORGEXTPARL,Observatoire de la laïcité,307
+PO695379,ORGEXTPARL,Conseil consultatif des Terres australes et antarctiques françaises,310
+PO696474,ORGEXTPARL,Conseil national des professions du spectacle,309
+PO696836,ORGEXTPARL,Conseil national de la transition écologique,314
+PO697215,ORGEXTPARL,Conseil supérieur des programmes,313
+PO698635,ORGEXTPARL,"Commission nationale de l'aménagement, de l'urbanisme et du foncier",311
+PO699035,ORGEXTPARL,Conseil national d'évaluation du système scolaire,316
+PO699638,ORGEXTPARL,Commission pour la modernisation de la diffusion audiovisuelle,317
+PO700940,ORGEXTPARL,Comité de suivi de la loi d'orientation et de programmation pour la refondation de l'école de la République,319
+PO702822,ORGEXTPARL,Conseil national d'évaluation des normes,320
+PO702841,ORGEXTPARL,Conseil d'administration de l'Agence de financement des infrastructures de transport de France,323
+PO702883,GOUVERNEMENT,Gouvernement,GVT
+PO704856,DELEGSENAT,Délégation sénatoriale aux entreprises,ENTRE
+PO705103,PARPOL,Non rattaché(s),NR
+PO707215,ORGEXTPARL,Conseil de surveillance de la SNCF,332
+PO707219,ORGEXTPARL,Agence française d'expertise technique internationale,328
+PO709155,ORGEXTPARL,Commission nationale des services,312
+PO709158,ORGEXTPARL,Conseil national du développement et de la solidarité internationale,318
+PO709162,ORGEXTPARL,Comité national d'orientation et de suivi du fods de soutien mentionné à l'article 92 de la loi du 29 décembre 2013 de finances pour 2014,322
+PO709167,ORGEXTPARL,Observatoire de la récidive et de la désistance,324
+PO709169,ORGEXTPARL,"Conseil national de l'emploi, de la formation et de l'orientation professionnelles",325
+PO709174,ORGEXTPARL,Comité chargé d'assister la plate-forme nationale des interceptions judiciaires,326
+PO709176,ORGEXTPARL,Conseil national de l'insertion par l'activité économique,327
+PO709179,ORGEXTPARL,Agence Business France,329
+PO709182,ORGEXTPARL,Centre national du livre,330
+PO709185,ORGEXTPARL,Haut conseil de l'évaluation de la recherche et de l'enseignement supérieur,331
+PO709188,ORGEXTPARL,Conseil national des villes,333
+PO709190,ORGEXTPARL,Conseil supérieur de la construction et de l'efficacité énergétique,334
+PO709193,ORGEXTPARL,Conseil national du syndrome de l'immunodéficience acquise (SIDA) et des hépatites virales chroniques,335
+PO709195,ORGEXTPARL,Haut comité du système de transport ferroviaire,336
+PO709198,ORGEXTPARL,Commission nationale consultative des gens du voyage,337
+PO709200,ORGEXTPARL,Conseil supérieur de la coopération,338
+PO709202,ORGEXTPARL,Commission nationale de la déontologie et des alertes en matière de santé publique et d'environnement,339
+PO709204,ORGEXTPARL,Conseil national de l'économie sociale et solidaire,340
+PO709206,ORGEXTPARL,Conseil supérieur de l'Agence France-Presse,341
+PO709209,ORGEXTPARL,Commission nationale de contrôle des techniques de renseignement,342
+PO710396,PARPOL,Les Républicains,REP
+PO710611,PARPOL,Debout la France,DEBOU
+PO711487,ORGEXTPARL,"Observatoire des espaces naturels, agricoles et forestiers",344
+PO711496,ORGEXTPARL,Commission de concertation du commerce,345
+PO716998,ORGEXTPARL,Comité stratégique de l’établissement public société canal seine-nord europe,359
+PO717136,PRESREP,Présidence de la République : M. Emmanuel Macron,PRESI
+PO717296,ORGEXTPARL,Comité de pilotage de l'Observatoire de la formation des prix et des marges des produits alimentaires,363
+PO717298,ORGEXTPARL,Commission nationale du patrimoine et de l'architecture,362
+PO717301,ORGEXTPARL,Conseil d'administration de l'agence nationale de santé publique,361
+PO717306,ORGEXTPARL,Conseil scientifique sur les processus de radicalisation,360
+PO717308,ORGEXTPARL,Comité de massif des Alpes,364
+PO717311,ORGEXTPARL,Comité de massif du Massif central,365
+PO717314,ORGEXTPARL,Comité de massif du Massif jurassien,366
+PO717317,ORGEXTPARL,Comité de massif des Pyrénées,367
+PO717320,ORGEXTPARL,Comité de massif du Massif vosgiens,368
+PO717323,ORGEXTPARL,Comité de bassin Adour-Garonne,369
+PO717325,ORGEXTPARL,Comité de bassin Artois-Picardie,370
+PO717327,ORGEXTPARL,Comité de bassin Loire-Bretagne,371
+PO717329,ORGEXTPARL,Comité de bassin Rhin-Meuse,372
+PO717333,ORGEXTPARL,Comité de bassin Seine-Normandie,374
+PO717335,ORGEXTPARL,Conseil d'administration de l'Office français de l'immigration et de l'intégration,343
+PO717338,ORGEXTPARL,Conseil d'administration du centre scientifique et technique du bâtiment,346
+PO717340,ORGEXTPARL,Comité de gestion des charges de service public de l'électricité,347
+PO717345,ORGEXTPARL,Conseil d'administration du fonds d'expérimentation territoriale contre le chômage de longue durée,348
+PO717347,ORGEXTPARL,Conseil d'administration du Fonds national des aides à la pierre,349
+PO717349,ORGEXTPARL,Instance nationale du supportérisme,350
+PO717351,ORGEXTPARL,Conseil supérieur de l'éducation routière,351
+PO717423,ORGEXTPARL,"Haut Conseil de la famille, de l'enfance et de l'âge – Famille",375
+PO717425,ORGEXTPARL,"Haut Conseil de la famille, de l'enfance et de l'âge – Enfance et adolescence",376
+PO717427,ORGEXTPARL,"Haut Conseil de la famille, de l'enfance et de l'âge - Âge",377
+PO717433,ORGEXTPARL,Conseil de surveillance de l’établissement public société canal seine-nord europe,358
+PO717436,ORGEXTPARL,Commission départementale prévue à l'article L. 2334-37 du code général des collectivités territoriales,357
+PO717438,ORGEXTPARL,Conseil consultatif de la garde nationale,356
+PO717440,ORGEXTPARL,Conseil d’administration de l’agence francaise pour la biodiversité,355
+PO717442,ORGEXTPARL,Comite national de dialogue de l’Agence nationale des frequences,354
+PO717460,ASSEMBLEE,Assemblée nationale de la 15ème législature,AN
+PO723569,GP,Non inscrit,NI
+PO725343,CONFPT,Conférence des Présidents,CNFPDT
+PO730934,GP,Les Républicains,LR
+PO730940,GP,Gauche démocrate et républicaine,GDR
+PO730958,GP,La France insoumise,FI
+PO730964,GP,La République en Marche,LAREM
+PO732334,ORGEXTPARL,Commission permanente pour la protection sociale des Français de l'étranger,88
+PO732421,GROUPESENAT,Groupe La République En Marche,LREMP
+PO732735,DELEGBUREAU,Délégation chargée des activités internationales,INT
+PO732748,DELEGBUREAU,Délégation chargée de l'application du statut du député,STA
+PO732758,DELEGBUREAU,Délégation chargée de la communication et de la presse,COM
+PO732768,DELEGBUREAU,Délégation chargée du patrimoine artistique et culturel de l'Assemblée nationale,PAT
+PO732775,DELEGBUREAU,Délégation chargée d'examiner la recevabilité des propositions de loi,PPL
+PO732781,DELEGBUREAU,Délégation chargée des représentants d'intérêts et des groupes d'études,REP
+PO732859,ORGEXTPARL,Conseil d'administration de l'Institut de radioprotection et de sûreté nucléaire,379
+PO732861,ORGEXTPARL,Conseil national de l'enseignement supérieur et de la recherche artistiques et culturels,378
+PO732866,MISINFO,Mission d'évaluation et de contrôle des lois de financement de la sécurité sociale,MECSS
+PO732919,GA,France-Bielorussie,BIE
+PO732924,GA,France-République démocratique du Congo,RDC
+PO732929,GA,France-Soudan du Sud,SSOUD
+PO732934,GA,France-Singapour,SING
+PO732939,GA,France-Portugal,POR
+PO732944,GA,France-Suède,SUE
+PO732949,GA,France-Indonésie,INDO
+PO732954,GA,France-Comores,COM
+PO732959,GA,France-Ghana,GHA
+PO732964,GA,France-Mali,MALI
+PO732969,GA,France-Estonie,EST
+PO732974,GA,France-Argentine,ARG
+PO732979,GA,France-Mongolie,MONG
+PO732984,GA,France-Afrique du Sud,AFS
+PO732990,GA,France-Kosovo,KOS
+PO733001,GA,France-Pérou,PER
+PO733006,GEVI,Groupe d'études à vocation internationale sur la Libye,LIBY
+PO733011,GA,France-Afghanistan,AFG
+PO733017,GA,France-Congo,CONG
+PO733022,GA,France-Bahrein,BAH
+PO733027,GA,France-Somalie,SOM
+PO733032,GA,France-Egypte,EGY
+PO733037,GA,France-Népal,NEP
+PO733042,GA,France-Hongrie,HONG
+PO733047,GEVI,Groupe d'études à vocation internationale sur les questions de la République populaire démocratique de Corée (Corée du Nord ),NK
+PO733052,GA,France-Géorgie,GEOR
+PO733057,GA,France-Italie,IT
+PO733062,GA,France-Suriname,SUR
+PO733067,GA,France-Angola,ANG
+PO733072,GA,France-Québec,QUE
+PO733077,GA,France-Croatie,CRO
+PO733082,GA,France-Ethiopie,ETH
+PO733087,GA,France-Colombie,COL
+PO733092,GA,France-Djibouti,DJI
+PO733097,GA,France-Philippines,PHI
+PO733102,GA,France-Danemark,DAN
+PO733107,GA,France-Tchèque (République),TCHE
+PO733112,GA,France-Seychelles,SEY
+PO733117,GA,France-Chine,CHIN
+PO733122,GA,France-Chili,CHIL
+PO733127,GA,France-Thaïlande,THAI
+PO733132,GA,France-République centrafricaine,CTRA
+PO733137,GA,France-Namibie,NAM
+PO733142,GA,France-Equateur,EQU
+PO733147,GA,France-Yemen,YEM
+PO733152,GA,France-Lituanie,LITU
+PO733157,GA,France-Corée du Sud,COR
+PO733162,GA,France-Sri Lanka,SRI
+PO733167,GA,France-Cap-Vert,CAPV
+PO733172,GA,France-São Tomé et Príncipe,SAO
+PO733177,GA,France-Suisse,SUI
+PO733182,GA,France-Madagascar,MAD
+PO733187,GA,France-Turquie,TURQ
+PO733192,GA,France-Monténégro,MONT
+PO733197,GA,France-Finlande,FIN
+PO733202,GA,France-Iran,IRAN
+PO733207,GA,France-Chypre,CHY
+PO733212,GA,France-Malte,MALT
+PO733217,GEVI,Groupe d'études à vocation internationale sur les relations avec le Saint Siège,VAT
+PO733222,GA,France-Bolivie,BOL
+PO733227,GA,France-Albanie,ALB
+PO733232,GA,France-Burkina Faso,BURK
+PO733237,GA,France-Soudan,SOUD
+PO733242,GA,France-Vanuatu,VAN
+PO733247,GA,France-Roumanie,ROU
+PO733252,GA,France-Bangladesh,BANG
+PO733262,GA,France-République d'Autriche,A
+PO733267,GA,France-Bénin,BEN
+PO733272,GA,France-Gambie,GAMB
+PO733277,GA,France-Venezuela,VEN
+PO733282,GA,France-Guinée équatoriale,GUINEQ
+PO733287,GA,France-Laos,LAO
+PO733292,GA,France-Niger,NIG
+PO733297,GA,France-Azerbaïdjan,AZE
+PO733302,GA,France-Royaume des Pays-Bas,PB
+PO733307,GA,France-Japon,JAP
+PO733312,GA,France-Ukraine,URK
+PO733317,GA,France-Mexique,MEX
+PO733322,GA,France-Canada,CAN
+PO733327,GA,France-Guinée,GUI
+PO733332,GA,France-Togo,TOG
+PO733337,GA,France-Bosnie-Herzégovine,BHZ
+PO733342,GA,France-Maroc,MAR
+PO733347,GA,France-Grèce,GR
+PO733352,GA,France-Liban,LIBAN
+PO733357,GA,France-Luxembourg,LUX
+PO733362,GA,France-Oman,OMAN
+PO733367,GA,France-Emirats Arabes Unis,EAU
+PO733372,GA,France-Australie,AUS
+PO733377,GA,France-Erythrée,ERY
+PO733382,GA,France-Israël,ISR
+PO733387,GA,France-Islande,ISL
+PO733397,GA,France-Vietnam,VIET
+PO733402,GA,France-Guinée-Bissao,GUINB
+PO733407,GA,France-Koweit,KOW
+PO733412,GA,France-Russie,RUS
+PO733417,GA,France-Irlande,IRL
+PO733422,GA,France-Serbie,SER
+PO733427,GA,France-Slovénie,SLOVE
+PO733432,GA,France-Mozambique,MOZ
+PO733437,GA,France-Monaco,MON
+PO733442,GA,France-Jordanie,JOR
+PO733447,GA,France-République du Paraguay,PAR
+PO733452,GA,France-Tunisie,TUN
+PO733457,GA,France-Mauritanie,MAURIT
+PO733462,GEVI,Groupe d'études à vocation internationale France-Palestine,PAL
+PO733467,GA,France-République dominicaine,DOM
+PO733472,GA,France-Algérie,ALG
+PO733477,GA,France-Uruguay,URUG
+PO733482,GA,France-Arabie Saoudite,SAOU
+PO733487,GA,France-Birmanie,BIR
+PO733492,GA,France-Nouvelle-Zélande,NZ
+PO733497,GA,France-Cambodge,CAMB
+PO733502,GA,France-Kazakhstan,KAZ
+PO733507,GA,France-Nigéria,NGRA
+PO733512,GA,France-Cameroun,CAM
+PO733517,GA,France-Arménie,ARM
+PO733522,GA,France-Cuba,CUBA
+PO733527,GA,France-Andorre,AND
+PO733532,GA,France-Maurice,MAUR
+PO733537,GA,France-Bulgarie,BULG
+PO733542,GA,France-Macédoine du Nord,MAC
+PO733547,GA,France-Irak,IRAK
+PO733552,GA,France-Lettonie,LET
+PO733557,GA,France-Gabon,GAB
+PO733562,GA,France-Sénégal,SEN
+PO733567,GA,France-Etats-Unis,USA
+PO733572,GA,France-Pologne,PL
+PO733577,GA,France-Royaume-Uni de Grande-Bretagne et d'Irlande du Nord,GB
+PO733587,GA,France-Moldavie,MOL
+PO733592,GA,France-Haïti,HAI
+PO733597,GA,France-Brésil,BRES
+PO733602,GA,France-Liberia,LIBE
+PO733607,GA,France-Allemagne,ALL
+PO733612,GA,France-Pakistan,PAK
+PO733617,GA,France-Inde,IND
+PO733622,GEVI,Groupe d'études à vocation internationale sur les questions liées à l'expansion de l'économie taïwanaise,TAI
+PO733627,GA,France-Espagne,ESP
+PO733632,GA,France-Qatar,QAT
+PO733637,GA,France-Belgique,BEL
+PO733642,GA,France-Norvège,NOR
+PO733647,GA,France-Timor Est,TIM
+PO733652,GA,France-Côte d'Ivoire,CI
+PO733657,GA,France-Jamaïque,JAM
+PO733662,GA,France-Slovaquie,SLOVA
+PO733667,GA,France-Tchad,TCH
+PO733672,GA,France-Amérique centrale,AMQC
+PO733678,GA,France-Asie centrale,ASC
+PO733683,GA,France-Bruneï Malaisie,BRMA
+PO733693,GA,France-Botswana Zambie Zimbabwe,BZZ
+PO733698,GA,France-Burundi Rwanda,BURW
+PO733703,GA,France-Kenya Ouganda Tanzanie,KOT
+PO734384,MISINFOPRE,Mission d'information sur l'avenir institutionnel de la Nouvelle-Calédonie,AVENIRNC
+PO741019,GROUPESENAT,Groupe République et Territoires / Les Indépendants,RTLIP
+PO741916,MISINFO,Groupe de travail sur les Jeux olympiques et paralympiques de Paris en 2024,JOP2024
+PO742477,ORGEXTPARL,Office franco-québécois pour la jeunesse,381
+PO743166,GEVI,Groupe d'études à vocation internationale France-Syrie,SYR
+PO743840,GEVI,Groupe d'études à vocation internationale sur les Iles du Pacifique,IP
+PO744127,DELEG,Délégation aux collectivités territoriales et à la décentralisation,COLTER
+PO744155,MISINFO,Mission d'information sur les mers et océans : quelle stratégie pour la France ?,OCEANS
+PO744312,MISINFO,Mission d'information sur la diplomatie culturelle et francophonie - le rayonnement artistique et intellectuel de la France : quelle stratégie à dix ans ?,CULTURE
+PO744856,PARPOL,La France Insoumise,FI
+PO744858,PARPOL,Régions et peuples solidaires,RPS
+PO744860,PARPOL,Tapura Huiraatira,TPH
+PO744862,PARPOL,Tavini Huiraatira No Te Ao Maohi - Front de libération de Polynésie,THN
+PO744864,PARPOL,"Union des démocrates, radicaux et libéraux",UDRL
+PO746314,PARPOL,Non déclaré(s),ND
+PO746398,MISINFO,Mission d'évaluation et de contrôle,MEC
+PO746612,GE,Action humanitaire,ACTHUMAN
+PO746618,GE,Alimentation et santé,ALIMSANTE
+PO746624,GE,Amiante,AMIANTE
+PO746629,GE,Antisémitisme,ANTISEMITI
+PO746634,GE,"Arctique, Antarctique et Terres Australes et Antarctiques françaises – droit des grands fonds",ARCTIQUE
+PO746639,GE,Assurances,ASSURANCES
+PO746644,GE,Attractivité de la France – export – investissement – compétitivité,ATTRACTIVI
+PO746649,GE,Autisme,AUTISME
+PO746654,GE,Aviculture,AVICULTURE
+PO746659,GE,Cancer,CANCER
+PO746669,GE,"Chasse, pêche et territoires",CHASSETERR
+PO746674,GE,Cheval,CHEVAL
+PO746679,GE,Chrétiens d'orient,CHRETIENOR
+PO746684,GE,Cinéma et production audiovisuelle,CINÉMA
+PO746689,GE,"Commerce, artisanat et métiers d'art",COMMERCE
+PO746735,GE,Condition animale,CONDANIMAL
+PO746748,GE,Conditions d'accueil des migrants,ACCMIGRANT
+PO746753,GE,Coopération au développement,COOPDÉVELP
+PO746763,GE,Cybersécurité et souveraineté numérique,CYBERSÉCUR
+PO746768,GE,Déchets ménagers,DÉCHETSMÉN
+PO746791,GE,Diplomatie économique avec l'Afrique,DIPLOAFRIQ
+PO746796,GE,Discriminations et LGBTQI-phobies dans le monde,DISCLGBTPH
+PO746801,GE,Diversité et discriminations liées à l’origine,DISCRORIGI
+PO746806,GE,Droits de l'enfant et protection de la jeunesse,DROITENFAN
+PO746811,GE,Eau et biodiversité,EAUBIODIV
+PO746816,GE,Éco-construction,ÉCOCONSTRU
+PO746821,GE,Économie du sport,ÉCOSPORT
+PO746827,GE,"Économies insulaires françaises, catastrophes naturelles et politiques publiques de développement",ÉCOINSULAI
+PO746832,GE,Économie maritime,ÉCOMARITIM
+PO746837,GE,"Économie numérique de la donnée, de la connaissance et de l'intelligence artificielle",ÉCONUMÉRIQ
+PO746847,GE,Économie sociale et solidaire,ÉCOSOCIAL
+PO746852,GE,Économie verte et économie circulaire,ÉCOVERTE
+PO746857,GE,Énergies vertes,ÉNERGVER
+PO746880,GE,Enjeux de la ruralité,ENJEURURAL
+PO746894,GE,Enjeux d'évolution et de conversion de l'industrie manufacturière,ENJEUMANUF
+PO746899,GE,Enjeux économiques de la filière industrielle énergétique,ENJEUÉNERG
+PO746904,GE,Enseignement privé sous contrat et hors contrat,ENSEIPRIVÉ
+PO746910,GE,Entrepreneuriat au féminin,ENTRFÉMIN
+PO746915,GE,Famille et adoption,FAMILADOPT
+PO746920,GE,Filière brassicole,FILBRASSI
+PO746925,GE,Fin de vie,FINDEVIE
+PO746930,GE,"Forêt, bois, nouveaux usages et industrie du bois",FORÊTBOIS
+PO746935,GE,Francophonie,FRANCOPHON
+PO746957,GE,Gens du voyage,GENSVOYAGE
+PO746962,GE,Îles anglo-normandes,ÎLESANGLO
+PO746972,GE,Illettrisme et illectronisme,ILLETTRISM
+PO746977,GE,Impact des changements climatiques,IMPACTCLIM
+PO746982,GE,Industrie de la défense,INDUSDÉFEN
+PO746987,GE,Industrie du luxe et de moyens,INDUSTLUXE
+PO746992,GE,"Inondations, risques naturels et calamités agricoles",INONDATION
+PO746997,GE,Insertion économique et civique des jeunes,INSERJEUNE
+PO747002,GE,Handicap Inclusion,HANDIINCLU
+PO747017,GE,Jeux vidéo,JEUX VIDÉO
+PO747022,GE,Langue des signes,LANGUESIGN
+PO747027,GE,Langues et cultures régionales,LANGUESRÉG
+PO747032,GE,Les Kurdes,KURDES
+PO747042,GE,Littoral,LITTORAL
+PO747047,GE,Livre et économie du livre et du papier,LIVREPAPIE
+PO747057,GE,Maladie de Lyme,MALADLYME
+PO747062,GE,Maladies rares,MALADIEORP
+PO747072,GE,Mineurs non accompagnés,MINEURNONA
+PO747084,GE,Modernisation des activités agricoles et structuration des filières,MODERNAGRI
+PO747094,GE,Montagne,MONTAGNE
+PO747099,GE,"Parcs nationaux, parcs naturels régionaux et aires protégées",PARCSNATIO
+PO747104,GE,Patrimoine,PATRIMOINE
+PO747109,GE,"Pauvreté, précarité et sans-abri",PAUVRETÉ
+PO747119,GE,Peuple tamoul,PEUPLETAMO
+PO747135,GE,Presse,PRESSE
+PO747140,GE,Prisons et conditions carcérales,PRISONS
+PO747145,GE,Professions paramédicales,PROFPARAMÉ
+PO747150,GE,Rapatriés,RAPATRIÉS
+PO747160,GE,Réserve citoyenne,RÉSERVCITO
+PO747170,GE,RSE - responsabilité sociale des entreprises,RSE-RESPON
+PO747175,GE,Sahara occidental,SAHARAOCCI
+PO747180,GE,Santé à l'école,SANTÉÉCOLE
+PO747185,GE,Santé environnementale,SANTÉENVIR
+PO747190,GE,Santé et numérique,SANTÉETNUM
+PO747195,GE,"Santé mondiale : paludisme, sida et tuberculose",SANTÉMONDI
+PO747200,GE,Secteur aéronautique et spatial,SECTEURAÉR
+PO747210,GE,Sida,SIDA
+PO747215,GE,Sport,SPORT
+PO747220,GE,"Startup, PME et ETI",STARTUPPME
+PO747225,GE,Statut des travailleurs mobiles en Europe,STATRAVMOB
+PO747235,GE,Tibet,TIBET
+PO747241,GE,Thermalisme,THERMALISM
+PO747246,GE,Trufficulture,TRUFFICULT
+PO747251,GE,Urbanisme,URBANISME
+PO747256,GE,Véhicules terrestres,VÉHICTERR
+PO747261,GE,Vie associative et bénévolat,VIEASSOCIA
+PO747266,GE,"Vigne, vin et œnologie",VIGNEVINŒN
+PO747271,GE,Villes et banlieues,VILLESBANL
+PO747276,GE,Villes moyennes,VILLESMOYE
+PO747281,GE,Violences intra-familiales,VIOLENFAM
+PO747286,GE,Voies navigables et transports multimodaux – canaux,VOIESNAVIG
+PO747471,ORGEXTPARL,Commission prévue à l’article 113 de la loi n° 2017-256 du 28 février 2017 de programmation relative à l’égalité réelle outre-mer et portant autres dispositions en matière sociale et économique,382
+PO747850,ORGEXTPARL,Comité chargé de veiller au suivi de la mise en œuvre et à l'évaluation du crédit d'impôt pour la compétitivité et l'emploi,380
+PO751484,GE,Valorisation des activités touristiques,VALACTTOUR
+PO753861,ORGEXTPARL,"Conseil national de la culture scientifique, technique et industrielle",OPECST2006
+PO756284,OFFPAR,Groupe de travail sur les droits et libertés constitutionnels à l'ère numérique,DRTLIBNUM
+PO756671,MISINFO,Mission d’évaluation de la loi n° 2015-1541 du 27 novembre 2015 visant à protéger les sportifs de haut niveau et professionnels et à sécuriser leur situation juridique et sociale,SPORTIFS
+PO756933,ORGEXTPARL,Commission départementale des valeurs locatives des locaux professionnels,383
+PO758403,ORGEXTPARL,Comité d'éthique du comité d'organisation des jeux Olympiques et Paralympiques,384
+PO758409,ORGEXTPARL,Comité des rémunérations du comité d'organisation des jeux Olympiques et Paralympiques,385
+PO758835,GP,Socialistes et apparentés,SOC
+PO759364,COMSPSENAT,PJL préparation du retrait du Royaume-Uni de l'UE,RETRA
+PO759900,GP,Libertés et Territoires,LT
+PO760010,MISINFO,Mission d'information sur les enjeux stratégiques en mer de Chine,CHINE
+PO760017,MISINFO,Mission d'information sur la France et les pays d'Asie centrale,ASIE
+PO76034,CONSTITU,Conseil constitutionnel,ASSEX
+PO760500,MISINFO,Mission flash sur les nouvelles charges en matière de sécurité pour les salles de spectacle et les festivals,SALSPECTAC
+PO760529,MISINFO,Mission flash précocités et troubles associés : quelle prise en charge à l'école ?,PRECOCITE
+PO760558,MISINFO,Mission flash relative à la première évaluation du Loto du patrimoine,LOTOPAT
+PO760588,MISINFO,Mission d'information de la loi du 25 juin 2015 portant transformation de l'université des Antilles et de la Guyane en université des Antilles,UNIVANTILL
+PO760931,MISINFO,Mission d'information sur les relations entre les grands donneurs d'ordre et les sous-traitants dans les filières industrielles,FILIÈRES
+PO761133,MISINFO,Mission d'information relative aux dispositifs médicaux,DM
+PO761239,PARPOL,Rassemblement national,RN
+PO761294,PARPOL,La République en Marche,LAREM
+PO762004,MISINFO,Mission d'information sur l'évaluation de la loi 2016-138 du 11 février 2016 relative à la lutte contre le gaspillage alimentaire,GASPI ALI
+PO762072,MISINFO,Mission d'information relative aux taxes sur les titres de séjour,TTS
+PO762124,MISINFO,Mission d'information relative à la mise en œuvre de la loi organique aux lois de finances,MILOLF
+PO762170,MISINFO,Mission flash sur les aviseurs fiscaux,AF
+PO762207,MISINFO,Mission d'information flash sur l'inclusion bancaire,IB
+PO762533,MISINFO,Mission d'information sur le continuum sécurité-développement,CSDEV
+PO762788,MISINFO,"Mission d'information sur "" Dérèglements climatiques et conflits """,DRGLT CLIM
+PO763229,GE,Air et santé : Impact sur la santé de la qualité de l'air intérieur et extérieur,AIRETSANTE
+PO763234,GE,Élevage pastoral,ELEVAPASTO
+PO763239,GE,Entrée en vigueur du Traité d'interdiction complète des essais nucléaire,ESSAISNUCL
+PO763244,GE,Gastronomie,GASTRONOMI
+PO763249,GE,Hydrogène,HYDROGENE
+PO763254,GE,Objectifs de développement durable,OBJDEVDUR
+PO763259,GE,Prévention santé,PREVSANTE
+PO763264,GE,Sapeurs-pompiers volontaires,SAPPOMPVOL
+PO763269,GE,Spectacle vivant,SPECVIVANT
+PO763336,MISINFO,"Mission d'évaluation de la loi du 7 juillet 2016 sur la liberté de la création, l'architecture et le patrimoine",CREARCHPAT
+PO763346,ORGEXTPARL,Commission départementale de coopération intercommunale,388
+PO764648,MISINFO,Mission d'information relative à l'organisation territoriale de la santé mentale,ORGSANTMEN
+PO765132,OFFPAR,Commission de vérification des fonds spéciaux,CVFS
+PO765869,MISINFOCOM,Mission d’information commune sur le régime des interdictions de stade et le supportérisme,MICSUPPOR
+PO766497,MISINFOPRE,Mission d'information sur la concrétisation des lois,EVALLOIS
+PO766718,CNPS,Commission spéciale chargée d'examiner le projet de loi relatif à la bioéthique,CSBIOETH
+PO766728,MISINFO,Mission d'information pour le suivi de l’application de la loi pour la conservation et la restauration de la cathédrale Notre Dame de Paris et instituant une souscription nationale à cet effet,NOTREDAME
+PO766886,MISINFO,Mission d'information sur le développement du Sahel,DEVSAHEL
+PO766891,MISINFO,Mission d'information sur la protection des espèces menacées,PROESPECES
+PO766896,MISINFO,Mission d'information sur la problématique des pôles : Arctique et Antarctique,PROBPÔLES
+PO767640,COMSPSENAT,Commission spéciale sur la bioéthique,BIOET
+PO767910,MISINFO,Mission flash sur les quotas de chansons francophones à la radio,QUOTASFR
+PO767918,MISINFO,Mission flash sur la réforme du lycée,LYCEE
+PO767958,ORGEXTPARL,Conseil d’administration de l’Institut national du cancer,389
+PO767978,ORGEXTPARL,Conseil national de l'alimentation,390
+PO768088,ORGEXTPARL,Conseil stratégique de la recherche,OPECST2005
+PO768091,MISINFO,Mission d'information sur les plateformes numériques,PLAT NUM
+PO768159,MISINFO,"Mission d’évaluation de la loi n° 2017-261 du 1er mars 2017 visant à préserver l’éthique du sport, à renforcer la régulation et la transparence du sport professionnel et à améliorer la compétitivité des clubs",ETHIQSPORT
+PO768245,MISINFO,Mission flash sur la mise en place de la carte des spécialités dans le cadre de la réforme des lycées,REFLYCEES
+PO768274,MISINFO,Mission flash sur les quotas de chansons francophones diffusées par les radios privées,QUOTASCHAN
+PO768368,MISINFO,Mission d'information sur les géants du numérique,GEANTS NUM
+PO768375,MISINFO,Mission d'information sur la pollution des mers,POLLUMER
+PO768436,MISINFO,"Mission d’évaluation de la Loi n° 2019-180 du 8 mars 2019 visant à renforcer la prise en charge des cancers pédiatriques par la recherche, le soutien aux aidants familiaux, la formation des professionnels et le droit à l'oubli",CANCERSPED
+PO768631,MISINFOPRE,Mission d'information sur l'émergence et l'évolution des différentes formes de racisme et les réponses à y apporter,RACISME
+PO768830,MISINFOCOM,Mission d'information commune sur la réglementation et l'impact des différents usages du cannabis,MICCANNAB
+PO769401,ORGEXTPARL,Conseil national de l'air,386
+PO769407,ORGEXTPARL,Conseil d'administration de l'Office français de la biodiversité,393
+PO769416,ORGEXTPARL,Conseil d'administration de l'Agence nationale du sport,392
+PO769420,ORGEXTPARL,Conseil d'administration de l'Agence nationale de la cohésion des territoires,394
+PO769424,ORGEXTPARL,Conseil d'évaluation de l'école,391
+PO769550,CNPS,Commission spéciale chargée d'examiner le projet de loi instituant un système universel de retraite et le projet de loi organique relatif au système universel de retraite,CSRETRAITE
+PO769821,MISINFO,Mission d'information sur le suivi de la fermeture de la centrale nucléaire de Fessenheim,FESSENHEIM
+PO769895,MISINFO,Partenariat futur entre l'Union européenne et le Royaume-Uni,PARTENUEUK
+PO769900,MISINFO,Mission d'information sur la politique des visas,POLVISAS
+PO769950,DELEGSENAT,Commission de vérification des fonds spéciaux,CVFSD
+PO770023,MISINFO,Mission d'information sur la rentrée scolaire en Guyane,MI GUYANE
+PO770077,MISINFO,Mission d'information sur la géopolitique des matières premières,GEOPOLMAT
+PO770091,MISINFO,Mission d’information sur les conséquences financières et budgétaires de la présence des grands prédateurs sur le territoire national,MIGP
+PO770101,MISINFO,Mission d’information sur les amendes de la circulation et du stationnement routier,MIACSR
+PO770110,MISINFO,Mission d'information sur l'épargne dans un environnement de taux bas,MIEPATXBAS
+PO770124,MISINFO,Mission d'information sur les dotations de soutien à l'investissement du bloc communal,MIDETR
+PO770136,MISINFO,Mission d’information sur les différentes missions confiées par l’administration de l’État à des prestataires extérieurs («outsourcing»),MIOUT
+PO770211,COMSPSENAT,CS ASAP,ASAPC
+PO770488,MISINFO,Mission d'information sur les sels nitrités dans l'industrie agroalimentaire,NITRITES
+PO771036,MISINFO,Mission d'information sur les enjeux économiques de la sécurité privée,ENJÉCOSÉC
+PO771889,GP,UDI et Indépendants,UDI_I
+PO771923,GP,Agir ensemble,AGIR-E
+PO772194,MISINFO,Mission flash sur le financement du CROUS,FINCROUS
+PO772224,MISINFO,Mission flash sur le statut des auteurs,AUTEURS
+PO772253,MISINFO,Mission flash sur la mise en place du dispositif « 2S2C » à l’école,2S2CECOLE
+PO772725,MISINFOCOM,Mission d'information commune relative aux chambres d'agriculture et à leur financement,MICCAF
+PO773371,GOUVERNEMENT,Gouvernement,GVT
+PO773372,MINISTERE,Premier ministre,PRM
+PO773374,MINISTERE,Ministère de l’Europe et des affaires étrangères,EAE
+PO773376,MINISTERE,Ministère de la transition écologique,TRE
+PO773378,MINISTERE,"Ministère de l’éducation nationale, de la jeunesse et des sports",MEN
+PO773380,MINISTERE,"Ministère de l’économie, des finances et de la relance",ECO
+PO773382,MINISTERE,Ministère des armées,ARM
+PO773384,MINISTERE,Ministère de l’intérieur,INT
+PO773386,MINISTERE,"Ministère du travail, de l’emploi et de l’insertion",MTR
+PO773388,MINISTERE,Ministère des outre-mer,MOM
+PO773390,MINISTERE,Ministère de la cohésion des territoires et des relations avec les collectivités territoriales,TER
+PO773392,MINISTERE,Ministère de la justice,JUS
+PO773394,MINISTERE,Ministère de la culture,MIC
+PO773396,MINISTERE,Ministère des solidarités et de la santé,SSA
+PO773398,MINISTERE,Ministère de la mer,MER
+PO773400,MINISTERE,"Ministère de l’enseignement supérieur, de la recherche et de l’innovation",ESR
+PO773402,MINISTERE,Ministère de l’agriculture et de l’alimentation,AGR
+PO773404,MINISTERE,Ministère de la transformation et de la fonction publiques,TFP
+PO773406,MINISTERE,"Ministère auprès du Premier ministre, chargé des relations avec le Parlement et de la participation citoyenne",PRL
+PO773408,MINISTERE,"Ministère auprès du Premier ministre, chargé de l’égalité entre les femmes et les hommes, de la diversité et de l’égalité des chances",ECH
+PO773410,MINISTERE,"Ministère auprès du ministre de l’Europe et des affaires étrangères, chargé du commerce extérieur et de l'attractivité",EXA
+PO773412,MINISTERE,"Ministère auprès de la ministre de la transition écologique, chargé du logement",LOG
+PO773414,MINISTERE,"Ministère auprès de la ministre de la transition écologique, chargé des transports",TRA
+PO773416,MINISTERE,"Ministère auprès du ministre de l’éducation nationale, de la jeunesse et des sports, chargé des sports",SPO
+PO773418,MINISTERE,"Ministère auprès du ministre de l’économie, des finances et de la relance, chargé des comptes publics",CCP
+PO773420,MINISTERE,"Ministère auprès du ministre de l’économie, des finances et de la relance, chargé de l’industrie",IND
+PO773422,MINISTERE,"Ministère auprès du ministre de l’économie, des finances et de la relance, chargé des petites et moyennes entreprises",PME
+PO773424,MINISTERE,"Ministère auprès de la ministre des armées, chargé de la mémoire et des anciens combattants",ANC
+PO773426,MINISTERE,"Ministère auprès du ministre de l’intérieur, chargé de la citoyenneté",CIT
+PO773428,MINISTERE,"Ministère auprès de la ministre du travail, de l’emploi et de l’insertion, chargé de l'insertion",INS
+PO773430,MINISTERE,"Ministère auprès de la ministre de la cohésion des territoires et des relations avec les collectivités territoriales, chargé de la ville",VIL
+PO773432,MINISTERE,"Ministère auprès du ministre des solidarités et de la santé, chargé de l'autonomie",MDA
+PO773434,MINISTERE,"Secrétariat d’État auprès du Premier ministre, porte-parole du Gouvernement",PPRL
+PO773613,MISINFOCOM,Mission d’information commune sur la conditionnalité des aides publiques aux entreprises,MICAIDEPUB
+PO773655,MISINFOPRE,Mission d'information sur le thème « Bâtir et promouvoir une souveraineté numérique nationale et européenne »,SOUVNUM
+PO774070,MINISTERE,"Secrétariat d'État auprès du Premier ministre, chargé des personnes handicapées",HANDI
+PO774072,MINISTERE,"Secrétariat d'État auprès du ministre de l'Europe et des affaires étrangères, chargé du tourisme, des Français de l'étranger et de la francophonie",TOUR
+PO774074,MINISTERE,"Secrétariat d'État auprès du ministre de l'Europe et des affaires étrangères, chargé des affaires européennes",EUR
+PO774076,MINISTERE,"Secrétariat d'État auprès de la ministre de la transition écologique, chargé de la biodiversité",BIO
+PO774078,MINISTERE,"Secrétariat d'État auprès du ministre de l'éducation nationale, de la jeunesse et des sports, chargé de l'éducation prioritaire",EDUPR
+PO774080,MINISTERE,"Secrétariat d'État auprès du ministre de l'éducation nationale, de la jeunesse et des sports, chargé de la jeunesse et de l'engagement",JEU
+PO774082,MINISTERE,"Secrétariat d'État auprès du ministre de l'économie, des finances et de la relance, chargé de l'économie sociale, solidaire et responsable",ESS
+PO774084,MINISTERE,"Secrétariat d'État auprès de la ministre du travail, de l'emploi et de l'insertion, chargé des retraites et de la santé au travail",RETSA
+PO774086,MINISTERE,"Secrétariat d'État auprès de la ministre de la cohésion des territoires et des relations avec les collectivités territoriales, chargé de la ruralité",RURAL
+PO774088,MINISTERE,"Secrétariat d'État auprès du ministre des solidarités et de la santé, chargé de l'enfance et des familles",ENF
+PO774113,MINISTERE,"Secrétariat d'État auprès des ministres de l'économie, des finances et de la relance, et de la cohésion des territoires et des relations avec les collectivités territoriales, chargé de la transition numérique et des communications électroniques",NUM
+PO774834,GP,Mouvement Démocrate (MoDem) et Démocrates apparentés,DEM
+PO776057,MISINFO,mission d’information relative à l’évolution de la consommation de tabac et du rendement de la fiscalité applicable aux produits du tabac pendant le confinement et aux enseignements pouvant en être tirés.,CONSOTABAC
+PO776501,MISINFO,Mission d'information sur les enjeux de la transition écologique pour le Ministère des Armées,MINARMVERT
+PO776524,MISINFO,Mission sur les réserves,RESERVES
+PO776990,GROUPESENAT,Groupe Écologiste - Solidarité et Territoires,GESTP
+PO77707,GROUPESENAT,communiste républicain et citoyen,CRCPO
+PO77708,GROUPESENAT,Non inscrit,NIPOL
+PO77710,GROUPESENAT,Groupe socialiste et républicain,SOCPO
+PO77714,GROUPESENAT,Groupe du rassemblement démocratique et social européen,RDSEP
+PO778818,MISINFO,Mission d’évaluation de la loi n° 2016-1828 du 23 décembre 2016 portant adaptation du deuxième cycle de l’enseignement supérieur français au système Licence Master-Doctorat,SYSTEMELMD
+PO778826,MISINFO,Mission flash sur l’offre jeunesse du service public audiovisuel,OFFREJEUNE
+PO779096,MISINFO,Mission d'information sur les droits des femmes dans le monde et application de la convention d'Istanbul,DROITSFEM
+PO779099,CNPS,Commission spéciale chargée d'examiner le projet de loi confortant le respect des principes de la République,CSPRINCREP
+PO779240,MISINFO,Mission d'information sur l'autonomie alimentaire de la France et au sein de ses territoires,AUTOALIM
+PO779303,MISINFO,Mission de suivi de la commission d’enquête sur la situation et les pratiques de la grande distribution et de ses groupements dans leurs relations commerciales avec les fournisseurs,MI
+PO779461,MISINFO,"Mission d’évaluation de la loi n° 2016-1691 du 9 décembre 2016 relative à la transparence, à la lutte contre la corruption et à la modernisation de la vie économique",SAPIN 2
+PO779524,MISINFO,MI flash parité dans les fonctions électives et exécutives du bloc communal,MI PARITÉ
+PO779613,MISINFOCOM,Mission d'information commune sur les entreprises en difficulté du fait de la crise sanitaire,MICENTDIF
+PO779622,MISINFO,Mission d'information flash sur le référé spécial environnemental,RSE
+PO779931,MISINFO,Mission d'information sur le médicament,MED
+PO780015,MISINFO,Mission d'évaluation des lois du 15 septembre 2017 pour la confiance dans la vie politique,CONFPOL
+PO780094,MISINFO,Mission d'information sur la prolifération des plantes invasives et les moyens pour endiguer cette situation,PLANTES
+PO780186,MISINFO,Mission d'information sur l'emploi des seniors,SENIORS
+PO780290,CNPE,Commission d'enquête sur la lutte contre l'orpaillage illégal en Guyane,CEORPGUY
+PO780477,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion du projet de loi relatif à la bioéthique,2187
+PO780519,MISINFO,Mission d'information sur l'espace,ESPACE
+PO780534,MISINFO,Maladie de Lyme : améliorer la prise en charge des patients,LYME
+PO780709,CNPE,Commission d’enquête relative à la mainmise sur la ressource en eau par les intérêts privés et ses conséquences,CEEAU
+PO780747,MISINFO,Mission d'information relative au financement de la lutte contre la maladie de Lyme (Art. 146 du Règlement),LYMEFIN
+PO780752,MISINFO,Mission d'information sur le surendettement (Art. 146 du Règlement).,MI SUREND
+PO780850,CNPS,Commission spéciale chargée d'examiner le projet de loi portant lutte contre le dérèglement climatique et renforcement de la résilience face à ses effets,CSLDCRRE
+PO781407,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion de la proposition de loi relative à la réforme du courtage de l’assurance et du courtage en opérations de banque et en services de paiement,2581
+PO781458,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion de la proposition de loi visant à améliorer le système de santé par la confiance et la simplification,3470
+PO781499,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion de la proposition de loi améliorant l'efficacité de la justice de proximité et de la réponse pénale,3427
+PO781511,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion du projet de loi organique portant diverses mesures relatives à l’élection du Président de la République,3713
+PO781715,MISINFO,Mission d'information sur la politique de la France et de l'Europe à l'égard de la Chine,PLT CHINE
+PO781746,MISINFO,L'espace indopacifique : enjeux et stratégie pour la France,INDOPACIFI
+PO781914,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion de la proposition de loi rénovant la gouvernance des services publics d’eau potable et d’assainissement en Guadeloupe,3669
+PO781969,MISINFO,Mission d'information sur les enjeux de la défense en Indo-Pacifique,ENJDEFINDP
+PO781981,MISINFO,Mission d'information sur la stabilité au Moyen-Orient dans la perspective de l'après Chammal,STAMYAPCHA
+PO781995,MISINFO,Mission d'information sur la préparation à la haute intensité,PREHAUTINT
+PO782011,MISINFO,Mission d'information sur le plan famille : quel bilan ?,PLANFAMBIL
+PO782025,MISINFO,Mission d'information sur la guerre des drones,GUERDRONES
+PO782096,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion de la proposition de loi pour un nouveau pacte de sécurité respectueux des libertés,3452
+PO782103,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion de la proposition de loi tendant à garantir le droit au respect de la dignité en détention,3948
+PO782197,MISINFO,Mission d'information sur l’ouverture à la concurrence des marchés publics de défense européens,MARPUEUDEF
+PO782307,MISINFO,mission d'information sur la production laitière (hors AOP) en zone de montagne,LAIT MONT
+PO782338,MISINFO,Mission d'information sur la construction d'une indépendance stratégique de l'Europe,INDSTRATEG
+PO78718,SENAT,Sénat ( 5ème République ),SENAT
