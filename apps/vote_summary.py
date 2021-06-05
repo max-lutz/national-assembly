@@ -64,7 +64,9 @@ def app():
     with title:
         st.title('Vote vizualisation tool')
 
-    st.header('Data (all the votes from June 2017 to mid March 2021)')
+    row0_spacer1, row0_1, row0_spacer2 = st.beta_columns((SPACER/2,ROW, SPACER/2))
+    with row0_1:
+        st.header('Data (all the votes from June 2017 to mid March 2021)')
     #st.write(df_votes_selected)
         
     ### Vote repartition
@@ -73,7 +75,8 @@ def app():
     with row1_1, _lock:
         st.header('Repartition of vote presence')
         fig, ax = plt.subplots(figsize=(5, 5))
-        ax = sns.histplot(data=df_votes_selected, x="number of voters", hue="accepted", bins=40)
+        ax = sns.histplot(data=df_votes_selected, x="nb votants", hue="accepted", bins=40)
+        ax.set_xlabel('Number of deputies voting')
         st.pyplot(fig)
 
     with row1_2, _lock:

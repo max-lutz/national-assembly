@@ -137,9 +137,11 @@ def app():
     colors = df_sex['color'].tolist()
 
     with row2_1, _lock:
-        st.header('Percentage of women per political parties')
+        st.header('Women deputies')
         fig, ax = plt.subplots(figsize=(5, 5))
         sns.barplot(x="sex_female", y="pol party", data=df_sex, ax=ax, palette=colors)
+        ax.set_ylabel('Political party')
+        ax.set_xlabel('Percentage of women deputies')
 
         i = 0
         text = (df_sex['sex_female'].round(2)*100).astype(int).to_list()
