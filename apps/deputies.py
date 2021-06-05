@@ -150,8 +150,12 @@ text = ''
 for study_group in study_groups_list:
     text = text + study_group + ', '
 
-st.text('')
-st.write('Also part of the study groups on : ' + text[0:-2])
+
+row2_spacer1, row2_1, row2_spacer2 = st.beta_columns((SPACER/2,ROW,SPACER/2))
+
+with row2_1:
+    st.text('')
+    st.write('Also part of the study groups on : ' + text[0:-2])
 
 
 #calculate presence to vote
@@ -179,8 +183,8 @@ deputies_party_vote_information = deputies_party_vote_information.agg({'pour':'s
 deputies_party_vote_information['vote percentage'] = deputies_party_vote_information['vote']/(nb_votes*len(deputy_list))
 
 ### Participation to votes
-row2_spacer1, row2_1, row2_spacer2, row2_2, row2_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
-with row2_1, _lock:
+row3_spacer1, row3_1, row3_spacer2, row3_2, row3_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
+with row3_1, _lock:
     
     vote_percentage = round(selected_deputy_vote_information['vote percentage']*100,2)
 
@@ -191,25 +195,27 @@ with row2_1, _lock:
     plt.gcf().gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
     st.pyplot(fig)
 
-with row2_2:
+with row3_2:
     vote_percentage = round(all_deputy_vote_information['vote percentage']*100,2)
     st.header('')
-    st.write('Average participation to votes')
-    st.write('All deputies : ' + str(vote_percentage) + '%')
+    st.write('')
+    st.write('Average vote percentage : ' + str(vote_percentage) + '%')
     vote_percentage = round(deputies_party_vote_information['vote percentage']*100,2)
     st.write('Deputies from the same party : ' + str(vote_percentage) + '%')
+    st.write('Deputies with the highest vote percentage : ' + str(round(100*df_vote_total['deputy code'].value_counts()[0]/nb_votes,2)) + '%')
+    st.write('Deputies with the lowest vote percentage : ' + str(round(100*df_vote_total['deputy code'].value_counts()[-5]/nb_votes,2)) + '%')
 
 
 #vote 
-row3_spacer1, row3_1, row3_spacer2, row3_2, row3_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
-with row3_1, _lock:
-    st.header("Vote")
-    vote = [selected_deputy_vote_information['pour'], selected_deputy_vote_information['contre'], selected_deputy_vote_information['abstentions']]
-    vote.append(selected_deputy_vote_information['pour'] + selected_deputy_vote_information['contre'] + selected_deputy_vote_information['abstentions'])
-    fig, ax = plt.subplots(figsize=(5, 5))
-    ax.pie(vote, labels=['pour', 'contre', 'abstention', ''], wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors= ['green', 'red', 'blue', 'white'])
-    plt.gcf().gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
-    st.pyplot(fig)
+# row3_spacer1, row3_1, row3_spacer2, row3_2, row3_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
+# with row3_1, _lock:
+#     st.header("Vote")
+#     vote = [selected_deputy_vote_information['pour'], selected_deputy_vote_information['contre'], selected_deputy_vote_information['abstentions']]
+#     vote.append(selected_deputy_vote_information['pour'] + selected_deputy_vote_information['contre'] + selected_deputy_vote_information['abstentions'])
+#     fig, ax = plt.subplots(figsize=(5, 5))
+#     ax.pie(vote, labels=['pour', 'contre', 'abstention', ''], wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' }, colors= ['green', 'red', 'blue', 'white'])
+#     plt.gcf().gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
+#     st.pyplot(fig)
 
 
     
