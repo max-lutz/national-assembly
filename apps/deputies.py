@@ -95,7 +95,7 @@ def app():
     # Sidebar 
     #selection box for the different features
     st.sidebar.header('Select what to display')
-    departement_selected = st.sidebar.selectbox('Select departement', departement_list, help='Select a region to filter out deputies')
+    departement_selected = st.sidebar.selectbox('Select departement', departement_list)
     if(departement_selected == ''):
         departement_selected = df_dep.sort_values(by=['num_dep'])['departement'].unique()
     else:
@@ -104,8 +104,7 @@ def app():
     sex_selected = [sex_selected]
     if sex_selected == ['both']:
         sex_selected = ['female', 'male']
-    pol_party_selected = st.sidebar.multiselect('Select political parties', df_polpar['abreviated_name'].unique().tolist(), df_polpar['abreviated_name'].unique().tolist(),
-                                                help='Select one or multiple political parties to filter out deputies')
+    pol_party_selected = st.sidebar.multiselect('Select political parties', df_polpar['abreviated_name'].unique().tolist(), df_polpar['abreviated_name'].unique().tolist())
 
     #creates masks from the sidebar selection widgets
     mask_departement = df_dep['departement'].isin(departement_selected)
