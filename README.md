@@ -10,6 +10,8 @@ The data are accessible with: https://data.assemblee-nationale.fr/
 The goal is to be able to compare different political parties, age groups or women and men that are parts of the national assembly.
 
 
+![Hnet com-image](https://user-images.githubusercontent.com/39080117/128644378-16b77fca-e7cc-49e7-a040-965117c8af6f.gif)
+
 How to use this reporitory:
 1. Clone the reporitory
 2. Install the libraries needed (check requirements.txt)
