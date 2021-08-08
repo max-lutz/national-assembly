@@ -7,7 +7,7 @@ The app is accessible here: https://open-data-national-assembly.herokuapp.com/
 
 The data are accessible with: https://data.assemblee-nationale.fr/
 
-![final_61103c9976778700f1af6cb8_739960](https://user-images.githubusercontent.com/39080117/128644993-0da51d00-6610-4019-ae3e-bdb58d6a061c.gif)
+![final_61103c9976778700f1af6cb8_826755](https://user-images.githubusercontent.com/39080117/128645317-64154ce2-738b-4283-8bc5-cdab444a33a0.gif)
 
 
 How to use this reporitory:
