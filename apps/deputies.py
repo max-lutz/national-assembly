@@ -7,14 +7,11 @@ import os
 from matplotlib.backends.backend_agg import RendererAgg
 from datetime import date
 from PIL import Image
-
-def parent(current_dir):
-    return os.path.abspath(os.path.join(current_dir, os.pardir))
   
 #Loading the data
 @st.cache
 def get_data_votes():
-    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_vote_descr.csv'))
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_vote_descr.csv'))
     df['year'] = df['date'].astype(str).str[0:4]
     df['month'] = df['date'].astype(str).str[5:7]
     df['day'] = df['date'].astype(str).str[8:10]
@@ -28,7 +25,7 @@ def get_data_votes():
 
 @st.cache
 def get_data_deputies():
-    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_dep.csv'))
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_dep.csv'))
     #create the value age from the date of birth of the deputies
     df['age']  = df['date of birth'].astype(str).str[0:4]
     df['age']  = date.today().year - df['age'].astype(int)
@@ -40,23 +37,23 @@ def get_data_deputies():
 
 @st.cache
 def get_data_political_parties():
-    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_polpar.csv'))
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_polpar.csv'))
     df = df.drop(columns=['code'])
     return df
 
 @st.cache
 def get_data_organs():
-    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_organs.csv'))
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_organs.csv'))
     return df
 
 @st.cache
 def get_data_deputies_in_organs():
-    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_deputies_in_organs.csv'))
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_deputies_in_organs.csv'))
     return df
 
 @st.cache
 def get_data_vote_total():
-    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_vote_total.csv'),
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_vote_total.csv'),
     dtype={
         'pour': float,
         'contre': float,

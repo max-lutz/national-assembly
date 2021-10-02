@@ -6,13 +6,10 @@ import seaborn as sns
 import os
 from matplotlib.backends.backend_agg import RendererAgg
 
-def parent(current_dir):
-    return os.path.abspath(os.path.join(current_dir, os.pardir))
-
 #Loading the data
 @st.cache
 def get_data_votes():
-    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_vote_descr.csv'))
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_vote_descr.csv'))
     df['year'] = df['date'].astype(str).str[0:4]
     df['month'] = df['date'].astype(str).str[5:7]
     df['day'] = df['date'].astype(str).str[8:10]
@@ -26,13 +23,13 @@ def get_data_votes():
 
 @st.cache
 def get_data_deputies():
-    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_dep.csv'))
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_dep.csv'))
     df = df.drop(columns=['family name', 'first name', 'date of birth'])
     return df
 
 @st.cache
 def get_data_political_parties():
-    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_polpar.csv'))
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_polpar.csv'))
     df = df.drop(columns=['code'])
     return df
 
@@ -100,7 +97,7 @@ def app():
     with row2_2, _lock:
         data_selected = st.selectbox('Select data', ['Nb of votes','Deputy presence'], key='2')
 
-    df_heatmap = df_votes_selected.drop(columns=['code', 'type', 'titre', 'demandeur', 'requis', 'non votants', 'pour', 'contre', 'abstentions', 'datetime'])
+    df_heatmap = df_votes_selected.drop(columns=['code', 'type', 'titre', 'demandeur', 'requis', 'pour', 'contre', 'abstentions', 'datetime'])
     df_heatmap = df_heatmap.loc[df_heatmap['year'] == year_selected]
     df_heatmap['count'] = 1
     df_heatmap['nb votants'] = df_heatmap['nb votants']/574

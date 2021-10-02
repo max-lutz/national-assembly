@@ -7,14 +7,11 @@ import numpy as np
 import os
 from matplotlib.backends.backend_agg import RendererAgg
 from datetime import date
-
-def parent(current_dir):
-    return os.path.abspath(os.path.join(current_dir, os.pardir))
  
 #Loading the data
 @st.cache
 def get_data_deputies():
-    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_dep.csv'))
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_dep.csv'))
     #create the value age from the date of birth of the deputies
     df['age']  = df['date of birth'].astype(str).str[0:4]
     df['age']  = date.today().year - df['age'].astype(int)
@@ -23,14 +20,14 @@ def get_data_deputies():
 
 @st.cache
 def get_data_political_parties():
-    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_polpar.csv'))
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_polpar.csv'))
     df = df.drop(columns=['code'])
     df = df.rename(columns={"abreviated_name": "pol party"})
     return df
 
 @st.cache
 def get_data_votes():
-    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_vote_descr.csv'))
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_vote_descr.csv'))
     df['year'] = df['date'].astype(str).str[0:4]
     df['month'] = df['date'].astype(str).str[5:7]
     df['day'] = df['date'].astype(str).str[8:10]
@@ -44,17 +41,13 @@ def get_data_votes():
 
 @st.cache
 def get_data_vote_total():
-    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_vote_total.csv'),
+    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_vote_total.csv'),
     dtype={
         'pour': bool,
         'contre': bool,
-        'non votants' : bool,
         'abstentions' : bool,
         'par delegation' : bool
             })
-    #df['scrutin'] = df['scrutin'].map(lambda x: x.lstrip('VTANR5L15V'))
-    df['cause'] = df['cause'].fillna('none')
-    df['cause'] = df['cause'].astype("category")
     df['deputy code'] = df['deputy code'].astype("category")
     df['scrutin'] = df['scrutin'].astype("category")
     return df
@@ -229,7 +222,7 @@ def app():
     nb_votes = len(df_vote_total['scrutin'].unique())
     df_vote_total = pd.merge(df_vote_total, df_deputies.drop(columns=['sex', 'activity','age']), left_on='deputy code', right_on='code')
     df_vote_total['vote'] = 1
-    for column in ['pour', 'contre', 'abstentions', 'non votants', 'par delegation']:
+    for column in ['pour', 'contre', 'abstentions', 'par delegation']:
         df_vote_total[column] = df_vote_total[column].astype(int)
 
     #Sum all votes of deputies per party
@@ -237,7 +230,7 @@ def app():
     df_vote_total = pd.merge(df_vote_total, df_pol_parties.drop(columns=['name']), left_on='pol party', right_on='pol party')
 
     #calculate the average presence to the votes and average position of each party
-    for column in ['vote', 'pour', 'contre', 'abstentions', 'non votants', 'par delegation']:
+    for column in ['vote', 'pour', 'contre', 'abstentions', 'par delegation']:
         df_vote_total[column] = df_vote_total[column]/(df_vote_total['members']*nb_votes)
     df_vote_total = df_vote_total.sort_values(by=['vote'], ascending=False).reset_index(drop=True)
 
