@@ -7,7 +7,7 @@ The app is accessible here: https://open-data-national-assembly.herokuapp.com/
 
 The data are accessible with: https://data.assemblee-nationale.fr/
 
-The goal is to be able to compare different political parties, age groups or women and men that are parts of the national assembly.
+![final_61103c9976778700f1af6cb8_826755](https://user-images.githubusercontent.com/39080117/128645317-64154ce2-738b-4283-8bc5-cdab444a33a0.gif)
 
 
 How to use this reporitory:
