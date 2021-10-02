@@ -166,7 +166,6 @@ PO685893,PARPOL,Parti progressiste martiniquais,PPM
 PO687635,ORGEXTPARL,Haut Conseil à l'égalité entre les femmes et les hommes,303
 PO692699,ORGEXTPARL,Comité national d'orientation de la société anonyme Bpifrance,306
 PO693055,ORGEXTPARL,Conseil national du numérique (formation élargie),304
-PO693355,ORGEXTPARL,Observatoire de la laïcité,307
 PO695379,ORGEXTPARL,Conseil consultatif des Terres australes et antarctiques françaises,310
 PO696474,ORGEXTPARL,Conseil national des professions du spectacle,309
 PO696836,ORGEXTPARL,Conseil national de la transition écologique,314
@@ -221,6 +220,7 @@ PO717323,ORGEXTPARL,Comité de bassin Adour-Garonne,369
 PO717325,ORGEXTPARL,Comité de bassin Artois-Picardie,370
 PO717327,ORGEXTPARL,Comité de bassin Loire-Bretagne,371
 PO717329,ORGEXTPARL,Comité de bassin Rhin-Meuse,372
+PO717331,ORGEXTPARL,Comité de bassin Rhône-Méditerranée,373
 PO717333,ORGEXTPARL,Comité de bassin Seine-Normandie,374
 PO717335,ORGEXTPARL,Conseil d'administration de l'Office français de l'immigration et de l'intégration,343
 PO717338,ORGEXTPARL,Conseil d'administration du centre scientifique et technique du bâtiment,346
@@ -239,7 +239,7 @@ PO717440,ORGEXTPARL,Conseil d’administration de l’agence francaise pour la b
 PO717442,ORGEXTPARL,Comite national de dialogue de l’Agence nationale des frequences,354
 PO717460,ASSEMBLEE,Assemblée nationale de la 15ème législature,AN
 PO723569,GP,Non inscrit,NI
-PO725343,CONFPT,Conférence des Présidents,CNFPDT
+PO725343,CONFPT,Conférence des présidents,CNFPDT
 PO730934,GP,Les Républicains,LR
 PO730940,GP,Gauche démocrate et républicaine,GDR
 PO730958,GP,La France insoumise,FI
@@ -407,6 +407,7 @@ PO733683,GA,France-Bruneï Malaisie,BRMA
 PO733693,GA,France-Botswana Zambie Zimbabwe,BZZ
 PO733698,GA,France-Burundi Rwanda,BURW
 PO733703,GA,France-Kenya Ouganda Tanzanie,KOT
+PO734041,ORGEXTPARL,Conseil d’administration de l’Agence nationale pour la gestion des déchets radioactifs,OPECST2000
 PO734384,MISINFOPRE,Mission d'information sur l'avenir institutionnel de la Nouvelle-Calédonie,AVENIRNC
 PO741019,GROUPESENAT,Groupe République et Territoires / Les Indépendants,RTLIP
 PO741916,MISINFO,Groupe de travail sur les Jeux olympiques et paralympiques de Paris en 2024,JOP2024
@@ -522,7 +523,6 @@ PO747850,ORGEXTPARL,Comité chargé de veiller au suivi de la mise en œuvre et 
 PO751484,GE,Valorisation des activités touristiques,VALACTTOUR
 PO753861,ORGEXTPARL,"Conseil national de la culture scientifique, technique et industrielle",OPECST2006
 PO756284,OFFPAR,Groupe de travail sur les droits et libertés constitutionnels à l'ère numérique,DRTLIBNUM
-PO756671,MISINFO,Mission d’évaluation de la loi n° 2015-1541 du 27 novembre 2015 visant à protéger les sportifs de haut niveau et professionnels et à sécuriser leur situation juridique et sociale,SPORTIFS
 PO756933,ORGEXTPARL,Commission départementale des valeurs locatives des locaux professionnels,383
 PO758403,ORGEXTPARL,Comité d'éthique du comité d'organisation des jeux Olympiques et Paralympiques,384
 PO758409,ORGEXTPARL,Comité des rémunérations du comité d'organisation des jeux Olympiques et Paralympiques,385
@@ -532,12 +532,7 @@ PO759900,GP,Libertés et Territoires,LT
 PO760010,MISINFO,Mission d'information sur les enjeux stratégiques en mer de Chine,CHINE
 PO760017,MISINFO,Mission d'information sur la France et les pays d'Asie centrale,ASIE
 PO76034,CONSTITU,Conseil constitutionnel,ASSEX
-PO760500,MISINFO,Mission flash sur les nouvelles charges en matière de sécurité pour les salles de spectacle et les festivals,SALSPECTAC
-PO760529,MISINFO,Mission flash précocités et troubles associés : quelle prise en charge à l'école ?,PRECOCITE
-PO760558,MISINFO,Mission flash relative à la première évaluation du Loto du patrimoine,LOTOPAT
-PO760588,MISINFO,Mission d'information de la loi du 25 juin 2015 portant transformation de l'université des Antilles et de la Guyane en université des Antilles,UNIVANTILL
 PO760931,MISINFO,Mission d'information sur les relations entre les grands donneurs d'ordre et les sous-traitants dans les filières industrielles,FILIÈRES
-PO761133,MISINFO,Mission d'information relative aux dispositifs médicaux,DM
 PO761239,PARPOL,Rassemblement national,RN
 PO761294,PARPOL,La République en Marche,LAREM
 PO762004,MISINFO,Mission d'information sur l'évaluation de la loi 2016-138 du 11 février 2016 relative à la lutte contre le gaspillage alimentaire,GASPI ALI
@@ -556,31 +551,21 @@ PO763254,GE,Objectifs de développement durable,OBJDEVDUR
 PO763259,GE,Prévention santé,PREVSANTE
 PO763264,GE,Sapeurs-pompiers volontaires,SAPPOMPVOL
 PO763269,GE,Spectacle vivant,SPECVIVANT
-PO763336,MISINFO,"Mission d'évaluation de la loi du 7 juillet 2016 sur la liberté de la création, l'architecture et le patrimoine",CREARCHPAT
 PO763346,ORGEXTPARL,Commission départementale de coopération intercommunale,388
-PO764648,MISINFO,Mission d'information relative à l'organisation territoriale de la santé mentale,ORGSANTMEN
 PO765132,OFFPAR,Commission de vérification des fonds spéciaux,CVFS
-PO765869,MISINFOCOM,Mission d’information commune sur le régime des interdictions de stade et le supportérisme,MICSUPPOR
 PO766497,MISINFOPRE,Mission d'information sur la concrétisation des lois,EVALLOIS
 PO766718,CNPS,Commission spéciale chargée d'examiner le projet de loi relatif à la bioéthique,CSBIOETH
 PO766728,MISINFO,Mission d'information pour le suivi de l’application de la loi pour la conservation et la restauration de la cathédrale Notre Dame de Paris et instituant une souscription nationale à cet effet,NOTREDAME
 PO766886,MISINFO,Mission d'information sur le développement du Sahel,DEVSAHEL
 PO766891,MISINFO,Mission d'information sur la protection des espèces menacées,PROESPECES
-PO766896,MISINFO,Mission d'information sur la problématique des pôles : Arctique et Antarctique,PROBPÔLES
 PO767640,COMSPSENAT,Commission spéciale sur la bioéthique,BIOET
-PO767910,MISINFO,Mission flash sur les quotas de chansons francophones à la radio,QUOTASFR
-PO767918,MISINFO,Mission flash sur la réforme du lycée,LYCEE
 PO767958,ORGEXTPARL,Conseil d’administration de l’Institut national du cancer,389
+PO767963,ORGEXTPARL,Conseil d'administration de l'Agence nationale pour la rénovation urbaine,387
 PO767978,ORGEXTPARL,Conseil national de l'alimentation,390
 PO768088,ORGEXTPARL,Conseil stratégique de la recherche,OPECST2005
 PO768091,MISINFO,Mission d'information sur les plateformes numériques,PLAT NUM
-PO768159,MISINFO,"Mission d’évaluation de la loi n° 2017-261 du 1er mars 2017 visant à préserver l’éthique du sport, à renforcer la régulation et la transparence du sport professionnel et à améliorer la compétitivité des clubs",ETHIQSPORT
-PO768245,MISINFO,Mission flash sur la mise en place de la carte des spécialités dans le cadre de la réforme des lycées,REFLYCEES
 PO768274,MISINFO,Mission flash sur les quotas de chansons francophones diffusées par les radios privées,QUOTASCHAN
-PO768368,MISINFO,Mission d'information sur les géants du numérique,GEANTS NUM
 PO768375,MISINFO,Mission d'information sur la pollution des mers,POLLUMER
-PO768436,MISINFO,"Mission d’évaluation de la Loi n° 2019-180 du 8 mars 2019 visant à renforcer la prise en charge des cancers pédiatriques par la recherche, le soutien aux aidants familiaux, la formation des professionnels et le droit à l'oubli",CANCERSPED
-PO768631,MISINFOPRE,Mission d'information sur l'émergence et l'évolution des différentes formes de racisme et les réponses à y apporter,RACISME
 PO768830,MISINFOCOM,Mission d'information commune sur la réglementation et l'impact des différents usages du cannabis,MICCANNAB
 PO769401,ORGEXTPARL,Conseil national de l'air,386
 PO769407,ORGEXTPARL,Conseil d'administration de l'Office français de la biodiversité,393
@@ -590,7 +575,6 @@ PO769424,ORGEXTPARL,Conseil d'évaluation de l'école,391
 PO769550,CNPS,Commission spéciale chargée d'examiner le projet de loi instituant un système universel de retraite et le projet de loi organique relatif au système universel de retraite,CSRETRAITE
 PO769821,MISINFO,Mission d'information sur le suivi de la fermeture de la centrale nucléaire de Fessenheim,FESSENHEIM
 PO769895,MISINFO,Partenariat futur entre l'Union européenne et le Royaume-Uni,PARTENUEUK
-PO769900,MISINFO,Mission d'information sur la politique des visas,POLVISAS
 PO769950,DELEGSENAT,Commission de vérification des fonds spéciaux,CVFSD
 PO770023,MISINFO,Mission d'information sur la rentrée scolaire en Guyane,MI GUYANE
 PO770077,MISINFO,Mission d'information sur la géopolitique des matières premières,GEOPOLMAT
@@ -604,9 +588,6 @@ PO770488,MISINFO,Mission d'information sur les sels nitrités dans l'industrie a
 PO771036,MISINFO,Mission d'information sur les enjeux économiques de la sécurité privée,ENJÉCOSÉC
 PO771889,GP,UDI et Indépendants,UDI_I
 PO771923,GP,Agir ensemble,AGIR-E
-PO772194,MISINFO,Mission flash sur le financement du CROUS,FINCROUS
-PO772224,MISINFO,Mission flash sur le statut des auteurs,AUTEURS
-PO772253,MISINFO,Mission flash sur la mise en place du dispositif « 2S2C » à l’école,2S2CECOLE
 PO772725,MISINFOCOM,Mission d'information commune relative aux chambres d'agriculture et à leur financement,MICCAF
 PO773371,GOUVERNEMENT,Gouvernement,GVT
 PO773372,MINISTERE,Premier ministre,PRM
@@ -641,7 +622,6 @@ PO773428,MINISTERE,"Ministère auprès de la ministre du travail, de l’emploi 
 PO773430,MINISTERE,"Ministère auprès de la ministre de la cohésion des territoires et des relations avec les collectivités territoriales, chargé de la ville",VIL
 PO773432,MINISTERE,"Ministère auprès du ministre des solidarités et de la santé, chargé de l'autonomie",MDA
 PO773434,MINISTERE,"Secrétariat d’État auprès du Premier ministre, porte-parole du Gouvernement",PPRL
-PO773613,MISINFOCOM,Mission d’information commune sur la conditionnalité des aides publiques aux entreprises,MICAIDEPUB
 PO773655,MISINFOPRE,Mission d'information sur le thème « Bâtir et promouvoir une souveraineté numérique nationale et européenne »,SOUVNUM
 PO774070,MINISTERE,"Secrétariat d'État auprès du Premier ministre, chargé des personnes handicapées",HANDI
 PO774072,MINISTERE,"Secrétariat d'État auprès du ministre de l'Europe et des affaires étrangères, chargé du tourisme, des Français de l'étranger et de la francophonie",TOUR
@@ -655,51 +635,72 @@ PO774086,MINISTERE,"Secrétariat d'État auprès de la ministre de la cohésion 
 PO774088,MINISTERE,"Secrétariat d'État auprès du ministre des solidarités et de la santé, chargé de l'enfance et des familles",ENF
 PO774113,MINISTERE,"Secrétariat d'État auprès des ministres de l'économie, des finances et de la relance, et de la cohésion des territoires et des relations avec les collectivités territoriales, chargé de la transition numérique et des communications électroniques",NUM
 PO774834,GP,Mouvement Démocrate (MoDem) et Démocrates apparentés,DEM
-PO776057,MISINFO,mission d’information relative à l’évolution de la consommation de tabac et du rendement de la fiscalité applicable aux produits du tabac pendant le confinement et aux enseignements pouvant en être tirés.,CONSOTABAC
-PO776501,MISINFO,Mission d'information sur les enjeux de la transition écologique pour le Ministère des Armées,MINARMVERT
-PO776524,MISINFO,Mission sur les réserves,RESERVES
+PO776057,MISINFO,Mission d’information relative à l’évolution de la consommation de tabac et du rendement de la fiscalité applicable aux produits du tabac pendant le confinement et aux enseignements pouvant en être tirés.,CONSOTABAC
 PO776990,GROUPESENAT,Groupe Écologiste - Solidarité et Territoires,GESTP
 PO77707,GROUPESENAT,communiste républicain et citoyen,CRCPO
 PO77708,GROUPESENAT,Non inscrit,NIPOL
 PO77710,GROUPESENAT,Groupe socialiste et républicain,SOCPO
 PO77714,GROUPESENAT,Groupe du rassemblement démocratique et social européen,RDSEP
-PO778818,MISINFO,Mission d’évaluation de la loi n° 2016-1828 du 23 décembre 2016 portant adaptation du deuxième cycle de l’enseignement supérieur français au système Licence Master-Doctorat,SYSTEMELMD
-PO778826,MISINFO,Mission flash sur l’offre jeunesse du service public audiovisuel,OFFREJEUNE
 PO779096,MISINFO,Mission d'information sur les droits des femmes dans le monde et application de la convention d'Istanbul,DROITSFEM
 PO779099,CNPS,Commission spéciale chargée d'examiner le projet de loi confortant le respect des principes de la République,CSPRINCREP
 PO779240,MISINFO,Mission d'information sur l'autonomie alimentaire de la France et au sein de ses territoires,AUTOALIM
-PO779303,MISINFO,Mission de suivi de la commission d’enquête sur la situation et les pratiques de la grande distribution et de ses groupements dans leurs relations commerciales avec les fournisseurs,MI
 PO779461,MISINFO,"Mission d’évaluation de la loi n° 2016-1691 du 9 décembre 2016 relative à la transparence, à la lutte contre la corruption et à la modernisation de la vie économique",SAPIN 2
-PO779524,MISINFO,MI flash parité dans les fonctions électives et exécutives du bloc communal,MI PARITÉ
-PO779613,MISINFOCOM,Mission d'information commune sur les entreprises en difficulté du fait de la crise sanitaire,MICENTDIF
+PO779524,MISINFO,Mission flash parité dans les fonctions électives et exécutives du bloc communal,MI PARITÉ
 PO779622,MISINFO,Mission d'information flash sur le référé spécial environnemental,RSE
 PO779931,MISINFO,Mission d'information sur le médicament,MED
 PO780015,MISINFO,Mission d'évaluation des lois du 15 septembre 2017 pour la confiance dans la vie politique,CONFPOL
-PO780094,MISINFO,Mission d'information sur la prolifération des plantes invasives et les moyens pour endiguer cette situation,PLANTES
 PO780186,MISINFO,Mission d'information sur l'emploi des seniors,SENIORS
-PO780290,CNPE,Commission d'enquête sur la lutte contre l'orpaillage illégal en Guyane,CEORPGUY
-PO780477,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion du projet de loi relatif à la bioéthique,2187
 PO780519,MISINFO,Mission d'information sur l'espace,ESPACE
 PO780534,MISINFO,Maladie de Lyme : améliorer la prise en charge des patients,LYME
-PO780709,CNPE,Commission d’enquête relative à la mainmise sur la ressource en eau par les intérêts privés et ses conséquences,CEEAU
 PO780747,MISINFO,Mission d'information relative au financement de la lutte contre la maladie de Lyme (Art. 146 du Règlement),LYMEFIN
 PO780752,MISINFO,Mission d'information sur le surendettement (Art. 146 du Règlement).,MI SUREND
 PO780850,CNPS,Commission spéciale chargée d'examiner le projet de loi portant lutte contre le dérèglement climatique et renforcement de la résilience face à ses effets,CSLDCRRE
-PO781407,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion de la proposition de loi relative à la réforme du courtage de l’assurance et du courtage en opérations de banque et en services de paiement,2581
-PO781458,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion de la proposition de loi visant à améliorer le système de santé par la confiance et la simplification,3470
-PO781499,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion de la proposition de loi améliorant l'efficacité de la justice de proximité et de la réponse pénale,3427
-PO781511,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion du projet de loi organique portant diverses mesures relatives à l’élection du Président de la République,3713
 PO781715,MISINFO,Mission d'information sur la politique de la France et de l'Europe à l'égard de la Chine,PLT CHINE
 PO781746,MISINFO,L'espace indopacifique : enjeux et stratégie pour la France,INDOPACIFI
-PO781914,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion de la proposition de loi rénovant la gouvernance des services publics d’eau potable et d’assainissement en Guadeloupe,3669
 PO781969,MISINFO,Mission d'information sur les enjeux de la défense en Indo-Pacifique,ENJDEFINDP
-PO781981,MISINFO,Mission d'information sur la stabilité au Moyen-Orient dans la perspective de l'après Chammal,STAMYAPCHA
 PO781995,MISINFO,Mission d'information sur la préparation à la haute intensité,PREHAUTINT
 PO782011,MISINFO,Mission d'information sur le plan famille : quel bilan ?,PLANFAMBIL
-PO782025,MISINFO,Mission d'information sur la guerre des drones,GUERDRONES
-PO782096,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion de la proposition de loi pour un nouveau pacte de sécurité respectueux des libertés,3452
-PO782103,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion de la proposition de loi tendant à garantir le droit au respect de la dignité en détention,3948
 PO782197,MISINFO,Mission d'information sur l’ouverture à la concurrence des marchés publics de défense européens,MARPUEUDEF
-PO782307,MISINFO,mission d'information sur la production laitière (hors AOP) en zone de montagne,LAIT MONT
+PO782307,MISINFO,Mission d'information sur la production laitière (hors AOP) en zone de montagne,LAIT MONT
 PO782338,MISINFO,Mission d'information sur la construction d'une indépendance stratégique de l'Europe,INDSTRATEG
+PO782697,MISINFO,Mission flash sur la capacité des associations à agir en justice,ASSOJUST
+PO782739,MISINFO,Mission d’évaluation de l’impact de la loi du 3 août 2018 renforçant la lutte contre les rodéos motorisés,RODEOS
+PO782753,MISINFO,Mission d’information sur les droits de diffusion audiovisuelle des manifestations sportives,DROITSTVSP
+PO782811,MISINFO,Suivi de la mise en œuvre des conclusions de la commission d’enquête sur l’inclusion des élèves handicapés dans l’école et l’université de la République,SUIVIHANDI
+PO782816,CNPS,Commission spéciale chargée d’examiner la proposition de loi organique relative à la modernisation de la gestion des finances publiques et la proposition de loi portant diverses dispositions relatives au Haut Conseil des finances publiques et à l’information du Parlement sur les finances publiques ainsi que la proposition de loi organique et la proposition de loi relatives aux lois de financement de la sécurité sociale,CSLOLFLFSS
+PO782990,MISINFO,Groupe de travail sur les modalités d'organisation de la vie démocratique,VIEDEMOCRA
+PO783038,MISINFO,Mission d'information sur le rôle et l’avenir des commerces de proximité dans l’animation et l’aménagement du territoire,COMPROX
+PO783149,CNPE,"Commission d'enquête sur les migrations, les déplacements de populations et les conditions de vie et d’accès au droit des migrants, réfugiés et apatrides en regard des engagements nationaux, européens et internationaux de la France",CEMIGRANTS
+PO783255,MISINFO,"Mission d’information sur le cadre juridique et statutaire de l’enseignement hybride ou à distance, dans l’enseignement scolaire et l’enseignement supérieur",ENSEIGDIST
+PO783302,MISINFO,mission d'information sur les négociations internationales relatives au changement climatique,DIPCLIMAT
+PO783528,MISINFO,"Mission de contrôle de l'application de la loi n° 2020-1508 du 3 décembre 2020 portant diverses dispositions d'adaptation au droit de l'Union européenne en matière économiques et financière dite ""DADUE""",APP DADUE
+PO783535,MISINFO,Mission de contrôle de l'application de la loi n° 2020-1578 du 14 décembre 2020 relative aux conditions de mise sur le marché de certains produits phytopharmaceutiques en cas de danger sanitaire pour les betteraves sucrières,APP BETSUC
+PO783542,MISINFO,"Mission de contrôle sur l'application de la loi n° 2020-1525 du 7 décembre 2020 d'accélération et de simplification de l'action publique dite ""ASAP""",APP ASAP
+PO783549,MISINFO,Mission d'information sur l'organisation et les enjeux de la gastronomie et de ses filières,MI GAST
+PO783558,MISINFO,"Mission d'information sur les perspectives économiques des jeunes Français : logement et précarité chez les étudiants, les apprentis et les jeunes actifs",MI LOGPREC
+PO783599,MISINFO,Mission d'information sur l'avenir du secteur aéronautique en France,MI AV AERO
+PO783637,MISINFO,Mission d'information sur l'impact de la crise de la Covid-19 sur le secteur événementiel,MI IMP COV
+PO783852,MISINFOPRE,Mission d'information sur la résilience nationale,RESINAT
+PO783898,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion du projet de loi relatif à la régulation et à la protection de l'accès aux œuvres culturelles à l'ère numérique,4187
+PO783905,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion du projet de loi organique modifiant la loi organique n° 2010-837 du 23 juillet 2010 relative à l'application du cinquième alinéa de l'article 13 de la Constitution,4188
+PO783990,MISINFO,Mission d'information sur la formation des professions paramédicales,PRO SANTE
+PO783995,MISINFO,"Mission d'information sur les professions de santé : quelles évolutions pour les périmètres d’activité, les protocoles de coopération et les pratiques avancées ?",PR SANTÉEV
+PO784150,MISINFO,Mission d'information sur l'assurance-crédit,MI ASSCRE
+PO784272,MISINFOPRE,"Mission d’information sur l'application du droit voisin au bénéfice des agences, éditeurs et professionnels du secteur de la presse",DV
+PO784280,CNPE,Commission d’enquête chargée de rechercher d’éventuels dysfonctionnements de la justice et de la police dans l’affaire dite Sarah Halimi et de formuler des propositions pour éviter le cas échéant leur renouvellement,CEHALIMI
+PO784318,MISINFOPRE,Mission d’information visant à identifier les ressorts de l’abstention et les mesures permettant de renforcer la participation électorale,MICPELEC
+PO784391,ORGEXTPARL,Comité de contrôle et de liaison covid-19 chargé d'associer la société civile et le Parlement aux opérations de lutte contre la propagation de l'épidémie par suivi des contacts ainsi qu'au déploiement des systèmes d'information prévus à cet effet,395
+PO784396,ORGEXTPARL,Conseil de surveillance chargé du suivi et du contrôle de la recherche et de la mise en œuvre d’alternatives aux produits phytopharmaceutiques contenant une ou des substances actives de la famille des néonicotinoïdes ou présentant des modes d’action identiques à ceux de ces substances,397
+PO784404,ORGEXTPARL,"Comité chargé de proposer des évolutions de la composition du Conseil économique, social et environnemental",398
+PO784412,ORGEXTPARL,Conseil d’orientation des infrastructures,399
+PO784428,ORGEXTPARL,Comité scientifique du Haut Conseil des biotechnologies,OPECST2002
+PO784473,CMP,"Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion du projet de loi portant diverses dispositions d’adaptation au droit de l’Union européenne dans le domaine des transports, de l’environnement, de l’économie et des finances",4186
+PO784572,MISINFO,"mission d’évaluation de la loi du 10 septembre 2018 pour une immigration maîtrisée, un droit d’asile effectif et une intégration réussie",MI ASILE
+PO784579,MISINFO,mission d’information sur les dysfonctionnements dans la distribution de la propagande électorale pour les élections régionales et départementales des 20 et 27 juin 2021,MI PROPAG
+PO784682,CNPE,Commission d’enquête sur les dysfonctionnements et manquements de la politique pénitentiaire française,CEPOLPENIT
+PO784795,MISINFO,"Evaluation de la loi du 10 septembre 2018 pour une immigration maîtrisée, un droit d'asile effectif et une intégration réussie",IMMIGRASIL
+PO784802,MISINFO,Dysfonctionnements dans la distribution de la propagande électorale pour les élections régionales et départementales des 20 et 27 juin 2021,PROPAGELEC
+PO785110,CNPE,Commission d’enquête chargée d’identifier les facteurs qui ont conduit à la chute de la part de l’industrie dans le PIB de la France et de définir les moyens à mettre en œuvre pour relocaliser l’industrie et notamment celle du médicament,CECIFCCPI
+PO785812,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion de la proposition de loi visant à protéger la rémunération des agriculteurs,4134
+PO785819,CMP,Commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion de la proposition de loi visant à consolider notre modèle de sécurité civile et valoriser le volontariat des sapeurs pompiers et les sapeurs pompiers professionnels,3162
 PO78718,SENAT,Sénat ( 5ème République ),SENAT

@@ -1,5 +1,5 @@
 # open-data-as
-A vizualisation tool for the data of the french national assembly
+A visualization tool for the data of the french national assembly
 
 Main libraries used: pandas, streamlit, matplotlib
 
@@ -13,5 +13,5 @@ The goal is to be able to compare different political parties, age groups or wom
 How to use this reporitory:
 1. Clone the reporitory
 2. Install the libraries needed (check requirements.txt)
-3. Run Load_data.ipynb (this will create the csv with the dataframes)
+3. Run Load_data.ipynb located in the notebooks folder (this will create the csv with the dataframes)
 4. Run app.py with streamlit

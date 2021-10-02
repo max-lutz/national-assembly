@@ -39,7 +39,6 @@ PA267378,female,Levy,Geneviève,1948-02-24,Cadres,REP,Var,83,1
 PA267429,male,Cinieri,Dino,1955-07-09,Cadres,REP,Loire,42,4
 PA267440,male,Diard,Éric,1965-07-21,Cadres,REP,Bouches-du-Rhône,13,12
 PA267450,male,Delatte,Rémi,1956-06-09,Agriculteurs,REP,Côte-d'Or,21,2
-PA267527,male,Saddier,Martial,1969-10-15,Retraités,REP,Haute-Savoie,74,3
 PA267735,male,de Ganay,Claude,1953-09-05,Non déclaré,REP,Loiret,45,3
 PA267766,male,Bricout,Guy,1944-02-18,Retraités,UDRL,Nord,59,18
 PA267780,female,Firmin Le Bodo,Agnès,1968-11-20,Cadres,MODEM,Seine-Maritime,76,7
@@ -72,7 +71,6 @@ PA335999,female,Batho,Delphine,1973-03-23,Cadres,EELV,Deux-Sèvres,79,2
 PA336175,female,Pinel,Sylvia,1977-09-28,Non déclaré,ND,Tarn-et-Garonne,82,2
 PA336316,male,Bouchet,Jean-Claude,1957-05-02,Entrepreneurs,REP,Vaucluse,84,2
 PA336439,male,Clément,Jean-Michel,1954-10-31,Cadres,RPS,Vienne,86,3
-PA337483,male,Letchimy,Serge,1953-01-13,Cadres,ND,Martinique,972,3
 PA340343,male,Saulignac,Hervé,1970-11-06,Cadres,PS,Ardèche,07,1
 PA340357,female,Victory,Michèle,1958-10-28,Prof. inter.,PS,Ardèche,07,2
 PA342196,female,Rouaux,Claudia,1963-10-13,Cadres,PS,Ille-et-Vilaine,35,3
@@ -121,7 +119,6 @@ PA609332,male,Faure,Olivier,1968-08-18,Cadres,PS,Seine-et-Marne,77,11
 PA609590,female,Rabault,Valérie,1973-04-25,Cadres,PS,Tarn-et-Garonne,82,1
 PA609726,male,Aubert,Julien,1978-06-11,Cadres,REP,Vaucluse,84,5
 PA610654,male,Nilor,Jean-Philippe,1965-05-15,Cadres,PCF,Martinique,972,4
-PA610667,male,Serville,Gabriel,1959-09-27,Cadres,PCF,Guyane,973,1
 PA610775,male,Gomès,Philippe,1958-10-27,Cadres,ND,Nouvelle-Calédonie,988,2
 PA642695,male,Bothorel,Éric,1966-10-20,Cadres,LAREM,Côtes-d'Armor,22,5
 PA642724,male,Barbier,Frédéric,1960-08-30,Cadres,LAREM,Doubs,25,4
@@ -145,7 +142,6 @@ PA689,female,Buffet,Marie-George,1949-05-07,Employés,PCF,Seine-Saint-Denis,93,4
 PA695100,male,Habib,Meyer,1961-04-28,Cadres,UDRL,Français établis hors de France,099,8
 PA702052,female,Sage,Maina,1975-05-10,Cadres,ND,Polynésie Française,987,1
 PA702054,male,Claireaux,Stéphane,1964-06-23,Entrepreneurs,ND,Saint-Pierre-et-Miquelon,975,1
-PA709315,male,Viala,Arnaud,1974-12-04,Cadres,REP,Aveyron,12,3
 PA712014,male,Ledoux,Vincent,1966-06-21,Cadres,MODEM,Nord,59,10
 PA712015,male,Dive,Julien,1985-05-21,Cadres,REP,Aisne,02,2
 PA713448,female,Brenier,Marine,1986-08-11,Cadres,REP,Alpes-Maritimes,06,5
@@ -237,7 +233,7 @@ PA719448,female,Chapelier,Annie,1967-11-07,Prof. inter.,ND,Gard,30,4
 PA719456,female,Mörch,Sandrine,1961-11-13,Cadres,LAREM,Haute-Garonne,31,9
 PA719464,male,Nadot,Sébastien,1972-07-08,Cadres,RPS,Haute-Garonne,31,10
 PA719472,male,Cazeneuve,Jean-René,1958-06-09,Cadres,LAREM,Gers,32,1
-PA719480,male,Gaillard,Olivier,1967-02-28,Cadres,ND,Gard,30,5
+PA719484,female,Daufès-Roux,Catherine,1963-04-24,Cadres,ND,Gard,30,5
 PA719488,male,Berta,Philippe,1960-04-11,Cadres,MODEM,Gard,30,6
 PA719496,male,Cabaré,Pierre,1957-12-12,Entrepreneurs,LAREM,Haute-Garonne,31,1
 PA719504,male,Lagleize,Jean-Luc,1958-09-09,Cadres,MODEM,Haute-Garonne,31,2
@@ -277,7 +273,6 @@ PA719798,male,Labaronne,Daniel,1955-07-16,Cadres,LAREM,Indre-et-Loire,37,2
 PA719814,female,Colboc,Fabienne,1971-08-09,Cadres,LAREM,Indre-et-Loire,37,4
 PA719822,female,Thillaye,Sabine,1959-05-18,Entrepreneurs,MODEM,Indre-et-Loire,37,5
 PA719830,male,Démoulin,Nicolas,1972-07-22,Entrepreneurs,LAREM,Hérault,34,8
-PA719842,male,Laabid,Mustapha,1969-03-29,Cadres,LAREM,Ille-et-Vilaine,35,1
 PA719850,female,Motin,Cendra,1975-01-29,Cadres,LAREM,Isère,38,6
 PA719858,female,Limon,Monique,1953-12-05,Retraités,LAREM,Isère,38,7
 PA719866,female,Abadie,Caroline,1976-09-07,Cadres,LAREM,Isère,38,8
@@ -287,7 +282,6 @@ PA719890,female,Brulebois,Danielle,1947-07-04,Retraités,LAREM,Jura,39,1
 PA719918,male,Lainé,Fabien,1976-04-15,Prof. inter.,MODEM,Landes,40,1
 PA719922,male,Causse,Lionel,1971-05-06,Cadres,LAREM,Landes,40,2
 PA719930,male,Vallaud,Boris,1975-07-25,Cadres,PS,Landes,40,3
-PA719942,male,Baudu,Stéphane,1965-05-01,Cadres,MODEM,Loir-et-Cher,41,1
 PA719946,male,Peltier,Guillaume,1976-08-27,Cadres,REP,Loir-et-Cher,41,2
 PA719952,male,Mis,Jean-Michel,1967-07-28,Cadres,LAREM,Loire,42,2
 PA719960,female,Faure-Muntian,Valéria,1984-09-02,Employés,LAREM,Loire,42,3
@@ -448,6 +442,7 @@ PA721410,female,Bonnivard,Émilie,1980-08-02,Cadres,REP,Savoie,73,3
 PA721418,male,Mignola,Patrick,1971-08-08,Entrepreneurs,MODEM,Savoie,73,4
 PA721426,female,Riotton,Véronique,1969-11-02,Cadres,LAREM,Haute-Savoie,74,1
 PA721434,female,Lardet,Frédérique,1966-09-01,Cadres,LAREM,Haute-Savoie,74,2
+PA721442,female,Petex-Levet,Christelle,1980-09-02,Non déclaré,ND,Haute-Savoie,74,3
 PA721450,female,Lenne,Marion,1974-11-20,Cadres,LAREM,Haute-Savoie,74,5
 PA721458,male,Roseren,Xavier,1970-01-12,Entrepreneurs,LAREM,Haute-Savoie,74,6
 PA721466,male,Le Gendre,Gilles,1958-05-13,Cadres,LAREM,Paris,75,2
@@ -460,7 +455,6 @@ PA721522,male,Batut,Xavier,1976-12-26,Cadres,LAREM,Seine-Maritime,76,10
 PA721530,female,Luquet,Aude,1967-08-18,Cadres,MODEM,Seine-et-Marne,77,1
 PA721538,female,Roques-Etienne,Muriel,1979-03-05,Cadres,LAREM,Tarn,81,1
 PA721542,female,Verdier-Jouclas,Marie-Christine,1965-03-19,Cadres,LAREM,Tarn,81,2
-PA721560,male,Griveaux,Benjamin,1977-12-29,Cadres,LAREM,Paris,75,5
 PA721568,male,Person,Pierre,1989-01-22,Cadres,LAREM,Paris,75,6
 PA721576,female,Bouchet Bellecourt,Sylvie,1957-07-03,Prof. inter.,REP,Seine-et-Marne,77,2
 PA721584,male,Terlier,Jean,1977-03-02,Cadres,LAREM,Tarn,81,3
@@ -469,7 +463,6 @@ PA721608,male,Bourlanges,Jean-Louis,1946-07-13,Cadres,MODEM,Hauts-de-Seine,92,12
 PA721616,male,Rupin,Pacôme,1985-01-25,Cadres,LAREM,Paris,75,7
 PA721624,female,Avia,Laetitia,1985-10-29,Cadres,LAREM,Paris,75,8
 PA721632,female,Lemoine,Patricia,1961-12-30,Cadres,MODEM,Seine-et-Marne,77,5
-PA721636,male,Parigi,Jean-François,1960-01-25,Non déclaré,REP,Seine-et-Marne,77,6
 PA721644,male,Kokouendo,Rodrigue,1974-03-08,Cadres,LAREM,Seine-et-Marne,77,7
 PA721656,female,Muschotti,Cécile,1987-10-30,Cadres,LAREM,Var,83,2
 PA721666,female,Audibert,Edith,1948-03-07,Retraités,REP,Var,83,3
@@ -569,6 +562,10 @@ PA774956,male,Hemedinger,Yves,1965-10-23,Cadres,REP,Haut-Rhin,68,1
 PA774958,male,Leseul,Gérard,1960-08-15,Cadres,PS,Seine-Maritime,76,5
 PA774960,female,Santiago,Isabelle,1965-09-20,Cadres,PS,Val-de-Marne,94,9
 PA774962,female,Lebon,Karine,1985-06-09,Prof. inter.,PCF,Réunion,974,2
+PA783457,male,Habert-Dassault,Victor,1992-07-12,Cadres,ND,Oise,60,1
+PA783463,female,Métadier,Sophie,1961-04-26,Cadres,ND,Indre-et-Loire,37,3
+PA783468,female,El Aaraje,Lamia,1986-11-22,Cadres,ND,Paris,75,15
+PA784314,male,Leclercq,Christophe,1967-02-26,Non déclaré,ND,Pas-de-Calais,62,6
 PA856,male,Cherpion,Gérard,1948-03-15,Cadres,REP,Vosges,88,2
 PA923,male,Cornut-Gentille,François,1958-05-22,Cadres,REP,Haute-Marne,52,2
 PA942,male,de Courson,Charles,1952-04-02,Cadres,UDRL,Marne,51,5
