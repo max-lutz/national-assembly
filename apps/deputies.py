@@ -1,19 +1,20 @@
 import streamlit as st
 import pandas as pd
-import base64
 import matplotlib
 import matplotlib.pyplot as plt
-import seaborn as sns
 import numpy as np
 import os
 from matplotlib.backends.backend_agg import RendererAgg
 from datetime import date
 from PIL import Image
+
+def parent(current_dir):
+    return os.path.abspath(os.path.join(current_dir, os.pardir))
   
 #Loading the data
 @st.cache
 def get_data_votes():
-    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_vote_descr.csv'))
+    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_vote_descr.csv'))
     df['year'] = df['date'].astype(str).str[0:4]
     df['month'] = df['date'].astype(str).str[5:7]
     df['day'] = df['date'].astype(str).str[8:10]
@@ -27,7 +28,7 @@ def get_data_votes():
 
 @st.cache
 def get_data_deputies():
-    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_dep.csv'))
+    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_dep.csv'))
     #create the value age from the date of birth of the deputies
     df['age']  = df['date of birth'].astype(str).str[0:4]
     df['age']  = date.today().year - df['age'].astype(int)
@@ -39,33 +40,30 @@ def get_data_deputies():
 
 @st.cache
 def get_data_political_parties():
-    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_polpar.csv'))
+    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_polpar.csv'))
     df = df.drop(columns=['code'])
     return df
 
 @st.cache
 def get_data_organs():
-    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_organs.csv'))
+    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_organs.csv'))
     return df
 
 @st.cache
 def get_data_deputies_in_organs():
-    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_deputies_in_organs.csv'))
+    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_deputies_in_organs.csv'))
     return df
 
 @st.cache
 def get_data_vote_total():
-    df = pd.read_csv(os.path.join(os.getcwd(), 'data', 'df_vote_total.csv'),
+    df = pd.read_csv(os.path.join(parent(os.getcwd()), 'data', 'df_vote_total.csv'),
     dtype={
         'pour': float,
         'contre': float,
-        'non votants' : float,
         'abstentions' : float,
         'par delegation' : float
             })
     df['vote'] = 1
-    df['cause'] = df['cause'].fillna('none')
-    df['cause'] = df['cause'].astype("category")
     df['deputy code'] = df['deputy code'].astype("category")
     df['scrutin'] = df['scrutin'].astype("category")
     return df
@@ -162,23 +160,23 @@ def app():
 
     nb_votes = len(df_vote_total['scrutin'].unique())
     nb_deputies = len(df_vote_total['deputy code'].unique())
-    for column in ['pour', 'contre', 'abstentions', 'non votants', 'par delegation']:
+    for column in ['pour', 'contre', 'abstentions', 'par delegation']:
         df_vote_total[column] = df_vote_total[column].astype(float)
 
     selected_deputy_vote_information = df_vote_total.loc[df_vote_total['deputy code'] == deputy['code'][0]]
-    selected_deputy_vote_information = selected_deputy_vote_information.agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'non votants':'sum', 'par delegation':'sum', 'vote':'sum'})
-    for column in ['pour', 'contre', 'abstentions', 'non votants', 'par delegation']:
+    selected_deputy_vote_information = selected_deputy_vote_information.agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'par delegation':'sum', 'vote':'sum'})
+    for column in ['pour', 'contre', 'abstentions', 'par delegation']:
         selected_deputy_vote_information[column] = (selected_deputy_vote_information[column]/selected_deputy_vote_information['vote'])
     selected_deputy_vote_information['vote percentage'] = selected_deputy_vote_information['vote']/nb_votes
 
     all_deputy_vote_information = df_vote_total
-    all_deputy_vote_information = all_deputy_vote_information.agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'non votants':'sum', 'par delegation':'sum', 'vote':'sum'})
+    all_deputy_vote_information = all_deputy_vote_information.agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'par delegation':'sum', 'vote':'sum'})
     all_deputy_vote_information['vote percentage'] = all_deputy_vote_information['vote']/(nb_votes*nb_deputies)
 
     deputies_party_vote_information = df_vote_total
     deputy_list = df_dep.loc[df_dep['pol party'] == deputy['pol party'][0]]['code'].to_list()
     deputies_party_vote_information = deputies_party_vote_information[deputies_party_vote_information['deputy code'].isin(deputy_list)]
-    deputies_party_vote_information = deputies_party_vote_information.agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'non votants':'sum', 'par delegation':'sum', 'vote':'sum'})
+    deputies_party_vote_information = deputies_party_vote_information.agg({'pour':'sum','contre':'sum', 'abstentions':'sum', 'par delegation':'sum', 'vote':'sum'})
     deputies_party_vote_information['vote percentage'] = deputies_party_vote_information['vote']/(nb_votes*len(deputy_list))
 
     row3_spacer1, row3_1, row3_spacer2 = st.beta_columns((SPACER/2,ROW,SPACER/2))

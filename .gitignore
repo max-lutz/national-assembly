@@ -177,3 +177,4 @@ Loading complete
 .vscode/
 __pycache__/
 data/json
+apps/__pycache__/
