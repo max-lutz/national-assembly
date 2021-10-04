@@ -45,8 +45,7 @@ def app():
     st.sidebar.header('Select what to display')
     pol_parties = df_deputies['pol party'].unique().tolist()
     pol_party_selected = st.sidebar.multiselect('Political parties', pol_parties, pol_parties)
-    sex_selected = st.sidebar.selectbox('Select sex', ['both','female','male'])
-    sex_selected = [sex_selected]
+    sex_selected = [st.sidebar.selectbox('Select sex', ['both','female','male'])]
     if sex_selected == ['both']:
         sex_selected = ['female', 'male']
     age_selected = st.sidebar.slider("Age", int(df_deputies['age'].min()), int(df_deputies['age'].max()), (int(df_deputies['age'].min()), int(df_deputies['age'].max())), 1)
@@ -75,17 +74,15 @@ def app():
 
     df_deputies_selected = df_deputies[mask_pol_parties & mask_sex & mask_age & mask_nb_members]
     df_deputies_selected = df_deputies_selected.sort_values(by=['pol party'])
-    pol_party_selected = df_deputies_selected['pol party'].unique()
 
     ### Political parties
-    #create the color list for the plot
-
     # merge the political parties dataframe with the selected deputies
     df_with_selected_pol_parties = pd.merge(pd.DataFrame(df_deputies_selected['pol party'].value_counts()), df_pol_parties, left_index=True, right_on='abreviated_name')
     colors = df_with_selected_pol_parties['color'].tolist()
 
     row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.beta_columns((SPACER,ROW,SPACER,ROW, SPACER))
 
+    #donut plot that represent the number of deputies per political parties
     with row0_1, _lock:
         st.header("Political parties")
         fig, ax = plt.subplots(figsize=(5, 5))
@@ -95,6 +92,7 @@ def app():
         p.gca().add_artist(plt.Circle( (0,0), 0.7, color='white'))
         st.pyplot(fig)
 
+    #display full name of political parties
     with row0_2:
         df_with_selected_pol_parties = df_with_selected_pol_parties.reset_index(drop=True)
         text = ''
@@ -125,7 +123,7 @@ def app():
     df_sex['total'] = df_sex['sex_female'].astype(int) + df_sex['sex_male'].astype(int)
     df_sex['sex_female'] = df_sex['sex_female'].astype(int)/df_sex['total']
 
-    #select colors
+    #select correct political party colors
     df_sex = df_sex.reset_index(drop=True)
     df_sex = df_sex.sort_values(by=['pol party'])
 
