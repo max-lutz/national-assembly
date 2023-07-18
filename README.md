@@ -3,7 +3,7 @@ A visualization tool for the data of the french national assembly
 
 Main libraries used: pandas, streamlit, matplotlib
 
-The app is accessible here: https://open-data-national-assembly.herokuapp.com/
+The app is accessible here: https://national-assembly-data-visualization.streamlit.app/
 
 The data are accessible with: https://data.assemblee-nationale.fr/
 
