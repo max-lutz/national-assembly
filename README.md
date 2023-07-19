@@ -1,5 +1,5 @@
-# open-data-as
-A visualization tool for the data of the french national assembly
+# French national assembly data visualization
+A visualization tool for the data of the french national assembly.
 
 Main libraries used: pandas, streamlit, matplotlib
 
